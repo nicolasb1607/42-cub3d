@@ -51,13 +51,13 @@ NO_COLOR =	\033[m
 ################################################################################
 
 all : MAKELIBFT 
-	make compilation
-	make $(NAME)
-	make completed
+	@make compilation
+	@make $(NAME)
+	@make completed
 
 $(NAME) : linking $(OBJS)
 	@$(CC) $(LDFLAGS) -L $(PATH_TO_LIBFT) -o $@ $(OBJS) $(INC) -lft
-	@echo "done."
+	
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
@@ -65,24 +65,22 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 
 
 MAKELIBFT :
-	make -C $(PATH_TO_LIBFT) $(SILENT)
+	@make -C $(PATH_TO_LIBFT) $(SILENT)
 
 clean : clean_files
 	make clean -C $(PATH_TO_LIBFT) $(SILENT)
 	@rm -f $(OBJS)
 	@rm -f $(OBJ_PATH)$(DEPENDS)
 	@rm -rf $(OBJ_PATH)
-	@echo "done."
 
 fclean : clean clean_exec
 	make fclean -C $(PATH_TO_LIBFT) $(SILENT)
 	@rm -f $(NAME)
-	@echo "done."
 
 re : fclean 
 			make all $(SILENT)
 
-test : all $(SILENT)
+test : all
 	./$(NAME)
 
 
@@ -96,7 +94,7 @@ test : all $(SILENT)
 ################################################################################
 
 compilation :
-	@echo "Compilation in progress..."
+	@echo "$(NAME) Compilation in progress..."
 	
 completed :
 	@echo "$(GREEN)"
@@ -104,10 +102,10 @@ completed :
 	@echo "$(NO_COLOR)"
 	
 linking : 
-	@echo "Linking in progress..."
+	@echo "$(NAME) Linking in progress..."
 	
 clean_files : 
-	@echo "Cleaning files..."
+	@echo "$(NAME) Cleaning files..."
 	
 clean_exec : 
-	@echo "Cleaning executable..."
+	@echo "$(NAME) Cleaning executable..."

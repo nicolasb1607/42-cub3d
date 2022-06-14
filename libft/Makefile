@@ -6,7 +6,7 @@
 #    By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 16:20:24 by nburat-d          #+#    #+#              #
-#    Updated: 2022/06/14 16:08:41 by nburat-d         ###   ########.fr        #
+#    Updated: 2022/06/14 16:37:21 by nburat-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,12 +114,13 @@ NO_COLOR	=	\033[m
 #                                   RULES                                      #
 ################################################################################
 
-all : compilation $(NAME) completed
-
+all :
+	@make compilation
+	@make $(NAME)
+	@make completed
+	
 $(NAME) : linking $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "done."
-
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
@@ -129,13 +130,10 @@ clean : clean_files
 	@rm -f $(OBJS)
 	@rm -f $(OBJ_PATH)$(DEPENDS)
 	@rm -rf $(OBJ_PATH)
-	@echo "done."
 
 fclean : clean clean_exec
 	$(clean_exec)
 	@rm -f $(NAME)
-	@echo "done."
-
 
 re : fclean all
 
@@ -148,19 +146,19 @@ re : fclean all
 ################################################################################
 
 compilation :
-	@echo "Compilation in progress..."
+	@echo "$(NAME) -- Compilation in progress..."
 	
 completed :
 	@echo "$(GREEN)"
-	@echo "$(NAME) Compilation complete !"
+	@echo "$(NAME) -- Compilation complete !"
 	@echo "$(NO_COLOR)"
 	
 linking : 
-	@echo "Linking in progress..."
+	@echo "$(NAME) Linking in progress..."
 	
 clean_files : 
-	@echo "Cleaning files..."
+	@echo "$(NAME) Cleaning files..."
 	
 clean_exec : 
-	@echo "Cleaning executable..."
+	@echo "$(NAME) Cleaning executable..."
 
