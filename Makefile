@@ -5,6 +5,7 @@ NAME = cub3d
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -MD
+LDFLAGS = -Wall -Wextra -Werror
 
 ################################################################################
 #                               SOURCE FILES                              	   #
@@ -16,8 +17,8 @@ SRCS = main.c
 #                               INCLUDES                             	       #
 ################################################################################
 
-INC = -I ./libft/        \
-	-I ./includes/
+INC = -I ./includes/	\
+	-I ./libft/
 
 ################################################################################
 #                               PATH_TO_FILES                              	   #
@@ -48,15 +49,18 @@ NO_COLOR =	\033[m
 #                                   RULES                                      #
 ################################################################################
 
-all : compilation $(NAME) completed
+all : MAKELIBFT 
+	make compilation
+	make $(NAME) 
+	make completed
 
 $(NAME) : linking $(OBJS)
-	@$(CC) $(LDFLAGS) -o $@ $(OBJS)
+	@$(CC) $(LDFLAGS) -L $(PATH_TO_LIBFT) -o $@ $(OBJS) $(INC) -lft
 	@echo "done."
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
-	@$(CC)  $(CFLAGS) -c -o $@ $<  -L $(PATH_TO_LIBFT) $(INC) -lft
+	@$(CC)  $(CFLAGS) -L $(PATH_TO_LIBFT) -c -o $@ $<  $(INC) -lft
 
 
 MAKELIBFT :
@@ -77,12 +81,9 @@ fclean : clean clean_exec
 re : fclean 
 			make all 
 
-test: $(NAME) 
-		./$(NAME) #+ arguments if needed
 
 .PHONY : all clean fclean re compilation completed linking clean_files clean_exec 
 
-.SILENT:
 
 -include $(DEPENDS)
 
