@@ -6,6 +6,7 @@ NAME = cub3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -MD
 LDFLAGS = -Wall -Wextra -Werror
+SILENT = --no-print-directory
 
 ################################################################################
 #                               SOURCE FILES                              	   #
@@ -51,7 +52,7 @@ NO_COLOR =	\033[m
 
 all : MAKELIBFT 
 	make compilation
-	make $(NAME) 
+	make $(NAME)
 	make completed
 
 $(NAME) : linking $(OBJS)
@@ -64,22 +65,25 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 
 
 MAKELIBFT :
-	make -C $(PATH_TO_LIBFT)
+	make -C $(PATH_TO_LIBFT) $(SILENT)
 
 clean : clean_files
-	make clean -C $(PATH_TO_LIBFT)
+	make clean -C $(PATH_TO_LIBFT) $(SILENT)
 	@rm -f $(OBJS)
 	@rm -f $(OBJ_PATH)$(DEPENDS)
 	@rm -rf $(OBJ_PATH)
 	@echo "done."
 
 fclean : clean clean_exec
-	make fclean -C $(PATH_TO_LIBFT)
+	make fclean -C $(PATH_TO_LIBFT) $(SILENT)
 	@rm -f $(NAME)
 	@echo "done."
 
 re : fclean 
-			make all 
+			make all $(SILENT)
+
+test : all $(SILENT)
+	./$(NAME)
 
 
 .PHONY : all clean fclean re compilation completed linking clean_files clean_exec 
@@ -96,7 +100,7 @@ compilation :
 	
 completed :
 	@echo "$(GREEN)"
-	@echo "Compilation complete !"
+	@echo "$(NAME) Compilation complete !"
 	@echo "$(NO_COLOR)"
 	
 linking : 

@@ -6,10 +6,12 @@
 #    By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 16:20:24 by nburat-d          #+#    #+#              #
-#    Updated: 2022/06/13 10:45:29 by nburat-d         ###   ########.fr        #
+#    Updated: 2022/06/14 16:08:41 by nburat-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
+NAME = libft.a
 ################################################################################
 #                           COMPILATION SETTING                        	       #
 ################################################################################
@@ -94,7 +96,7 @@ OBJ_PATH = ./objs/
 #                               OUTPUT_FILES                              	   #
 ################################################################################
 
-EXEC = libft.a
+
 OBJS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.o})
 DEPENDS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.d})
 
@@ -112,10 +114,10 @@ NO_COLOR	=	\033[m
 #                                   RULES                                      #
 ################################################################################
 
-all : compilation $(EXEC) completed
+all : compilation $(NAME) completed
 
-$(EXEC) : linking $(OBJS)
-	@ar rcs $(EXEC) $(OBJS)
+$(NAME) : linking $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 	@echo "done."
 
 
@@ -131,7 +133,7 @@ clean : clean_files
 
 fclean : clean clean_exec
 	$(clean_exec)
-	@rm -f $(EXEC)
+	@rm -f $(NAME)
 	@echo "done."
 
 
@@ -150,7 +152,7 @@ compilation :
 	
 completed :
 	@echo "$(GREEN)"
-	@echo "Compilation complete !"
+	@echo "$(NAME) Compilation complete !"
 	@echo "$(NO_COLOR)"
 	
 linking : 
