@@ -1,4 +1,4 @@
-EXEC = libft.a
+NAME = cub3d
 ################################################################################
 #                           COMPILATION SETTING                        	       #
 ################################################################################
@@ -48,9 +48,9 @@ NO_COLOR =	\033[m
 #                                   RULES                                      #
 ################################################################################
 
-all : compilation $(EXEC) completed
+all : compilation $(NAME) completed
 
-$(EXEC) : linking $(OBJS)
+$(NAME) : linking $(OBJS)
 	@$(CC) $(LDFLAGS) -o $@ $(OBJS)
 	@echo "done."
 
@@ -71,14 +71,14 @@ clean : clean_files
 
 fclean : clean clean_exec
 	make fclean -C $(PATH_TO_LIBFT)
-	@rm -f $(EXEC)
+	@rm -f $(NAME)
 	@echo "done."
 
 re : fclean 
 			make all 
 
-test: $(EXEC) 
-		./$(EXEC) #+ arguments if needed
+test: $(NAME) 
+		./$(NAME) #+ arguments if needed
 
 .PHONY : all clean fclean re compilation completed linking clean_files clean_exec 
 
