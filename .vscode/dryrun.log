@@ -1,13 +1,8 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/nburat-d/Documents/cub3d'
-make -C ./libft/
-echo "Compilation in progress..."
-echo "Linking in progress..."
- 
-gcc -Wall -Wextra -Werror -L ./libft/ -o cub3d ./objs/main.o -I ./includes/ -I ./libft/ -lft
-echo "done."
-echo "\033[0;32m"
-echo "Compilation complete !"
-echo "\033[m"
+make -C ./libft/ --no-print-directory
+make compilation
+make cub3d
+make completed
 make: Leaving directory '/mnt/nfs/homes/nburat-d/Documents/cub3d'
  

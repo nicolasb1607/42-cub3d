@@ -86,7 +86,6 @@ test : all
 
 .PHONY : all clean fclean re compilation completed linking clean_files clean_exec 
 
-
 -include $(DEPENDS)
 
 ################################################################################
@@ -98,7 +97,7 @@ compilation :
 	
 completed :
 	@echo "$(GREEN)"
-	@echo "$(NAME) Compilation complete !"
+	@echo "$(NAME) -- Compilation complete !"
 	@echo "$(NO_COLOR)"
 	
 linking : 

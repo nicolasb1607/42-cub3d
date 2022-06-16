@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 15:06:07 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/16 14:54:22 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef STRUCT_H
+# define STRUCT_H
 
-# include "libft.h"
-# include "get_next_line.h"
-# include "stdio.h"
-# include <fcntl.h>
-# include <math.h>
-# include "struct.h"
+# include "cub3d.h"
 
+typedef struct	s_texture
+{
+	char			*north;
+	char			*south;
+	char			*west;
+	char			*east;
+	struct s_color	*floor;
+	struct s_color	*ceiling;
+}	t_texture ;
 
+typedef struct	s_color
+{
+	unsigned char	red;
+	unsigned char	green;
+	unsigned char	blue;
+}	t_color ;
 
 #endif
