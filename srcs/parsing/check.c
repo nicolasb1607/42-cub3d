@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 11:02:26 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 16:34:14 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/16 15:56:47 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/16 16:46:28 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "parsing.h"
 
-int	ft_strcmp(char *s1, char *s2)
+
+
+int	check_extension(char *file_name, char *extension)
 {
 	int	i;
 
 	i = 0;
-	if(ft_strlen(s1) != ft_strlen(s2))
-		return (-1);
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+	while (file_name[i] && file_name[i] != '.')
 		i++;
-	}
+	if(file_name[i] && ft_strcmp(&file_name[i], extension) == 0)
+		return (1);
 	return (0);
 }

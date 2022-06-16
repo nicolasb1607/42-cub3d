@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 11:02:26 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 16:34:14 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/16 16:46:34 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PARSING_H
+# define PARSING_H
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+# include "cub3d.h"
 
-	i = 0;
-	if(ft_strlen(s1) != ft_strlen(s2))
-		return (-1);
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
-}
+#define ERROR_EXTENSION "file extension not supported, please provide \".cub\" file\n"
+
+int	check_extension(char *file_name, char *extension);
+
+
+#endif
