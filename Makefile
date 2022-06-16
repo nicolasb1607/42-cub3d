@@ -14,7 +14,8 @@ SILENT = --no-print-directory
 
 SRCS =	main.c			\
 		parsing/check.c	\
-		
+		parsing/init.c	\
+
 
 ################################################################################
 #                               INCLUDES                             	       #

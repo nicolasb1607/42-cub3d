@@ -2,12 +2,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 16 16:21:42 2022
+# Make data base, printed on Thu Jun 16 17:43:56 2022
 
 # Variables
 
@@ -45,7 +44,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 _ = /usr/share/code/code
 # makefile (from 'Makefile', line 7)
 CFLAGS = -Wall -Wextra -Werror -MD
-# makefile (from 'Makefile', line 46)
+# makefile (from 'Makefile', line 47)
 BLUE = \033[0;34m
 # environment
 JOURNAL_STREAM = 9:6602229
@@ -69,7 +68,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/40568/bus
 VSCODE_VERBOSE_LOGGING = true
 # makefile (from 'Makefile', line 9)
 SILENT = --no-print-directory
-# makefile (from 'Makefile', line 39)
+# makefile (from 'Makefile', line 40)
 OBJS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.o})
 # environment
 MANAGERPID = 1294194
@@ -93,7 +92,7 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 SESSION_MANAGER = local/e2r4p6.clusters.42paris.fr:@/tmp/.ICE-unix/1294668,unix/e2r4p6.clusters.42paris.fr:/tmp/.ICE-unix/1294668
 # environment
 XDG_RUNTIME_DIR = /run/user/40568
-# makefile (from 'Makefile', line 30)
+# makefile (from 'Makefile', line 31)
 SRC_PATH = ./srcs/
 # environment
 XDG_MENU_PREFIX = gnome-
@@ -107,7 +106,7 @@ INVOCATION_ID = f58f338d8edd480da2e92181c7dcd294
 LDFLAGS = -Wall -Wextra -Werror
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 40)
+# makefile (from 'Makefile', line 41)
 DEPENDS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.d})
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/nburat-d
@@ -133,7 +132,7 @@ PWD = /mnt/nfs/homes/nburat-d/Documents/cub3d
 SSH_AGENT_PID = 1294627
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 48)
+# makefile (from 'Makefile', line 49)
 GREEN = \033[0;32m
 # environment
 GTK_MODULES = gail:atk-bridge
@@ -164,10 +163,10 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # makefile (from 'Makefile', line 15)
-SRCS = main.c parsing/check.c 
+SRCS = main.c parsing/check.c parsing/init.c 
 # environment
 SHLVL = 0
-# makefile (from 'Makefile', line 32)
+# makefile (from 'Makefile', line 33)
 PATH_TO_LIBFT = ./libft/
 # makefile (from 'Makefile', line 6)
 CC = gcc
@@ -189,7 +188,7 @@ LESS = -R
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# makefile (from 'Makefile', line 23)
+# makefile (from 'Makefile', line 24)
 INC = -I ./includes/ -I ./libft/
 # environment
 OLDPWD = /mnt/nfs/homes/nburat-d
@@ -201,7 +200,7 @@ OLDPWD = /mnt/nfs/homes/nburat-d
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
 VSCODE_IPC_HOOK = /run/user/40568/vscode-2ba08e64-1.67.2-main.sock
-# makefile (from 'Makefile', line 47)
+# makefile (from 'Makefile', line 48)
 RED = \033[0;31m
 # makefile
 MAKEFLAGS = pqrR
@@ -227,7 +226,7 @@ MAKEFILES :=
 PAGER = less
 # environment
 LC_ALL = C
-# makefile (from 'Makefile', line 31)
+# makefile (from 'Makefile', line 32)
 OBJ_PATH = ./objs/
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
@@ -251,7 +250,7 @@ LANG = C
 DOCKER_HOST = unix:///run/user/40568/docker.sock
 # environment
 VSCODE_PID = 1313547
-# makefile (from 'Makefile', line 49)
+# makefile (from 'Makefile', line 50)
 NO_COLOR = \033[m
 # variable set hash-table stats:
 # Load=121/1024=12%, Rehash=0, Collisions=23/164=14%
@@ -262,15 +261,15 @@ NO_COLOR = \033[m
 
 # Directories
 
-# . (device 58, inode 211762371): 13 files, no impossibilities.
+# . (device 58, inode 211762371): 14 files, no impossibilities.
 # srcs (device 58, inode 222632970): No files, no impossibilities so far.
 
-# 13 files, no impossibilities in 2 directories.
+# 14 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 objs/%.o: srcs/%.c
-#  recipe to execute (from 'Makefile', line 65):
+#  recipe to execute (from 'Makefile', line 66):
 	@mkdir -p $(dir $@)
 	@$(CC)  $(CFLAGS) -L $(PATH_TO_LIBFT) -c -o $@ $<  $(INC) -lft
 
@@ -279,11 +278,18 @@ objs/%.o: srcs/%.c
 # Files
 
 # Not a target:
+objs/parsing/init.d:
+ 
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
 objs/parsing/check.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-16 16:21:38.138287637
+#  Last modified 2022-06-16 16:47:56.493523176
 #  File has been updated.
- 
 #  Successfully updated.
 
 # Not a target:
@@ -340,7 +346,7 @@ MAKELIBFT:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
-#  recipe to execute (from 'Makefile', line 70):
+#  recipe to execute (from 'Makefile', line 71):
 	@make -C $(PATH_TO_LIBFT) $(SILENT)
 
 objs/main.o: srcs/main.c /usr/include/stdc-predef.h includes/cub3d.h libft/libft.h /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/libc-header-start.h /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h /usr/include/x86_64-linux-gnu/bits/wordsize.h /usr/include/x86_64-linux-gnu/bits/long-double.h /usr/include/x86_64-linux-gnu/gnu/stubs.h /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/x86_64-linux-gnu/bits/waitflags.h /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/x86_64-linux-gnu/bits/floatn.h /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/x86_64-linux-gnu/bits/types.h /usr/include/x86_64-linux-gnu/bits/timesize.h /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/x86_64-linux-gnu/bits/time64.h /usr/include/x86_64-linux-gnu/bits/types/clock_t.h /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h /usr/include/x86_64-linux-gnu/bits/types/time_t.h /usr/include/x86_64-linux-gnu/bits/types/timer_t.h /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h /usr/include/x86_64-linux-gnu/bits/endianness.h /usr/include/x86_64-linux-gnu/bits/byteswap.h /usr/include/x86_64-linux-gnu/bits/uintn-identity.h /usr/include/x86_64-linux-gnu/sys/select.h /usr/include/x86_64-linux-gnu/bits/select.h /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h /usr/include/x86_64-linux-gnu/bits/struct_mutex.h /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h /usr/include/x86_64-linux-gnu/bits/environments.h /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/x86_64-linux-gnu/bits/getopt_posix.h /usr/include/x86_64-linux-gnu/bits/getopt_core.h /usr/include/x86_64-linux-gnu/bits/unistd_ext.h libft/get_next_line.h /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/string.h /usr/include/x86_64-linux-gnu/bits/types/locale_t.h /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h /usr/include/strings.h /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h /usr/include/x86_64-linux-gnu/bits/types/__FILE.h /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h /usr/include/x86_64-linux-gnu/bits/stdio_lim.h /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h /usr/include/x86_64-linux-gnu/bits/fp-logb.h /usr/include/x86_64-linux-gnu/bits/fp-fast.h /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h /usr/include/x86_64-linux-gnu/bits/mathcalls.h includes/struct.h includes/cub3d.h includes/parsing.h
@@ -375,7 +381,7 @@ all: MAKELIBFT
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 57):
 	@make compilation
 	@make $(NAME)
 	@make completed
@@ -421,11 +427,11 @@ all: MAKELIBFT
 #  Modification time never checked.
 #  File has not been updated.
 
-cub3d: linking objs/main.o objs/parsing/check.o
+cub3d: linking objs/main.o objs/parsing/check.o objs/parsing/init.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 61):
+#  recipe to execute (from 'Makefile', line 62):
 	@$(CC) $(LDFLAGS) -L $(PATH_TO_LIBFT) -o $@ $(OBJS) $(INC) -lft
 	
 
@@ -474,8 +480,7 @@ includes/struct.h:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-06-16 16:21:32.726290258
+#  Last modified 2022-06-16 16:51:47.445411318
 #  File has been updated.
 #  Successfully updated.
 
@@ -487,6 +492,12 @@ srcs/main.c:
 
 # Not a target:
 /usr/include/strings.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/parsing/init.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -518,7 +529,7 @@ test: all
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 86):
+#  recipe to execute (from 'Makefile', line 87):
 	./$(NAME)
 
 linking:
@@ -526,7 +537,7 @@ linking:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 107):
 	@echo "$(NAME) Linking in progress..."
 	
 
@@ -535,7 +546,7 @@ completed:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 101):
+#  recipe to execute (from 'Makefile', line 102):
 	@echo "$(GREEN)"
 	@echo "$(NAME) -- Compilation complete !"
 	@echo "$(NO_COLOR)"
@@ -544,6 +555,7 @@ completed:
 # Not a target:
 includes/parsing.h:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -588,7 +600,7 @@ clean_exec:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 112):
+#  recipe to execute (from 'Makefile', line 113):
 	@echo "$(NAME) Cleaning executable..."
 
 fclean: clean clean_exec
@@ -596,7 +608,7 @@ fclean: clean clean_exec
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 79):
+#  recipe to execute (from 'Makefile', line 80):
 	make fclean -C $(PATH_TO_LIBFT) $(SILENT)
 	@rm -f $(NAME)
 
@@ -719,7 +731,7 @@ re: fclean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 83):
+#  recipe to execute (from 'Makefile', line 84):
 			make all $(SILENT)
 
 clean: clean_files
@@ -727,7 +739,7 @@ clean: clean_files
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 73):
+#  recipe to execute (from 'Makefile', line 74):
 	make clean -C $(PATH_TO_LIBFT) $(SILENT)
 	@rm -f $(OBJS)
 	@rm -f $(OBJ_PATH)$(DEPENDS)
@@ -748,7 +760,6 @@ clean: clean_files
 # Not a target:
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -787,14 +798,14 @@ clean_files:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 109):
+#  recipe to execute (from 'Makefile', line 110):
 	@echo "$(NAME) Cleaning files..."
 	
 
 # Not a target:
 objs/main.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-16 16:20:30.830320255
+#  Last modified 2022-06-16 16:49:49.497468444
 #  File has been updated.
 #  Successfully updated.
 
@@ -823,6 +834,7 @@ objs/main.d:
 #  File has not been updated.
 
 # Not a target:
+ 
 /usr/include/math.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -917,7 +929,7 @@ compilation:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 98):
+#  recipe to execute (from 'Makefile', line 99):
 	@echo "$(NAME) Compilation in progress..."
 	
 
@@ -952,19 +964,19 @@ compilation:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=24/306=8%
+# Load=104/1024=10%, Rehash=0, Collisions=24/310=8%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 118 / storage = 3858 B / avg = 32 B
-# current buf: size = 8162 B / used = 3858 B / count = 118 / avg = 32 B
+# strcache buffers: 1 (0) / strings = 120 / storage = 3898 B / avg = 32 B
+# current buf: size = 8162 B / used = 3898 B / count = 120 / avg = 32 B
 
-# strcache performance: lookups = 242 / hit rate = 51%
+# strcache performance: lookups = 246 / hit rate = 51%
 # hash-table stats:
-# Load=118/8192=1%, Rehash=0, Collisions=3/242=1%
-# Finished Make data base on Thu Jun 16 16:21:42 2022
+# Load=120/8192=1%, Rehash=0, Collisions=3/246=1%
+# Finished Make data base on Thu Jun 16 17:43:56 2022
 
  

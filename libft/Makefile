@@ -6,7 +6,7 @@
 #    By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 16:20:24 by nburat-d          #+#    #+#              #
-#    Updated: 2022/06/16 15:50:10 by nburat-d         ###   ########.fr        #
+#    Updated: 2022/06/16 17:43:52 by nburat-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRCS =	ft_atoi.c				\
 		ft_tolower.c			\
 		ft_toupper.c			\
 		ft_substr.c				\
+		ft_charjoin.c			\
 		ft_strjoin.c			\
 		ft_strtrim.c			\
 		ft_split.c				\

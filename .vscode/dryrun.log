@@ -4,5 +4,6 @@ make -C ./libft/ --no-print-directory
 make compilation
 make cub3d
 make completed
+ 
 make: Leaving directory '/mnt/nfs/homes/nburat-d/Documents/cub3d'
  

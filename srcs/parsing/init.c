@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:56:47 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 16:51:07 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/16 17:46:19 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parsing.h"
+#include "parsing.h"
 
-int	check_extension(char *file_name, char *extension)
+t_texture	*init_texture()
 {
-	int	i;
+	t_texture *texture;
 
-	i = 0;
-	while (file_name[i] && file_name[i] != '.')
-		i++;
-	if(file_name[i] && ft_strcmp(&file_name[i], extension) == 0)
-		return (1);
-	return (0);
+	texture = malloc(sizeof(t_texture));
+	texture->north = NULL;
+	texture->south= NULL;
+	texture->west = NULL;
+	texture->east = NULL;
+	texture->floor = NULL;
+	texture->ceiling = NULL;
+	return (texture);
 }
-
