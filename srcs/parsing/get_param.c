@@ -6,13 +6,32 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:03:25 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 17:54:44 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/17 14:04:49 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"parsing.h"
 
-char	*get_texture(char *line)
+t_texture	*set_parameters(int fd)
+{
+	char		*line;
+	t_texture	*app_texture;
+
+	app_texture = malloc(sizeof(t_texture));
+	if (!app_texture)
+	{
+		ft_putstr_fd(ERROR_MALLOC, 2);
+		return (NULL);
+	}
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		set_texture_param(line, app_texture);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (app_texture);
+}
 
 void	set_texture_param(char *line, t_texture *texture)
 {

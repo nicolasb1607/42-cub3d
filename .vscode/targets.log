@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 16 17:43:56 2022
+# Make data base, printed on Fri Jun 17 12:20:17 2022
 
 # Variables
 
@@ -39,23 +39,27 @@ CURDIR := /mnt/nfs/homes/nburat-d/Documents/cub3d
 # makefile
 SHELL = /bin/sh
 # environment
+GDM_LANG = en
+# environment
+VTE_VERSION = 6003
+# environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-_ = /usr/share/code/code
+_ = /usr/bin/code
 # makefile (from 'Makefile', line 7)
 CFLAGS = -Wall -Wextra -Werror -MD
 # makefile (from 'Makefile', line 47)
 BLUE = \033[0;34m
 # environment
-JOURNAL_STREAM = 9:6602229
+JOURNAL_STREAM = 9:4815543
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile (from 'objs/parsing/check.d', line 1)
-MAKEFILE_LIST :=  Makefile objs/main.d objs/parsing/check.d
+# makefile (from 'objs/parsing/init.d', line 1)
+MAKEFILE_LIST :=  Makefile objs/main.d objs/parsing/check.d objs/parsing/init.d
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+IM_CONFIG_PHASE = 1
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -71,15 +75,15 @@ SILENT = --no-print-directory
 # makefile (from 'Makefile', line 40)
 OBJS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.o})
 # environment
-MANAGERPID = 1294194
+MANAGERPID = 1178073
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/40568/vscode-ipc-1aeb0458-08fc-48f6-9e7f-981cfbc38bc2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/40568/vscode-ipc-2782158e-2ee2-4afc-9b2d-8cf1b5397fd0.sock
 # environment
-VSCODE_CWD = /mnt/nfs/homes/nburat-d
+VSCODE_CWD = /mnt/nfs/homes/nburat-d/Documents/cub3d
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session23
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session16
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_40568_TvXBcx
+KRB5CCNAME = FILE:/tmp/krb5cc_40568_VtBj1K
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -89,7 +93,7 @@ GPG_AGENT_INFO = /run/user/40568/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e2r4p6.clusters.42paris.fr:@/tmp/.ICE-unix/1294668,unix/e2r4p6.clusters.42paris.fr:/tmp/.ICE-unix/1294668
+SESSION_MANAGER = local/e3r3p12.clusters.42paris.fr:@/tmp/.ICE-unix/1178488,unix/e3r3p12.clusters.42paris.fr:/tmp/.ICE-unix/1178488
 # environment
 XDG_RUNTIME_DIR = /run/user/40568
 # makefile (from 'Makefile', line 31)
@@ -101,23 +105,25 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = f58f338d8edd480da2e92181c7dcd294
+INVOCATION_ID = 49e77735f8d64f78be7884903b1337ce
 # makefile (from 'Makefile', line 8)
 LDFLAGS = -Wall -Wextra -Werror
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from 'Makefile', line 41)
 DEPENDS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.d})
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/nburat-d
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/40568/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 1313547
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1179247
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,7 +135,7 @@ PWD = /mnt/nfs/homes/nburat-d/Documents/cub3d
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1294627
+SSH_AGENT_PID = 1178374
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # makefile (from 'Makefile', line 49)
@@ -140,6 +146,8 @@ GTK_MODULES = gail:atk-bridge
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /mnt/nfs/homes/nburat-d
+# environment
+VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/nburat-d/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
@@ -156,6 +164,8 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 MAKELEVEL := 0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -165,13 +175,13 @@ QT_IM_MODULE = ibus
 # makefile (from 'Makefile', line 15)
 SRCS = main.c parsing/check.c parsing/init.c 
 # environment
-SHLVL = 0
+SHLVL = 1
 # makefile (from 'Makefile', line 33)
 PATH_TO_LIBFT = ./libft/
 # makefile (from 'Makefile', line 6)
 CC = gcc
 # environment
-IM_CONFIG_PHASE = 1
+TERMINATOR_UUID = urn:uuid:678e5be6-c74c-403d-9bc1-8ae9af84a637
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -192,10 +202,14 @@ MAKE_COMMAND := make
 INC = -I ./includes/ -I ./libft/
 # environment
 OLDPWD = /mnt/nfs/homes/nburat-d
+# environment
+TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
+# environment
+LANGUAGE = en
 # environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
@@ -228,8 +242,6 @@ PAGER = less
 LC_ALL = C
 # makefile (from 'Makefile', line 32)
 OBJ_PATH = ./objs/
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
 # default
@@ -238,8 +250,6 @@ SUFFIXES :=
 CHROME_DESKTOP = code-url-handler.desktop
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'Makefile', line 1)
 NAME = cub3d
 # default
@@ -247,13 +257,17 @@ NAME = cub3d
 # environment
 LANG = C
 # environment
+TERM = xterm-256color
+# environment
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
+# environment
 DOCKER_HOST = unix:///run/user/40568/docker.sock
 # environment
-VSCODE_PID = 1313547
+VSCODE_PID = 1179326
 # makefile (from 'Makefile', line 50)
 NO_COLOR = \033[m
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=23/164=14%
+# Load=128/1024=12%, Rehash=0, Collisions=27/173=16%
 
 # Pattern-specific Variable Values
 
@@ -261,8 +275,9 @@ NO_COLOR = \033[m
 
 # Directories
 
-# . (device 58, inode 211762371): 14 files, no impossibilities.
-# srcs (device 58, inode 222632970): No files, no impossibilities so far.
+# . (device 56, inode 211762371): 14 files, no impossibilities.
+# srcs (device 56, inode 222632970): No files, no impossibilities so far.
+ 
 
 # 14 files, no impossibilities in 2 directories.
 
@@ -279,16 +294,15 @@ objs/%.o: srcs/%.c
 
 # Not a target:
 objs/parsing/init.d:
- 
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-06-16 17:46:37.360071824
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 # Not a target:
 objs/parsing/check.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-16 16:47:56.493523176
+#  Last modified 2022-06-16 17:46:37.320071843
 #  File has been updated.
 #  Successfully updated.
 
@@ -496,8 +510,7 @@ srcs/main.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-objs/parsing/init.o:
+objs/parsing/init.o: srcs/parsing/init.c /usr/include/stdc-predef.h includes/parsing.h includes/cub3d.h libft/libft.h /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/libc-header-start.h /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h /usr/include/x86_64-linux-gnu/bits/wordsize.h /usr/include/x86_64-linux-gnu/bits/long-double.h /usr/include/x86_64-linux-gnu/gnu/stubs.h /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/x86_64-linux-gnu/bits/waitflags.h /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/x86_64-linux-gnu/bits/floatn.h /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/x86_64-linux-gnu/bits/types.h /usr/include/x86_64-linux-gnu/bits/timesize.h /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/x86_64-linux-gnu/bits/time64.h /usr/include/x86_64-linux-gnu/bits/types/clock_t.h /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h /usr/include/x86_64-linux-gnu/bits/types/time_t.h /usr/include/x86_64-linux-gnu/bits/types/timer_t.h /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h /usr/include/x86_64-linux-gnu/bits/endianness.h /usr/include/x86_64-linux-gnu/bits/byteswap.h /usr/include/x86_64-linux-gnu/bits/uintn-identity.h /usr/include/x86_64-linux-gnu/sys/select.h /usr/include/x86_64-linux-gnu/bits/select.h /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h /usr/include/x86_64-linux-gnu/bits/struct_mutex.h /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h /usr/include/x86_64-linux-gnu/bits/environments.h /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/x86_64-linux-gnu/bits/getopt_posix.h /usr/include/x86_64-linux-gnu/bits/getopt_core.h /usr/include/x86_64-linux-gnu/bits/unistd_ext.h libft/get_next_line.h /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/string.h /usr/include/x86_64-linux-gnu/bits/types/locale_t.h /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h /usr/include/strings.h /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h /usr/include/x86_64-linux-gnu/bits/types/__FILE.h /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h /usr/include/x86_64-linux-gnu/bits/stdio_lim.h /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h /usr/include/x86_64-linux-gnu/bits/fp-logb.h /usr/include/x86_64-linux-gnu/bits/fp-fast.h /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h /usr/include/x86_64-linux-gnu/bits/mathcalls.h includes/struct.h includes/parsing.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -530,6 +543,7 @@ test: all
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 87):
+ 
 	./$(NAME)
 
 linking:
@@ -555,7 +569,6 @@ completed:
 # Not a target:
 includes/parsing.h:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -620,6 +633,12 @@ fclean: clean clean_exec
 
 # Not a target:
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/parsing/init.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -805,7 +824,8 @@ clean_files:
 # Not a target:
 objs/main.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-16 16:49:49.497468444
+ 
+#  Last modified 2022-06-16 17:46:37.28007186
 #  File has been updated.
 #  Successfully updated.
 
@@ -834,7 +854,6 @@ objs/main.d:
 #  File has not been updated.
 
 # Not a target:
- 
 /usr/include/math.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -964,19 +983,19 @@ compilation:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=104/1024=10%, Rehash=0, Collisions=24/310=8%
+# Load=105/1024=10%, Rehash=0, Collisions=32/394=8%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 120 / storage = 3898 B / avg = 32 B
-# current buf: size = 8162 B / used = 3898 B / count = 120 / avg = 32 B
+# strcache buffers: 1 (0) / strings = 121 / storage = 3918 B / avg = 32 B
+# current buf: size = 8162 B / used = 3918 B / count = 121 / avg = 32 B
 
-# strcache performance: lookups = 246 / hit rate = 51%
+# strcache performance: lookups = 330 / hit rate = 63%
 # hash-table stats:
-# Load=120/8192=1%, Rehash=0, Collisions=3/246=1%
-# Finished Make data base on Thu Jun 16 17:43:56 2022
+# Load=121/8192=1%, Rehash=0, Collisions=4/330=1%
+# Finished Make data base on Fri Jun 17 12:20:17 2022
 
  

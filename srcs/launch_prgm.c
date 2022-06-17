@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   launch_prgm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/17 13:59:42 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/17 13:56:04 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "launch_prgm.h"
 
-# include "cub3d.h"
+void	launch_prgm(char *map_file)
+{
+	int		fd; 
+	t_texture *app_texture;
 
-
-int	check_extension(char *file_name, char *extension);
-
-
-#endif
+	fd = open(map_file, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr_fd(ERROR_OPEN_FILE, 2);
+		return ;
+	}
+	set_parameters(fd);
+}

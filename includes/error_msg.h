@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/17 13:59:42 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/17 13:59:04 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/17 14:01:41 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef ERROR_MSG_H
+# define ERROR_MSG_H
 
-# include "cub3d.h"
+# define ERROR_OPEN_FILE "Error: open file\n"
+# define ERROR_EXTENSION "File extension not supported (.cub only)\n"
+# define ERROR_MALLOC "Error: malloc\n"
 
-
-int	check_extension(char *file_name, char *extension);
-
-
-#endif
+#endif 

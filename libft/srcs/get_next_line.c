@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:24:08 by rpottier          #+#    #+#             */
-/*   Updated: 2021/12/06 12:16:21 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/17 13:06:16 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ft_restruct_storage(char *fd_storage)
 ** si besoin et le cas echant remplit ft_storage avec le contenu de buffer non
 ** utilise
 */
-
 int	extract_str(char *fd_storage, char *line, char *buffer)
 {
 	int	i;
