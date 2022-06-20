@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_prgm.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:24:43 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/17 13:59:27 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 15:25:07 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include "cub3d.h"
 
+void	launch_prgm(char *map_file);
 
 #endif

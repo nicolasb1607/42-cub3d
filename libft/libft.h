@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:37:34 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 17:43:29 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/20 15:38:33 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char	*ft_strnstr(const char *to_search, const char *to_find, size_t len);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
+char	*ft_strdup_no_nl(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_charjoin(char *str, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -91,5 +92,5 @@ int		ft_dlstsize(t_dlist *lst);
 void	ft_dlstclear(t_dlist **lst, void (*del)(void*));
 void	ft_dlstdelone(t_dlist *lst, void (*del)(void*));
 void	ft_dlstiter(t_dlist *lst, void (*f)(void *));
-
+int		ft_is_sp_or_tab(char c);
 #endif

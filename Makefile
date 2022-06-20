@@ -12,9 +12,12 @@ SILENT = --no-print-directory
 #                               SOURCE FILES                              	   #
 ################################################################################
 
-SRCS =	main.c			\
-		parsing/check.c	\
-		parsing/init.c	\
+SRCS =	main.c				\
+		launch_prgm.c		\
+		debug.c				\
+		parsing/check.c		\
+		parsing/init.c		\
+		parsing/get_param.c \
 
 
 ################################################################################
