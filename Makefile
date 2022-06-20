@@ -4,7 +4,7 @@ NAME = cub3d
 ################################################################################
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -MD
+CFLAGS = -Wall -Wextra -Werror -g3 -MD
 LDFLAGS = -Wall -Wextra -Werror
 SILENT = --no-print-directory
 
@@ -14,6 +14,7 @@ SILENT = --no-print-directory
 
 SRCS =	main.c				\
 		launch_prgm.c		\
+		free.c				\
 		debug.c				\
 		parsing/check.c		\
 		parsing/init.c		\

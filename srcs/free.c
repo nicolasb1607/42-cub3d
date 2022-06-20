@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launch_prgm.c                                      :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/20 17:41:48 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/06/20 17:18:26 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "launch_prgm.h"
+#include "free.h"
 
-void	launch_prgm(char *map_file)
+void	free_texture(t_texture **texture)
 {
-	int		fd; 
-//	t_texture *app_texture;
-
-	//app_texture = NULL;
-	fd = -1;
-	fd = open(map_file, O_RDONLY);
-	if (fd == -1)
-	{
-		ft_putstr_fd(ERROR_OPEN_FILE, 2);
-		return ;
-	}
-	set_parameters(fd);
-	//print_param(app_texture);
+	if ((*texture)->north)
+		free((*texture)->north);
+	if ((*texture)->south)
+		free((*texture)->south);
+	if ((*texture)->west)
+		free((*texture)->west);
+	if ((*texture)->east)
+		free((*texture)->east);
+	if ((*texture)->floor)
+		free((*texture)->floor);
+	if ((*texture)->ceiling)
+		free((*texture)->ceiling);
+	free((*texture));
+	*texture = NULL;
 }
