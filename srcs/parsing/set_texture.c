@@ -1,48 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_param.c                                        :+:      :+:    :+:   */
+/*   set_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 17:03:25 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/20 17:54:58 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/21 14:03:25 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"parsing.h"
+#include "parsing.h"
 
-
-set_parameters
-
-
-int	is_allowed_char(char c)
-{	
-	if (c == 'N'
-			|| c == 'S'
-			|| c == 'E'
-			|| c == 'W'
-			|| c == 'F'
-			|| c == 'C')
-		return (1);
-	else
-		return (0);
-}
-
-int	is_all_texture_set(t_texture *texture)
-{
-	if (texture && (texture->north == NULL ||
-			texture->south == NULL ||
-			texture->west == NULL ||
-			texture->east == NULL ||
-			texture->floor == NULL ||
-			texture->ceiling == NULL))
-			return (0);
-	else
-		return (1);
-}
-
-t_texture	*set_texture(int fd)
+t_texture	*set_texture(t_file *file)
 {
 	char		*line;
 	t_texture	*app_texture;
@@ -51,24 +21,20 @@ t_texture	*set_texture(int fd)
 	app_texture = init_texture();
 	if (!app_texture)
 		return (NULL);
-	line = get_next_line(fd);
+	line = get_next_line(file->fd);
+	file->map_index++;
 	while (is_all_texture_set(app_texture) == 0 && line != NULL)
 	{
 		if (get_texture(line, app_texture) == -1)
 			break ;
 		free (line);
-		line = get_next_line(fd);
+		line = get_next_line(file->fd);
+		file->map_index++;
 	}
 	if (is_all_texture_set(app_texture) == 0)
 	{
 		ft_putstr_fd(ERROR_MISSING_TEXTURE, 2);
-		close(fd);
-		return (free_texture(&app_texture), NULL);
-	}
-	if(is_all_texture_set(app_texture) == 1 && line == NULL)
-	{
-		ft_putstr_fd(ERROR_MISSING_MAP, 2);
-		close(fd);
+		close(file->fd);
 		return (free_texture(&app_texture), NULL);
 	}
 	// while (line != NULL)
@@ -76,7 +42,7 @@ t_texture	*set_texture(int fd)
 	// 	set_map(line, app_texture);
 	// 	line = get_next_line(fd);
 	// }
-	close(fd);
+//	close(fd);
 	return (app_texture);
 }
 
@@ -122,4 +88,30 @@ int	get_texture(char *line, t_texture *texture)
 	else
 		return (free(direction), -1);
 	return (free(direction), 0);
+}
+
+int	is_all_texture_set(t_texture *texture)
+{
+	if (texture && (texture->north == NULL ||
+			texture->south == NULL ||
+			texture->west == NULL ||
+			texture->east == NULL ||
+			texture->floor == NULL ||
+			texture->ceiling == NULL))
+			return (0);
+	else
+		return (1);
+}
+
+int	is_allowed_char(char c)
+{	
+	if (c == 'N'
+			|| c == 'S'
+			|| c == 'E'
+			|| c == 'W'
+			|| c == 'F'
+			|| c == 'C')
+		return (1);
+	else
+		return (0);
 }

@@ -16,9 +16,11 @@ SRCS =	main.c				\
 		launch_prgm.c		\
 		free.c				\
 		debug.c				\
-		parsing/check.c		\
 		parsing/init.c		\
-		parsing/get_param.c \
+		parsing/check.c		\
+		parsing/set_parameters.c
+		parsing/set_texture.c \
+		parsing/set_map.c \
 
 
 ################################################################################

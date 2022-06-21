@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launch_prgm.c                                      :+:      :+:    :+:   */
+/*   set_parameters.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/21 13:50:18 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/21 13:51:40 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "launch_prgm.h"
+#include "parsing.h"
 
-void	launch_prgm(char *map_file)
+t_data	*set_parameters(t_file	*file)
 {
-	t_file	file;
 	t_data	*data;
-//	t_texture *app_texture;
 
-	//app_texture = NULL;
-	file.name = map_file;
-	file.map_index = 0;
-	file.fd = -1;
-	data = set_parameters(&file);
-	if (!data)
+	file->fd = open(file->name, O_RDONLY);
+	if (file->fd == -1)
 	{
-		// error
+		ft_putstr_fd(ERROR_OPEN_FILE, 2);
+		return (NULL);
 	}
-	//print_param(app_texture);
+	data = ft_calloc(1, sizeof(t_data));
+	if (!data)
+		return (NULL);
+		
+	data->texture = set_texture(file);
+	if (!data->texture)
+	{
+		// free data
+	}
+	data->map = set_map(file);
+	if (!data->map)
+	{
+		// free data->texture
+		// free data
+	}
+	
 }
