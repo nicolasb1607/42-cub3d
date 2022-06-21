@@ -6,13 +6,20 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:59:19 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/20 14:02:29 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/21 15:56:43 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_sp_or_tab(char c)
 {
 	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
+}
+
+int	ft_is_space(char c)
+{
+	if (c == ' ')
 		return (1);
 	return (0);
 }
