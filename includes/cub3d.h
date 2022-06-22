@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 13:15:13 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:27:35 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@
 # include "debug.h"
 # include "free.h"
 # include "init.h"
+# include "check.h"
+
+# define TRUE 1
+# define FALSE 0
 
 #endif

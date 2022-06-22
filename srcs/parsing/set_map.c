@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:24:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/22 13:30:30 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:29:59 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,10 @@ int	get_map_content(t_file *file, t_map *map)
 	int		i;
 
 	i = 0;
-	ft_putstr_fd("temoin 1\n", 2);
 	file->fd = open(file->name, O_RDONLY);
 	
 	if(file->fd < 0)
 		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), -1);
-	ft_putstr_fd("temoin 2\n", 2);
 	while(i < file->map_index)
 	{
 		line = get_next_line(file->fd);
@@ -138,7 +136,6 @@ char	*collect_data_from_line(char *line, char *content)
 			i++;
 			j++;
 		}
-		
 	}
 	return (content);
 }
@@ -163,7 +160,7 @@ t_map	*alloc_map_content(t_map *map)
 			ft_putstr_fd(ERROR_MALLOC, 2);
 			return (NULL);
 		}
-		ft_memset_char_bis(map->content[i], '0', map->width);
+		ft_memset_char_bis(map->content[i], '1', map->width);
 		i++;
 	}
 	return (map);
