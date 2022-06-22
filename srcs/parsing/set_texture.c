@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/21 15:52:17 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:40:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_texture	*set_texture(t_file *file)
 		line = get_next_line(file->fd);
 		file->map_index++;
 	}
+	free (line);
 	if (is_all_texture_set(app_texture) == 0)
 	{
 		ft_putstr_fd(ERROR_MISSING_TEXTURE, 2);

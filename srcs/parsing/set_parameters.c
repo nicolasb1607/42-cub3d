@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/21 13:51:40 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/22 09:49:47 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ t_data	*set_parameters(t_file	*file)
 	data->texture = set_texture(file);
 	if (!data->texture)
 	{
-		// free data
+		free(data);
+		return (NULL);
 	}
 	data->map = set_map(file);
 	if (!data->map)
 	{
-		// free data->texture
-		// free data
+		free(data->texture);
+		free(data);
+		return (NULL);
 	}
-	
+	return (data);
 }

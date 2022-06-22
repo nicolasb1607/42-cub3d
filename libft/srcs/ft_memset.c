@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:38:35 by nburat-d          #+#    #+#             */
-/*   Updated: 2021/11/25 13:43:15 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:01:37 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,30 @@ void	*ft_memset(void *s, int c, size_t n)
 	ptr = s;
 	while (n-- > 0)
 		*ptr++ = c;
+	return (s);
+}
+
+void	*ft_memset_char(void *s, char c, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = s;
+	while (n-- > 0)
+		*ptr++ = c;
+	return (s);
+}
+
+void	*ft_memset_char_bis(void *s, char c, int n)
+{
+	char	*ptr;
+	int	i;
+
+	i = 0;
+	ptr = s;
+	while (i < n)
+	{
+		ptr[i] = c;
+		i++;
+	}
 	return (s);
 }

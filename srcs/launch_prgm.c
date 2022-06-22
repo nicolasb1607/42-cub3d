@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/21 13:50:18 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:52:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ void	launch_prgm(char *map_file)
 	{
 		// error
 	}
-	//print_param(app_texture);
+	else
+	{
+	print_2d_array(data->map->content);
+	free_map(data->map, data->map->height);
+	free_texture(&data->texture);
+	free(data);
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/21 15:17:53 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:03:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ typedef struct	s_texture
 	char			*ceiling;
 }	t_texture;
 
-typedef struct	s_color
-{
-	unsigned char	red;
-	unsigned char	green;
-	unsigned char	blue;
-}	t_color;
-
 typedef struct	s_map
 {
 	char			**content;
 	int				width;
 	int				height;
 }	t_map;
+
+typedef struct	s_color
+{
+	unsigned char	red;
+	unsigned char	green;
+	unsigned char	blue;
+}	t_color;
 
 #endif

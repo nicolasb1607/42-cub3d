@@ -18,7 +18,7 @@ SRCS =	main.c				\
 		debug.c				\
 		parsing/init.c		\
 		parsing/check.c		\
-		parsing/set_parameters.c
+		parsing/set_parameters.c \
 		parsing/set_texture.c \
 		parsing/set_map.c \
 
@@ -89,9 +89,14 @@ fclean : clean clean_exec
 re : fclean 
 			make all $(SILENT)
 
-test : all
-	./$(NAME)
+test_right : all
+	./$(NAME) test.cub
 
+test_wrong : all
+	./$(NAME) test_wrong.cub
+
+vtest : all
+	valgrind --leak-check=full ./$(NAME) test.cub
 
 .PHONY : all clean fclean re compilation completed linking clean_files clean_exec 
 
