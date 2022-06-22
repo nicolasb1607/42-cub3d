@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/20 17:19:19 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 13:15:13 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <math.h>
 # include <stdio.h>
 # include "libft.h"
-# include "get_next_line.h"
 # include "struct.h"
+# include "get_next_line.h"
 # include "error_msg.h"
 # include "parsing.h"
 # include "launch_prgm.h"
 # include "debug.h"
-# include "init.h"
 # include "free.h"
+# include "init.h"
 
 #endif

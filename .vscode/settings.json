@@ -1,8 +1,11 @@
 {
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
+		"*.json": "c",
 		"*.c": "c",
 		"parsing.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"init.h": "c",
+		"get_next_line.h": "c"
 	}
 }

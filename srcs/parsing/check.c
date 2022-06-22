@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:56:47 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/16 16:51:07 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/22 14:54:29 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,15 @@ int	check_extension(char *file_name, char *extension)
 		return (1);
 	return (0);
 }
+
+int	check_map(t_map *map);
+{
+
+	/*
+	check des zero
+
+	*/
+	
+}
+
 

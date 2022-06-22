@@ -4,7 +4,7 @@ NAME = cub3d
 ################################################################################
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -MD
+CFLAGS = -Wall -Wextra -g3 -MD
 LDFLAGS = -Wall -Wextra -Werror
 SILENT = --no-print-directory
 
@@ -93,12 +93,12 @@ test_right : all
 	./$(NAME) test.cub
 
 test_wrong : all
-	./$(NAME) test_wrong.cub
+	./$(NAME) testwrong.cub
 
 vtest : all
 	valgrind --leak-check=full ./$(NAME) test.cub
 
-.PHONY : all clean fclean re compilation completed linking clean_files clean_exec 
+.PHONY : all clean fclean re compilation completed linking clean_files clean_exec test_right test_wrong vtest
 
 -include $(DEPENDS)
 

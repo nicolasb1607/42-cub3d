@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 13:03:15 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/22 13:08:39 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_texture	*init_texture(void)
 
 void	init_t_file(t_file *file, char *file_name)
 {
-	file.name = file_name;
-	file.map_index = 0;
-	file.fd = -1;
+	file->name = file_name;
+	file->map_index = 0;
+	file->fd = -1;
 }
