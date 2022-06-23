@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 10:03:30 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 11:21:43 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,21 @@ typedef struct	s_color
 	unsigned char	green;
 	unsigned char	blue;
 }	t_color;
+
+typedef struct	s_gui
+{
+	void				*mlx;
+	void				*win;
+	struct s_img_data	*img_data;
+}	t_gui;
+
+typedef struct s_img_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img_data;
 
 #endif

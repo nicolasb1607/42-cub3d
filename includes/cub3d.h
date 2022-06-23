@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 16:27:35 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 11:57:38 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
+# include "../minilibx-linux/mlx.h"
 # include "libft.h"
 # include "struct.h"
 # include "get_next_line.h"
@@ -29,5 +30,8 @@
 
 # define TRUE 1
 # define FALSE 0
+
+# define HEIGH 1080
+# define WIDTH 1920
 
 #endif

@@ -31,6 +31,9 @@ SRCS =	main.c						\
 INC = -I ./includes/	\
 	-I ./libft/
 
+LIBINC = -L $(PATH_TO_LIBFT) \
+	-L $(PATH_TO_MLX) \
+
 ################################################################################
 #                               PATH_TO_FILES                              	   #
 ################################################################################
@@ -38,6 +41,7 @@ INC = -I ./includes/	\
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
 PATH_TO_LIBFT = ./libft/
+PATH_TO_MLX = ./minilibx-linux/
 
 ################################################################################
 #                               OUTPUT_FILES                              	   #
@@ -60,19 +64,21 @@ NO_COLOR =	\033[m
 #                                   RULES                                      #
 ################################################################################
 
-all : MAKELIBFT 
+all : MAKEMLX MAKELIBFT 
 	@make compilation
 	@make $(NAME)
 	@make completed
 
 $(NAME) : linking $(OBJS)
-	@$(CC) $(LDFLAGS) -L $(PATH_TO_LIBFT) -o $@ $(OBJS) $(INC) -lft
+	@$(CC) $(LDFLAGS) $(LIBINC) -o $@ $(OBJS) $(INC) -lft -lmlx_Linux -lX11 -lXext
 	
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
-	@$(CC)  $(CFLAGS) -L $(PATH_TO_LIBFT) -c -o $@ $<  $(INC) -lft
+	@$(CC)  $(CFLAGS) $(LIBINC) -c -o $@ $<  $(INC) -lft -lmlx_Linux -lX11 -lXext
 
+MAKEMLX :
+	@make -C $(PATH_TO_MLX) $(SILENT)
 
 MAKELIBFT :
 	@make -C $(PATH_TO_LIBFT) $(SILENT)
