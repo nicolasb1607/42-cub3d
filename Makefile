@@ -85,6 +85,7 @@ MAKELIBFT :
 
 clean : clean_files
 	make clean -C $(PATH_TO_LIBFT) $(SILENT)
+	make clean -C $(PATH_TO_MLX) $(SILENT)
 	@rm -f $(OBJS)
 	@rm -f $(OBJ_PATH)$(DEPENDS)
 	@rm -rf $(OBJ_PATH)
