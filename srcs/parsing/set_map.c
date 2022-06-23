@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:24:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 09:56:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:33:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,3 @@ char	*collect_data_from_line(char *line, char *content)
 	}
 	return (content);
 }
-
-
-	// file.name = file_name;
-	// file.map_index = 0;
-	// file.fd = -1;

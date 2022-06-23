@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 16:17:00 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:33:07 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ int	key_hook(int keycode, t_data *data)
 		ft_exit(data);
 	return (0);
 }
-

@@ -6,12 +6,11 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 16:23:13 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:34:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "launch_prgm.h"
-
 
 //	# define ft_calloc(...) NULL
 
