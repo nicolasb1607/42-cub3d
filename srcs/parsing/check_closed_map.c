@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:35:43 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 09:39:37 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 14:47:14 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ int	check_closed_map(t_map *map)
 
 int	check_up_wall(t_map *map, int i, int j)
 {
-	printf("i = %d,  j = %d\n", i, j);
 	if (i == 0)
 		return (FALSE);
 	i--;
 	while (i >= 0)
 	{
-		printf("i = %d,  j = %d\n", i, j);
 		if (map->content[i][j] == '1')
 			return (TRUE);
 		i--;

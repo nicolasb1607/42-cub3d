@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:59:04 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 16:34:41 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 13:55:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@
 # define ERROR_MAP_SIZE "Error: invalid map size\n"
 # define ERROR_PLAYER "Error: invalid player\n"
 # define ERROR_MAP_NOT_CLOSED "Error: map not closed\n"
+# define ERROR_GUI_INIT "Error: GUI initialization failed\n"
+
 #endif 

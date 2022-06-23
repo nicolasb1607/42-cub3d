@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 09:49:49 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:09:57 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,22 @@ t_map	*alloc_map_content(t_map *map)
 		i++;
 	}
 	return (map);
+}
+
+void	free_gui(t_gui *gui)
+{
+	if (gui->img_data)
+	{
+		if (gui->img_data->img)
+			mlx_destroy_image(gui->mlx, gui->img_data->img);
+		free(gui->img_data);
+	}
+	if (gui->win)
+		mlx_destroy_window(gui->mlx, gui->win);
+	if (gui->mlx)
+	{
+		mlx_destroy_display(gui->mlx);
+		free(gui->mlx);
+	}
+	free(gui);
 }

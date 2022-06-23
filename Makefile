@@ -1,12 +1,13 @@
 NAME = cub3d
+
 ################################################################################
 #                           COMPILATION SETTING                        	       #
 ################################################################################
 
-CC = gcc
-CFLAGS = -Wall -Wextra -g3 -MD
-LDFLAGS = -Wall -Wextra -Werror
-SILENT = --no-print-directory
+CC		= gcc
+CFLAGS	= -Wall -Wextra -g3 -MD
+LDFLAGS	= -Wall -Wextra -Werror
+SILENT	= --no-print-directory
 
 ################################################################################
 #                               SOURCE FILES                              	   #
@@ -16,49 +17,51 @@ SRCS =	main.c						\
 		launch_prgm.c				\
 		free.c						\
 		debug.c						\
-		parsing/init.c				\
+		init.c						\
 		parsing/check.c				\
 		parsing/check_closed_map.c	\
 		parsing/set_parameters.c	\
 		parsing/set_texture.c		\
 		parsing/set_map.c			\
+		exit.c						\
+		key_control.c				\
 
 
 ################################################################################
 #                               INCLUDES                             	       #
 ################################################################################
 
-INC = -I ./includes/	\
-	-I ./libft/
+INC				=	-I ./includes/		\
+					-I ./libft/
 
-LIBINC = -L $(PATH_TO_LIBFT) \
-	-L $(PATH_TO_MLX) \
+LIBINC			=	-L $(PATH_TO_LIBFT)	\
+					-L $(PATH_TO_MLX)	\
 
 ################################################################################
 #                               PATH_TO_FILES                              	   #
 ################################################################################
 
-SRC_PATH = ./srcs/
-OBJ_PATH = ./objs/
-PATH_TO_LIBFT = ./libft/
-PATH_TO_MLX = ./minilibx-linux/
+SRC_PATH		=	./srcs/
+OBJ_PATH		=	./objs/
+PATH_TO_LIBFT	=	./libft/
+PATH_TO_MLX		=	./minilibx-linux/
 
 ################################################################################
 #                               OUTPUT_FILES                              	   #
 ################################################################################
 
 
-OBJS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.o})
-DEPENDS = $(addprefix $(OBJ_PATH), ${SRCS:.c=.d})
+OBJS			=	$(addprefix $(OBJ_PATH), ${SRCS:.c=.o})
+DEPENDS			=	$(addprefix $(OBJ_PATH), ${SRCS:.c=.d})
 
 ################################################################################
 #                                   COLORS                                     #
 ################################################################################
 
-BLUE		=	\033[0;34m
-RED			=	\033[0;31m
-GREEN		=	\033[0;32m
-NO_COLOR =	\033[m
+BLUE			=	\033[0;34m
+RED				=	\033[0;31m
+GREEN			=	\033[0;32m
+NO_COLOR		=	\033[m
 
 ################################################################################
 #                                   RULES                                      #
@@ -98,13 +101,13 @@ re : fclean
 			make all $(SILENT)
 
 test_right : all
-	./$(NAME) test.cub
+	./$(NAME) maps/test.cub
 
 test_wrong : all
-	./$(NAME) testwrong.cub
+	./$(NAME) maps/testwrong.cub
 
 vtest : all
-	valgrind --leak-check=full ./$(NAME) test.cub
+	valgrind --leak-check=full ./$(NAME) maps/test.cub
 
 .PHONY : all clean fclean re compilation completed linking clean_files clean_exec test_right test_wrong vtest
 
@@ -116,17 +119,17 @@ vtest : all
 
 compilation :
 	@echo "$(NAME) Compilation in progress..."
-	
+
 completed :
 	@echo "$(GREEN)"
 	@echo "$(NAME) -- Compilation complete !"
 	@echo "$(NO_COLOR)"
-	
-linking : 
+
+linking :
 	@echo "$(NAME) Linking in progress..."
-	
-clean_files : 
+
+clean_files :
 	@echo "$(NAME) Cleaning files..."
-	
-clean_exec : 
+
+clean_exec :
 	@echo "$(NAME) Cleaning executable..."

@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.h                                             :+:      :+:    :+:   */
+/*   key_control.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 17:09:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 16:10:06 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/23 16:15:49 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/23 16:22:06 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FREE_H
-# define FREE_H
+#ifndef KEY_CONTROL_H
+# define KEY_CONTROL_H
 
 # include "cub3d.h"
 
-void	free_texture(t_texture **texture);
-void	free_map(t_map *map, int size);
-t_map	*alloc_map_content(t_map *map);
-void	free_gui(t_gui *gui);
+int	key_hook(int keycode, t_data *data);
+
 
 #endif

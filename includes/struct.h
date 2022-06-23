@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 11:21:43 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:22:20 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_data
 {
 	struct s_texture	*texture;
 	struct s_map		*map;
+	struct s_gui		*gui;
 }	t_data;
 
 typedef struct	s_texture

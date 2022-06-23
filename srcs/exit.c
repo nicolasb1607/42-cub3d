@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.h                                             :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 17:09:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 16:10:06 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/23 15:31:24 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/23 16:11:23 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FREE_H
-# define FREE_H
+#include "exit.h"
 
-# include "cub3d.h"
-
-void	free_texture(t_texture **texture);
-void	free_map(t_map *map, int size);
-t_map	*alloc_map_content(t_map *map);
-void	free_gui(t_gui *gui);
-
-#endif
+int	ft_exit(t_data *data)
+{
+	free_gui(data->gui);
+	free_map(data->map, data->map->height);
+	free_texture(&data->texture);
+	free(data);
+	
+	return (0);
+}
