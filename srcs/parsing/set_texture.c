@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/22 10:40:30 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 09:45:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,17 @@ t_texture	*set_texture(t_file *file)
 		close(file->fd);
 		return (free_texture(&app_texture), NULL);
 	}
-	// while (line != NULL)
-	// {
-	// 	set_map(line, app_texture);
-	// 	line = get_next_line(fd);
-	// }
-//	close(fd);
 	return (app_texture);
 }
 
-char *get_direction(char *line, int *i)
+char	*get_direction(char *line, int *i)
 {
 	char	*direction;
 
 	direction = NULL;
 	while (line[*i] && ft_is_sp_or_tab(line[*i]))
 		(*i)++;
-	while(line[*i] && !ft_is_sp_or_tab(line[*i]))
+	while (line[*i] && !ft_is_sp_or_tab(line[*i]))
 	{
 		direction = ft_charjoin(direction, line[*i]);
 		(*i)++;
@@ -63,7 +57,6 @@ char *get_direction(char *line, int *i)
 		(*i)++;
 	return (direction);
 }
-
 
 int	get_texture(char *line, t_texture *texture)
 {
@@ -93,13 +86,13 @@ int	get_texture(char *line, t_texture *texture)
 
 int	is_all_texture_set(t_texture *texture)
 {
-	if (texture && (texture->north == NULL ||
-			texture->south == NULL ||
-			texture->west == NULL ||
-			texture->east == NULL ||
-			texture->floor == NULL ||
-			texture->ceiling == NULL))
-			return (0);
+	if (texture && (texture->north == NULL
+			|| texture->south == NULL
+			|| texture->west == NULL
+			|| texture->east == NULL
+			|| texture->floor == NULL
+			|| texture->ceiling == NULL))
+		return (0);
 	else
 		return (1);
 }
@@ -107,12 +100,12 @@ int	is_all_texture_set(t_texture *texture)
 int	is_allowed_char(char c)
 {	
 	if (c == 'N'
-			|| c == 'S'
-			|| c == 'E'
-			|| c == 'W'
-			|| c == '0'
-			|| c == '1'
-			|| c == ' ')
+		|| c == 'S'
+		|| c == 'E'
+		|| c == 'W'
+		|| c == '0'
+		|| c == '1'
+		|| c == ' ')
 		return (1);
 	else
 		return (0);

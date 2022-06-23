@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 13:08:39 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 09:37:27 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_texture	*init_texture(void)
 {
-	t_texture *texture;
+	t_texture	*texture;
 
 	texture = malloc(sizeof(t_texture));
 	if (!texture)

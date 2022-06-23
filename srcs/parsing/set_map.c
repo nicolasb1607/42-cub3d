@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:24:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/22 16:29:59 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 09:49:42 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_map	*set_map(t_file *file)
 		line = get_next_line(file->fd);
 	}
 	free(line);
-	printf("index : %d\n", file->map_index);
 	if (line == NULL)
 	{
 		ft_putstr_fd(ERROR_MISSING_MAP, 2);
@@ -34,9 +33,8 @@ t_map	*set_map(t_file *file)
 	}
 	map = ft_calloc(1, sizeof(t_map));
 	if (!map)
-	 	return (NULL);
+		return (NULL);
 	get_map_size(file->fd, map);
-	printf("%d %d\n", map->width, map->height);
 	if (get_map_content(file, map) == -1)
 		return (NULL);
 	return (map);
@@ -52,7 +50,7 @@ void	get_map_size(int fd, t_map *map)
 	while (line != NULL)
 	{
 		size = (int)ft_strlen(line);
-		if(size > map->width)
+		if (size > map->width)
 		{
 			if (line[size - 1] == '\n')
 				map->width = size - 1;
@@ -73,10 +71,9 @@ int	get_map_content(t_file *file, t_map *map)
 
 	i = 0;
 	file->fd = open(file->name, O_RDONLY);
-	
-	if(file->fd < 0)
+	if (file->fd < 0)
 		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), -1);
-	while(i < file->map_index)
+	while (i < file->map_index)
 	{
 		line = get_next_line(file->fd);
 		free(line);
@@ -113,12 +110,11 @@ void	*fill_map(t_file *file, t_map *map)
 	return (map);
 }
 
-
 char	*collect_data_from_line(char *line, char *content)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (line[i] && line[i] != '\n')
@@ -138,44 +134,4 @@ char	*collect_data_from_line(char *line, char *content)
 		}
 	}
 	return (content);
-}
-
-t_map	*alloc_map_content(t_map *map)
-{
-	int	i;
-
-	map->content = ft_calloc(map->height + 1, sizeof(char *));
-	if(!map->content)
-	{
-		ft_putstr_fd(ERROR_MALLOC, 2);
-		return (NULL);
-	}
-	i = 0;
-	while (i < map->height)
-	{
-		map->content[i] = ft_calloc(map->width + 1, sizeof(char));
-		if(!map->content[i])
-		{ 
-			free_map(map, i);
-			ft_putstr_fd(ERROR_MALLOC, 2);
-			return (NULL);
-		}
-		ft_memset_char_bis(map->content[i], '1', map->width);
-		i++;
-	}
-	return (map);
-}
-
-void	free_map(t_map *map, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		free(map->content[i]);
-		i++;
-	}
-	free(map->content);
-	free(map);
 }

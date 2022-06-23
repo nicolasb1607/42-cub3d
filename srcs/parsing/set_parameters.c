@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/22 09:49:47 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 09:52:43 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_data	*set_parameters(t_file	*file)
 	data = ft_calloc(1, sizeof(t_data));
 	if (!data)
 		return (NULL);
-		
 	data->texture = set_texture(file);
 	if (!data->texture)
 	{

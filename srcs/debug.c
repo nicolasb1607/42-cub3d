@@ -6,13 +6,13 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:29:41 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/22 11:43:59 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/23 09:53:09 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "debug.h"
 
-void print_param(t_texture *app_texture)
+void	print_param(t_texture *app_texture)
 {
 	printf("NO : [%s]\n", app_texture->north);
 	printf("SO : [%s]\n", app_texture->south);
@@ -22,10 +22,10 @@ void print_param(t_texture *app_texture)
 	printf("C  : [%s]\n", app_texture->ceiling);
 }
 
-void print_2d_array(char **array)
+void	print_2d_array(char **array)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

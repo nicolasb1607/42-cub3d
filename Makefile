@@ -12,15 +12,16 @@ SILENT = --no-print-directory
 #                               SOURCE FILES                              	   #
 ################################################################################
 
-SRCS =	main.c				\
-		launch_prgm.c		\
-		free.c				\
-		debug.c				\
-		parsing/init.c		\
-		parsing/check.c		\
-		parsing/set_parameters.c \
-		parsing/set_texture.c \
-		parsing/set_map.c \
+SRCS =	main.c						\
+		launch_prgm.c				\
+		free.c						\
+		debug.c						\
+		parsing/init.c				\
+		parsing/check.c				\
+		parsing/check_closed_map.c	\
+		parsing/set_parameters.c	\
+		parsing/set_texture.c		\
+		parsing/set_map.c			\
 
 
 ################################################################################
