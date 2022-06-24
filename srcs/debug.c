@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:29:41 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 09:53:09 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 14:58:01 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	print_param(t_texture *app_texture)
 	printf("EA : [%s]\n", app_texture->east);
 	printf("F  : [%s]\n", app_texture->floor);
 	printf("C  : [%s]\n", app_texture->ceiling);
+}
+
+void	print_rgb_param(char *F_OR_C, t_color *color)
+{
+	printf("%s R=%d, G=%d, B=%d\n", F_OR_C, color->red, color->green, color->blue);
 }
 
 void	print_2d_array(char **array)

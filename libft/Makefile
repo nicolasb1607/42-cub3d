@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+         #
+#    By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 16:20:24 by nburat-d          #+#    #+#              #
-#    Updated: 2022/06/22 12:05:17 by rpottier         ###   ########.fr        #
+#    Updated: 2022/06/24 15:29:16 by nburat-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ SRCS =	ft_atoi.c				\
 		get_next_line.c			\
 		get_next_line_utils.c	\
 		ft_is_white_space.c		\
+		free_tab.c				\
 	
 ################################################################################
 #                               PATH_TO_FILES                              	   #

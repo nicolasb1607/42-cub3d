@@ -1,6 +1,9 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/nburat-d/Documents/cub3d'
+make -C ./minilibx-linux/ --no-print-directory
+make -C ./libft/ --no-print-directory
+make compilation
+make cub3d
+make completed
 make: Leaving directory '/mnt/nfs/homes/nburat-d/Documents/cub3d'
  
-Makefile:22: *** recipe commences before first target.  Stop.
-

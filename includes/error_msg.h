@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:59:04 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 13:55:05 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:23:41 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 # define ERROR_PLAYER "Error: invalid player\n"
 # define ERROR_MAP_NOT_CLOSED "Error: map not closed\n"
 # define ERROR_GUI_INIT "Error: GUI initialization failed\n"
+# define ERROR_COLOR_FORMAT "Error: Wrong color format (\"R,G,B\" expected)\n"
 
 #endif 

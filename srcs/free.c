@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 16:33:29 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:41:16 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	free_texture(t_texture **texture)
 	free((*texture));
 	*texture = NULL;
 }
+
 
 void	free_map(t_map *map, int size)
 {
@@ -86,4 +87,12 @@ void	free_gui(t_gui *gui)
 		free(gui->mlx);
 	}
 	free(gui);
+}
+
+void	free_color(t_color *color)
+{
+	free(color->red);
+	free(color->green);
+	free(color->blue);
+	free(color);
 }
