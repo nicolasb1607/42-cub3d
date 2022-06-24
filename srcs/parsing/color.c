@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 15:53:18 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/24 16:01:35 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	assign_color(char *str_color, t_color *color)
 
 int	set_color(t_data *data)
 {
+	if(!data)
+		return(-1);
 	data->floor_color = ft_calloc(1, sizeof(t_color));
 	if(!data->floor_color)
 		return(ft_putstr_fd(ERROR_MALLOC, 2), -1);
