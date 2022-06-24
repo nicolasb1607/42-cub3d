@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 16:21:42 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:31:58 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ int	launch_prgm(char *file_name)
 		mlx_hook(data->gui->win, 17, 0, ft_exit, data);
 		mlx_key_hook(data->gui->win, key_hook, data);
 		mlx_loop(data->gui->mlx);
-		// free_gui(data->gui);
-		// free_map(data->map, data->map->height);
-		// free_texture(&data->texture);
-		// free(data);
 		return (0);
 	}
 }
