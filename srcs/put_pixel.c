@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   put_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 16:27:26 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/24 11:50:49 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/24 11:36:44 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/24 11:58:42 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "put_pixel.h"
 
-int	main(int ac, char **av)
+void	my_mlx_pixel_put(int x, int y, t_img_data *img, int color)
 {
-	if (ac == 2)
-	{
-		if (check_extension(av[1], ".cub") == 1)
-		{
-			if (launch_prgm(av[1]) != 0)
-				return (1);
-		}	
-		else
-			ft_putstr(ERROR_EXTENSION);
-	}
-	else
-		ft_putstr("Too many arguments\n");
-	return (0);
+	char	*dst;
+
+	if (x < 0 || x > WIDTH - 1 || y < 0 || y > HEIGH - 1)
+		return ;
+	dst = img->addr + (y * img->line_length + x
+			* (img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
