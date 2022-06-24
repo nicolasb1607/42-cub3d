@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 15:49:40 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:53:18 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_rgb_format(char *str_color)
 	i = 0;
 	splitted = ft_split(str_color, ',');
 	if (ft_tablen(splitted) != 3)
-		return(FALSE);
+		return(free_tab(splitted), FALSE);
 	while(splitted[i])
 	{
 		if(ft_is_int(splitted[i]) && ft_atoi(splitted[i]) <= 255 && ft_atoi(splitted[i]) >= 0)
