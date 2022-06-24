@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_parameters.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 09:52:43 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 16:21:12 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ t_data	*set_parameters(t_file	*file)
 	if (!data->map)
 	{
 		free(data->texture);
+		free(data);
+		return (NULL);
+	}
+	if (set_color(data) != 0)
+	{
+		free_map(data->map, data->map->height);
+		free_texture(&data->texture);
 		free(data);
 		return (NULL);
 	}

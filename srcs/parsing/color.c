@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 16:05:33 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/24 16:19:20 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	set_color(t_data *data)
 		return(ft_putstr_fd(ERROR_MALLOC, 2), -1);
 	if (assign_color(data->texture->floor, data->floor_color) != 0)
 	{
-		free_color(data->floor_color);
+		free(data->floor_color);
 		return (-1);
 	}
 	data->ceiling_color = ft_calloc(1, sizeof(t_color));
@@ -64,8 +64,8 @@ int	set_color(t_data *data)
 		return(ft_putstr_fd(ERROR_MALLOC, 2), -1);
 	if (assign_color(data->texture->ceiling, data->ceiling_color) != 0)
 	{
-		free_color(data->floor_color);
-		free_color(data->ceiling_color);
+		free(data->floor_color);
+		free(data->ceiling_color);
 		return (-1);
 	}
 	return (0);
