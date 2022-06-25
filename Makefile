@@ -23,6 +23,7 @@ SRCS =	main.c						\
 		parsing/set_parameters.c	\
 		parsing/set_texture.c		\
 		parsing/set_map.c			\
+		parsing/color.c				\
 		bresenham.c					\
 		bresenham_utils.c			\
 		put_pixel.c					\

@@ -6,14 +6,14 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/25 20:08:52 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/25 20:19:34 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "launch_prgm.h"
 
 //	# define ft_calloc(...) NULL
-void	draw_rectangle(t_data *data)
+void	test_bresenham(t_data *data)
 {
 	t_2d	a;
 	t_2d	b;
@@ -22,7 +22,7 @@ void	draw_rectangle(t_data *data)
 	a.y = 0;
 	b.x = WIDTH;
 	b.y = HEIGH;
-	bresenham(a, b, data->gui->img_data, 125);
+	bresenham(a, b, data);
 	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
 		data->gui->img_data->img, 0, 0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 13:37:10 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/25 20:29:22 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ typedef struct s_map
 
 typedef struct s_color
 {
-	unsigned char	red;
-	unsigned char	green;
-	unsigned char	blue;
+	int	red;
+	int	green;
+	int	blue;
 }	t_color;
 
 typedef struct s_gui
