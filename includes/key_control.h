@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_control.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:49 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 16:22:06 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 10:31:25 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@
 # include "cub3d.h"
 
 int	key_hook(int keycode, t_data *data);
-
 
 #endif

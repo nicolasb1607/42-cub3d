@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/25 15:29:26 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/25 20:08:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,29 @@
 //	# define ft_calloc(...) NULL
 void	draw_rectangle(t_data *data)
 {
-	t_2d a;
-	t_2d b;
+	t_2d	a;
+	t_2d	b;
 
-	a.x = 10;
-	a.y = 10;
-	b.x = 10;
-	b.y = HEIGH-10;
-	bresenham(a, b, data->gui->img_data, 200);
-	
-	a.x = 10;
-	a.y = 10;
-	b.x = WIDTH-10;
-	b.y = 10;
-	bresenham(a, b, data->gui->img_data, 200);
-
-	a.x = WIDTH-10;
-	a.y = 10;
-	b.x = WIDTH-10;
-	b.y = HEIGH-10;
-	bresenham(a, b, data->gui->img_data, 200);
-	
-	a.x = 10;
-	a.y = HEIGH-10;
-	b.x = WIDTH-10;
-	b.y = HEIGH-10;
-	bresenham(a, b, data->gui->img_data, 200);
-}
-
-void	test_bresenham(t_data *data)
-{
-	draw_rectangle(data);
-	mlx_put_image_to_window(data->gui->mlx, data->gui->win, data->gui->img_data->img, 0, 0);
+	a.x = 0;
+	a.y = 0;
+	b.x = WIDTH;
+	b.y = HEIGH;
+	bresenham(a, b, data->gui->img_data, 125);
+	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
+		data->gui->img_data->img, 0, 0);
 }
 
 int	launch_prgm(char *file_name)
 {
 	t_file	file;
 	t_data	*data;
-	
-	
+
 	init_t_file(&file, file_name);
 	data = set_parameters(&file);
+	if (!data)
+		exit(0);
+	print_rgb_param("FLOOR", data->floor_color);
+	print_rgb_param("CEILING", data->ceiling_color);
 	if (!data || !check_map(data->map))
 	{
 		if (data)
@@ -80,10 +61,6 @@ int	launch_prgm(char *file_name)
 		mlx_hook(data->gui->win, 17, 0, ft_exit, data);
 		mlx_key_hook(data->gui->win, key_hook, data);
 		mlx_loop(data->gui->mlx);
-		// free_gui(data->gui);
-		// free_map(data->map, data->map->height);
-		// free_texture(&data->texture);
-		// free(data);
 		return (0);
 	}
 }

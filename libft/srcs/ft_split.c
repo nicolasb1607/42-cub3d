@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:59:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2021/12/01 16:07:51 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:31:31 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,6 @@ static int	ft_wordlen(char const *s, char c)
 	return (i + 1);
 }
 
-static char	**free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (!tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
-}
-
 static char	**ft_cut(char const *s, char **split, char c, int i)
 {
 	int		j;
@@ -77,7 +63,7 @@ static char	**ft_cut(char const *s, char **split, char c, int i)
 		{
 			split[j] = malloc(sizeof(char) * ft_wordlen(&s[i], c));
 			if (!split[j])
-				return (free_tab(split));
+				return (free_tab(split), NULL);
 			while (s[i] != c && s[i])
 			{
 				split[j][l] = s[i];

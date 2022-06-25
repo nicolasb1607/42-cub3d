@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 15:22:20 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 13:37:10 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ typedef struct s_data
 	struct s_texture	*texture;
 	struct s_map		*map;
 	struct s_gui		*gui;
+	struct s_color		*floor_color;
+	struct s_color		*ceiling_color;
 }	t_data;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	char			*north;
 	char			*south;
@@ -39,21 +41,21 @@ typedef struct	s_texture
 	char			*ceiling;
 }	t_texture;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char			**content;
 	int				width;
 	int				height;
 }	t_map;
 
-typedef struct	s_color
+typedef struct s_color
 {
 	unsigned char	red;
 	unsigned char	green;
 	unsigned char	blue;
 }	t_color;
 
-typedef struct	s_gui
+typedef struct s_gui
 {
 	void				*mlx;
 	void				*win;

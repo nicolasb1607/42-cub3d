@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/23 09:50:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:17:58 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,24 @@ int			is_allowed_char(char c);
 //#                               set_map.c                            #
 //######################################################################
 
-
-t_map	*set_map(t_file *file);
-void	get_map_size(int fd, t_map *map);
-int		get_map_content(t_file *file, t_map *map);
-void	*fill_map(t_file *file, t_map *map);
-char	*collect_data_from_line(char *line, char *content);
-
+t_map		*set_map(t_file *file);
+void		get_map_size(int fd, t_map *map);
+int			get_map_content(t_file *file, t_map *map);
+void		*fill_map(t_file *file, t_map *map);
+char		*collect_data_from_line(char *line, char *content);
 
 //######################################################################
-//#                               check.c                            #
+//#                               check.c                              #
 //######################################################################
 
-int	check_extension(char *file_name, char *extension);
+int			check_extension(char *file_name, char *extension);
+
+//######################################################################
+//#                               color.c                              #
+//######################################################################
+
+int			is_rgb_format(char *str_color);
+int			assign_color(char *str_color, t_color *color);
+int			set_color(t_data *data);
 
 #endif

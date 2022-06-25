@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:37:34 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/22 12:01:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:29:05 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ size_t	ft_strlen(const char *s);
 int		ft_tablen(char **tab);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memset_char(void *s, char c, size_t n);
-
 void	*ft_memset_char_bis(void *s, char c, int n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -97,4 +96,5 @@ void	ft_dlstdelone(t_dlist *lst, void (*del)(void*));
 void	ft_dlstiter(t_dlist *lst, void (*f)(void *));
 int		ft_is_sp_or_tab(char c);
 int		ft_is_space(char c);
+void	free_tab(char **tab);
 #endif
