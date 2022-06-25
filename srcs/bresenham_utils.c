@@ -6,12 +6,11 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:44:06 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/24 12:01:33 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:01:10 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bresenham.h"
-
 
 void	put_line(t_2d a, t_2d b, t_img_data *img, t_line *line, int color)
 {
