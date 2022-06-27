@@ -6,19 +6,14 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/27 11:59:22 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:31:24 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "launch_prgm.h"
 
 //	# define ft_calloc(...) NULL
-void	test_bresenham(t_data *data)
-{
-	draw_minimap(data);
-	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
-		data->gui->img_data->img, 0, 0);
-}
+
 
 int	launch_prgm(char *file_name)
 {
@@ -53,5 +48,37 @@ int	launch_prgm(char *file_name)
 		mlx_key_hook(data->gui->win, key_hook, data);
 		mlx_loop(data->gui->mlx);
 		return (0);
+	}
+}
+
+void	test_bresenham(t_data *data)
+{
+	printf("temoin\n");
+	draw_minimap(data);
+	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
+		data->gui->img_data->img, 0, 0);
+}
+
+void refresh_img(t_data *data)
+{
+	reset_img(data);
+	test_bresenham(data);
+}
+
+void	reset_img(t_data *data)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < HEIGHT_WIN)
+	{
+		x = 0;
+		while (x < WIDTH_WIN)
+		{
+			my_mlx_pixel_put(x, y, data->gui->img_data, encode_rgb(0, 0, 0));
+			x++;
+		}
+		y++;
 	}
 }

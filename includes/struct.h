@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/26 16:01:27 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:49:33 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_data
 	struct s_gui		*gui;
 	struct s_color		*floor_color;
 	struct s_color		*ceiling_color;
+	struct s_player		*player;
 }	t_data;
 
 typedef struct s_texture
@@ -70,6 +71,19 @@ typedef struct s_img_data
 	int		line_length;
 	int		endian;
 }	t_img_data;
+
+typedef struct s_player
+{
+	int x_pos;
+	int	y_pos;
+	int width;
+	int	height;
+	int turn_direction;
+	int walk_direction;
+	int rotation_angle;
+	int	walk_speed;
+	int	turn_speed;
+}	t_player;
 
 
 //######################################################################

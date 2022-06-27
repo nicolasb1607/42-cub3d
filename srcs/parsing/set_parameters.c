@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_parameters.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/24 19:43:16 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:14:53 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,43 @@ t_data	*set_parameters(t_file	*file)
 	if (set_color(data) != 0)
 		return (free_map(data->map, data->map->height),
 			free_texture(&data->texture), free(data), NULL);
+	data->player = set_player(data->map);
+	if (!data->player)
+		return (free(data->ceiling_color), free(data->floor_color), free_map(data->map, data->map->height),
+			free_texture(&data->texture), free(data), NULL);
 	return (data);
+}
+
+t_player *set_player(t_map *map)
+{
+	int	i;
+	int	j;
+	t_player *player;
+
+	player = ft_calloc(1, sizeof(t_player));
+	if (!player)
+		return (NULL);
+	i = 0;
+	while (i < map->height)
+	{
+		j = 0;
+		while (j < map->width)
+		{
+			if (is_a_player(map->content[i][j]))
+			{
+				player->x_pos = j * TILE_SIZE;
+				player->y_pos = i * TILE_SIZE;
+			}
+			j++;
+		}
+		i++;
+	}
+	player->width = 4;
+	player->height = 4;
+	player->turn_direction = 0;
+	player->walk_direction = 0;
+	player->rotation_angle = M_PI / 2;
+	player->walk_speed = 100;
+	player->turn_speed = 20;
+	return (player);
 }
