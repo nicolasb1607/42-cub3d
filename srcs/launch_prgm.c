@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_prgm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/25 15:02:28 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/27 09:28:20 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,17 @@ int	launch_prgm(char *file_name)
 
 	init_t_file(&file, file_name);
 	data = set_parameters(&file);
-	if (!data)
-		exit(0);
-	print_rgb_param("FLOOR", data->floor_color);
-	print_rgb_param("CEILING", data->ceiling_color);
 	if (!data || !check_map(data->map))
 	{
 		if (data)
 		{
+			free(data->floor_color);
+			free(data->ceiling_color);
 			free_map(data->map, data->map->height);
 			free_texture(&data->texture);
 			free(data);
 		}
-		return (1);
+		return (-1);
 	}
 	else
 	{
