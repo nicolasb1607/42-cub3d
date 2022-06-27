@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/26 16:42:00 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/27 12:00:47 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_gui	*init_gui(void)
 	gui->img_data = ft_calloc(1, sizeof(t_img_data));
 	if (!gui->img_data)
 		return (free_gui(gui), NULL);
-	gui->img_data->img = mlx_new_image(gui->mlx, WIDTH, HEIGH);
+	gui->img_data->img = mlx_new_image(gui->mlx, WIDTH_WIN, HEIGHT_WIN);
 	if (!gui->img_data->img)
 		return (free_gui(gui), NULL);
 	gui->img_data->addr = mlx_get_data_addr(gui->img_data->img,
@@ -61,8 +61,7 @@ t_gui	*init_gui(void)
 			&gui->img_data->endian);
 	if (!gui->img_data->addr)
 		return (free_gui(gui), NULL);
-	printf("endian = %d\n", gui->img_data->endian);
-	gui->win = mlx_new_window(gui->mlx, WIDTH, HEIGH, "cube3d");
+	gui->win = mlx_new_window(gui->mlx, WIDTH_WIN, HEIGHT_WIN, "cube3d");
 	if (!gui->win)
 		return (free_gui(gui), NULL);
 	return (gui);

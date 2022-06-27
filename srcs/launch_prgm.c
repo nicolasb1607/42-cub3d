@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/27 10:27:25 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/27 11:59:22 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,7 @@
 //	# define ft_calloc(...) NULL
 void	test_bresenham(t_data *data)
 {
-	t_2d	a;
-	t_2d	b;
-
-	a.x = 0;
-	a.y = 0;
-	b.x = WIDTH;
-	b.y = HEIGH;
-	bresenham(a, b, data);
+	draw_minimap(data);
 	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
 		data->gui->img_data->img, 0, 0);
 }

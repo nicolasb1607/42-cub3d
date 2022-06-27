@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_pixel.c                                        :+:      :+:    :+:   */
+/*   mapping.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 11:36:44 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/27 11:01:53 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/27 11:05:38 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/27 14:34:45 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "put_pixel.h"
+#ifndef MAPPING_H
+# define MAPPING_H
 
-void	my_mlx_pixel_put(int x, int y, t_img_data *img, int color)
+# include "cub3d.h"
+
+# define RATIO_MINIMAP 0.7
+# define TILE_SIZE 32
+
+typedef struct s_rectangle
 {
-	char	*dst;
+	int x_top_left_corner;
+	int y_top_left_corner;
+	int width_size;
+	int height_size;
+}	t_rectangle;
 
-	if (x < 0 || x > WIDTH_WIN - 1 || y < 0 || y > HEIGHT_WIN - 1)
-		return ;
-	dst = img->addr + (y * img->line_length + x
-			* (img->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
+void	draw_rec(t_rectangle *rect, t_data *data);
+void	draw_minimap(t_data *data);
+
+#endif

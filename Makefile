@@ -6,7 +6,7 @@ NAME = cub3d
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -g3 -MD
-LDFLAGS	= -Wall -Wextra -Werror
+LDFLAGS	= -Wall -Wextra# -Werror
 SILENT	= --no-print-directory
 
 ################################################################################
@@ -24,9 +24,10 @@ SRCS =	main.c						\
 		parsing/set_texture.c		\
 		parsing/set_map.c			\
 		parsing/color.c				\
-		bresenham.c					\
-		bresenham_utils.c			\
-		put_pixel.c					\
+		bresenham/bresenham.c					\
+		bresenham/bresenham_utils.c			\
+		bresenham/put_pixel.c					\
+		mapping/mini_map.c \
 		exit.c						\
 		key_control.c				\
 		
