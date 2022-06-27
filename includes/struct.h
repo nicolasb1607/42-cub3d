@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/25 20:29:22 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/26 16:01:27 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,30 @@ typedef struct s_img_data
 	int		line_length;
 	int		endian;
 }	t_img_data;
+
+
+//######################################################################
+//#                          bresenham                                 #
+//######################################################################
+
+
+typedef struct s_2d_point
+{
+	int	x;
+	int	y;
+}	t_2d;
+
+typedef struct s_line_data
+{
+	int			ex;
+	int			ey;
+	int			dx;
+	int			dy;
+	int			y;
+	int			const_x;
+	int			const_y;
+	int			x_incr;
+	int			y_incr;
+}	t_line;
 
 #endif

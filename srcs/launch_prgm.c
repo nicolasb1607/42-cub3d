@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/25 20:19:34 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/26 16:40:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	launch_prgm(char *file_name)
 	data = set_parameters(&file);
 	if (!data)
 		exit(0);
-	print_rgb_param("FLOOR", data->floor_color);
-	print_rgb_param("CEILING", data->ceiling_color);
 	if (!data || !check_map(data->map))
 	{
 		if (data)

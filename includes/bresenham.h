@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:18:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/25 20:31:15 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/26 16:00:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 # define BRESENHAM_H
 
 # include "cub3d.h"
-
-typedef struct s_2d_point
-{
-	int	x;
-	int	y;
-}	t_2d;
-
-typedef struct s_line_data
-{
-	int			ex;
-	int			ey;
-	int			dx;
-	int			dy;
-	int			y;
-	int			const_x;
-	int			const_y;
-	int			x_incr;
-	int			y_incr;
-}	t_line;
-
 
 void	bresenham(t_2d a, t_2d b, t_data *data);
 void	create_line_data(t_2d a, t_2d b, t_line *line);
