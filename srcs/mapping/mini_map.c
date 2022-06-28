@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 17:39:54 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 17:42:10 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void	draw_rec(t_rectangle *rect, t_data *data, int rec_size)
 	i = 0;
 	while (i < rec_size)
 	{
-		a.x = WIDTH_WIN / data->map->width * hor * MINIMAP_SCALE;
+		a.x = WIDTH_WIN / data->map->width* MINIMAP_SCALE;
 		a.y = 0;
-		b.x = WIDTH_WIN / data->map->width * hor * MINIMAP_SCALE;
+		b.x = WIDTH_WIN / data->map->width * MINIMAP_SCALE;
 		b.y = HEIGHT_WIN * MINIMAP_SCALE;
 		bresenham(a, b, data);
 		i++;
@@ -77,6 +77,9 @@ void	draw_rec(t_rectangle *rect, t_data *data, int rec_size)
 
 void	set_tile_color(t_data *data, int i, int j)
 {
+	t_2d a;
+	t_2d b;
+	
 	if (data->map->content[i][j] == '1')
 	{
 		a.x = 0;

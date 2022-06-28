@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/27 23:43:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 17:40:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	launch_prgm(char *file_name)
 			ft_putstr_fd(ERROR_GUI_INIT, 2);
 		//	return (1);
 		}
-		test_bresenham(data);
+		render(data);
 		mlx_hook(data->gui->win, 17, 0, ft_exit, data);
 		mlx_key_hook(data->gui->win, key_hook, data);
 		mlx_loop(data->gui->mlx);
@@ -51,7 +51,7 @@ int	launch_prgm(char *file_name)
 	}
 }
 
-void	test_bresenham(t_data *data)
+void	render(t_data *data)
 {
 	printf("temoin\n");
 	draw_minimap(data);
@@ -63,7 +63,7 @@ void	test_bresenham(t_data *data)
 void refresh_img(t_data *data)
 {
 	reset_img(data);
-	test_bresenham(data);
+	render(data);
 }
 
 void	reset_img(t_data *data)
