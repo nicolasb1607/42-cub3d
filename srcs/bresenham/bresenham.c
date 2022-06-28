@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 16:00:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/27 12:02:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 09:54:47 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,24 @@ void	create_line_data(t_2d a, t_2d b, t_line *line)
 		line->x_incr = -1;
 	if (a.y > b.y)
 		line->y_incr = -1;
+}
+
+void	draw_rec(t_rectangle *rect, t_data *data, int rec_size)
+{
+	int	i;
+	t_2d a;
+	t_2d b;
+
+	i = 0;
+	while (i < rec_size)
+	{
+		a.x = rect->x_top_left_corner;
+		a.y = rect->y_top_left_corner + i;
+		b.x = rect->x_top_left_corner + rec_size;
+		b.y = rect->y_top_left_corner + i;
+		bresenham(a, b, data);
+		i++;
+	}
 }
 
 int	encode_rgb(int red, int green, int blue)

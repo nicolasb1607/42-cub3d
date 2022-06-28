@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/27 18:49:33 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 17:39:39 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ typedef struct s_color
 	int	blue;
 }	t_color;
 
+//######################################################################
+//#                          GUI                                       #
+//######################################################################
+
 typedef struct s_gui
 {
 	void				*mlx;
@@ -87,7 +91,7 @@ typedef struct s_player
 
 
 //######################################################################
-//#                          bresenham                                 #
+//#                          drawing                                   #
 //######################################################################
 
 
@@ -109,5 +113,13 @@ typedef struct s_line_data
 	int			x_incr;
 	int			y_incr;
 }	t_line;
+
+typedef struct s_rectangle
+{
+	int x_top_left_corner;
+	int y_top_left_corner;
+	int width_size;
+	int height_size;
+}	t_rectangle;
 
 #endif

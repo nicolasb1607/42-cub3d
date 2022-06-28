@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 10:53:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 09:23:21 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/28 17:39:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void	draw_rec(t_rectangle *rect, t_data *data, int rec_size)
 	i = 0;
 	while (i < rec_size)
 	{
-		a.x = rect->x_top_left_corner;
-		a.y = rect->y_top_left_corner + i;
-		b.x = rect->x_top_left_corner + rec_size;
-		b.y = rect->y_top_left_corner + i;
+		a.x = WIDTH_WIN / data->map->width * hor * MINIMAP_SCALE;
+		a.y = 0;
+		b.x = WIDTH_WIN / data->map->width * hor * MINIMAP_SCALE;
+		b.y = HEIGHT_WIN * MINIMAP_SCALE;
 		bresenham(a, b, data);
 		i++;
 	}
@@ -79,9 +79,12 @@ void	set_tile_color(t_data *data, int i, int j)
 {
 	if (data->map->content[i][j] == '1')
 	{
-		data->ceiling_color->red = 255;
-		data->ceiling_color->green = 255;
-		data->ceiling_color->blue = 255;
+		a.x = 0;
+		a.y = HEIGHT_WIN / data->map->height * vert * MINIMAP_SCALE;
+		b.x = WIDTH_WIN * MINIMAP_SCALE;
+		b.y = HEIGHT_WIN / data->map->height * vert * MINIMAP_SCALE;
+		bresenham(a, b, data);
+		vert++;
 	}
 	else
 	{
@@ -112,4 +115,25 @@ void	draw_minimap(t_data *data)
 		}
 		i++;
 	}
+}
+
+void	draw_player(t_data *data)
+{
+
+}
+
+void	set_tile_color(t_data *data, int i, int j)
+{
+	if (data->map->content[i][j] == '1')
+	{
+		data->ceiling_color->red = 255;
+		data->ceiling_color->green = 255;
+		data->ceiling_color->blue = 255;
+	}
+	else
+	{
+		data->ceiling_color->red = 0;
+		data->ceiling_color->green = 0;
+		data->ceiling_color->blue = 0;
+	}	
 }

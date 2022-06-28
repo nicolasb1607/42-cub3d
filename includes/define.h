@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapping copy.h                                     :+:      :+:    :+:   */
+/*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 11:05:38 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/27 14:30:46 by rpottier         ###   ########.fr       */
+/*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/28 10:30:36 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAPPING_H
-# define MAPPING_H
+#ifndef DEFINE_H
+# define DEFINE_H
 
-# include "cub3d.h"
+# define TRUE 1
+# define FALSE 0
 
-# define RATIO_MINIMAP 1
+# define HEIGHT_WIN 1080
+# define WIDTH_WIN 1920
+
+# define MINIMAP_SCALE 1
 # define TILE_SIZE 32
-
-typedef struct s_rectangle
-{
-	int x_top_left_corner;
-	int y_top_left_corner;
-	int width_size;
-	int height_size;
-}	t_rectangle;
-
-void	draw_rec(t_rectangle *rect, t_data *data);
-void	draw_minimap(t_data *data);
 
 #endif
