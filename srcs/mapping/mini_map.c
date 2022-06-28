@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:53:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 00:03:03 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 09:23:21 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,4 @@ void	draw_minimap(t_data *data)
 		}
 		i++;
 	}
-	draw_player(data);
 }
