@@ -6,13 +6,14 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/28 17:39:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:37:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "define.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -33,6 +34,5 @@
 # include "bresenham.h"
 # include "put_pixel.h"
 # include "mapping.h"
-# include "define.h"
 
 #endif

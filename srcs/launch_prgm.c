@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/28 17:40:54 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 20:27:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,19 @@ int	launch_prgm(char *file_name)
 		//	return (1);
 		}
 		render(data);
-		mlx_hook(data->gui->win, 17, 0, ft_exit, data);
 		mlx_key_hook(data->gui->win, key_hook, data);
+		mlx_hook(data->gui->win, 17, 0, ft_exit, data);
 		mlx_loop(data->gui->mlx);
 		return (0);
 	}
 }
 
+
 void	render(t_data *data)
 {
-	printf("temoin\n");
+//	printf("render\n");
 	draw_minimap(data);
+	update_player(data);
 	draw_player(data);
 	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
 		data->gui->img_data->img, 0, 0);

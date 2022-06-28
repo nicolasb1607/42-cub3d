@@ -6,95 +6,53 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 17:42:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 21:00:33 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapping.h"
-/*
-void	draw_grid(t_map map, t_gui *gui)
-{
-	int	i;
-	int	j;
 
-	i = 0;
-	while (i < HEIGHT_MAP)
-	{
-		j = 0;
-		while (j < WIDTH)
-		{
-			
-			j++;
-		}
-		i++;
-	}
+void	update_player(t_data *data)
+{
+	printf("update_player\n");
+	
+	int move_step;
+
+	//SET_UP direction des mouvements
+
+	move_step = (data->player->walk_direction * data->player->walk_speed);
+	data->player->rotation_angle += (data->player->turn_direction * data->player->turn_speed);
+	
+	//MAJ de la position du joueur
+
+	data->player->x_pos += (cos(data->player->rotation_angle) * move_step);
+	data->player->y_pos += (sin(data->player->rotation_angle) * move_step);
+
+	//Remise à zéro des variables de mouvements
+	data->player->turn_direction = 0;
+	data->player->walk_direction = 0;
 }
-
-typedef struct s_red
-{
-	int x_top_left_corner;
-	int y_top_left_corner;
-	int width_size;
-	int height_size;
-}	t_rectangle;
-*/
-
 void	draw_player(t_data *data)
 {
-	t_rectangle rec;
-	
-	data->player->x_pos = data->player->x_pos + (data->player->walk_direction * data->player->walk_speed);
-	data->player->y_pos = data->player->y_pos + (data->player->walk_direction * data->player->walk_speed);
-	rec.x_top_left_corner = data->player->x_pos;
-	rec.y_top_left_corner = data->player->y_pos;
-	printf("%d | %d\n", rec.x_top_left_corner, rec.y_top_left_corner);
-	rec.width_size = 1;
-	rec.height_size = 1;
+	t_2d a;
+	t_2d b;
 
-	data->ceiling_color->red = 255;
-	data->ceiling_color->green = 0;
+	// set direction line
+	a.x = data->player->x_pos;
+	a.y = data->player->y_pos;
+	b.x = data->player->x_pos + cos(data->player->rotation_angle) * 20; //pythagore la dernière valeur étant la longeur de la ligne
+	b.y = data->player->y_pos + sin(data->player->rotation_angle) * 20; //pythagore
+
+	// set_color player
+	data->ceiling_color->red = 0;
+	data->ceiling_color->green = 255;
 	data->ceiling_color->blue = 0;
-	draw_rec(&rec, data, TILE_SIZE / 6);
-}
 
-void	draw_rec(t_rectangle *rect, t_data *data, int rec_size)
-{
-	int	i;
-	t_2d a;
-	t_2d b;
+	//draw direction line
+	bresenham(a, b , data);
 
-	i = 0;
-	while (i < rec_size)
-	{
-		a.x = WIDTH_WIN / data->map->width* MINIMAP_SCALE;
-		a.y = 0;
-		b.x = WIDTH_WIN / data->map->width * MINIMAP_SCALE;
-		b.y = HEIGHT_WIN * MINIMAP_SCALE;
-		bresenham(a, b, data);
-		i++;
-	}
-}
-
-void	set_tile_color(t_data *data, int i, int j)
-{
-	t_2d a;
-	t_2d b;
-	
-	if (data->map->content[i][j] == '1')
-	{
-		a.x = 0;
-		a.y = HEIGHT_WIN / data->map->height * vert * MINIMAP_SCALE;
-		b.x = WIDTH_WIN * MINIMAP_SCALE;
-		b.y = HEIGHT_WIN / data->map->height * vert * MINIMAP_SCALE;
-		bresenham(a, b, data);
-		vert++;
-	}
-	else
-	{
-		data->ceiling_color->red = 0;
-		data->ceiling_color->green = 0;
-		data->ceiling_color->blue = 0;
-	}	
+	// draw_player
+	my_mlx_pixel_put(a.x, a.y, data->gui->img_data, encode_rgb(255,0,0));
 }
 
 void	draw_minimap(t_data *data)
@@ -120,11 +78,6 @@ void	draw_minimap(t_data *data)
 	}
 }
 
-void	draw_player(t_data *data)
-{
-
-}
-
 void	set_tile_color(t_data *data, int i, int j)
 {
 	if (data->map->content[i][j] == '1')
@@ -140,3 +93,23 @@ void	set_tile_color(t_data *data, int i, int j)
 		data->ceiling_color->blue = 0;
 	}	
 }
+
+/*
+void	draw_grid(t_map map, t_gui *gui)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < HEIGHT_MAP)
+	{
+		j = 0;
+		while (j < WIDTH)
+		{
+			
+			j++;
+		}
+		i++;
+	}
+}
+*/

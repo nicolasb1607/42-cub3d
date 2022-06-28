@@ -78,12 +78,12 @@ all : MAKEMLX MAKELIBFT
 	@make completed
 
 $(NAME) : linking $(OBJS)
-	@$(CC) $(LDFLAGS) $(LIBINC) -o $@ $(OBJS) $(INC) -lft -lmlx_Linux -lX11 -lXext
+	@$(CC) $(LDFLAGS) $(LIBINC) -o $@ $(OBJS) $(INC) -lft -lmlx_Linux -lX11 -lXext -lm
 	
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir -p $(dir $@)
-	@$(CC)  $(CFLAGS) $(LIBINC) -c -o $@ $<  $(INC) -lft -lmlx_Linux -lX11 -lXext
+	@$(CC)  $(CFLAGS) $(LIBINC) -c -o $@ $<  $(INC) -lft -lmlx_Linux -lX11 -lXext  -lm
 
 MAKEMLX :
 	@make -C $(PATH_TO_MLX) $(SILENT)
