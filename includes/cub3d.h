@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/27 11:55:52 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 09:51:29 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@
 # define HEIGHT_WIN 1080
 # define WIDTH_WIN 1920
 
+# define MINIMAP_SCALE 1
+# define TILE_SIZE 32
 
 #endif
