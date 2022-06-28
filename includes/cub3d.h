@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/28 09:51:29 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 10:30:03 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,6 @@
 # include "bresenham.h"
 # include "put_pixel.h"
 # include "mapping.h"
-
-# define TRUE 1
-# define FALSE 0
-
-# define HEIGHT_WIN 1080
-# define WIDTH_WIN 1920
-
-# define MINIMAP_SCALE 1
-# define TILE_SIZE 32
+# include "define.h"
 
 #endif
