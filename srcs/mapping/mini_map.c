@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 09:55:38 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 10:27:31 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,46 +25,23 @@ void	draw_grid(t_data *data)
 	vert = 0;
 	while(hor <= data->map->width)
 	{
-		a.x = WIDTH_WIN / data->map->width * hor * RATIO_MINIMAP;
+		a.x = WIDTH_WIN / data->map->width * hor * MINIMAP_SCALE;
 		a.y = 0;
-		b.x = WIDTH_WIN / data->map->width * hor * RATIO_MINIMAP;
-		b.y = HEIGHT_WIN * RATIO_MINIMAP;
+		b.x = WIDTH_WIN / data->map->width * hor * MINIMAP_SCALE;
+		b.y = HEIGHT_WIN * MINIMAP_SCALE;
 		bresenham(a, b, data);
 		hor++;
 	}
 	while(vert <= data->map->height)
 	{
 		a.x = 0;
-		a.y = HEIGHT_WIN / data->map->height * vert * RATIO_MINIMAP;
-		b.x = WIDTH_WIN * RATIO_MINIMAP;
-		b.y = HEIGHT_WIN / data->map->height * vert * RATIO_MINIMAP;
+		a.y = HEIGHT_WIN / data->map->height * vert * MINIMAP_SCALE;
+		b.x = WIDTH_WIN * MINIMAP_SCALE;
+		b.y = HEIGHT_WIN / data->map->height * vert * MINIMAP_SCALE;
 		bresenham(a, b, data);
 		vert++;
 	}
 }
-
-// typedef struct s_red
-// {
-// 	int x_top_left_corner;
-// 	int y_top_left_corner;
-// 	int width_size;
-// 	int height_size;
-// }	t_rectangle;
-
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   mini_map.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 10:53:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 09:23:21 by rpottier         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "mapping.h"
 
 void	draw_minimap(t_data *data)
 {
