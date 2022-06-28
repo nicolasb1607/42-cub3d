@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/27 19:14:53 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/27 23:50:09 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ t_player *set_player(t_map *map)
 		{
 			if (is_a_player(map->content[i][j]))
 			{
-				player->x_pos = j * TILE_SIZE;
-				player->y_pos = i * TILE_SIZE;
+				player->x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
+				player->y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
 			}
 			j++;
 		}
 		i++;
 	}
-	player->width = 4;
-	player->height = 4;
+	player->width = 1;
+	player->height = 1;
 	player->turn_direction = 0;
 	player->walk_direction = 0;
 	player->rotation_angle = M_PI / 2;

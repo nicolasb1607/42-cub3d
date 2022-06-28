@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:53:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/27 20:28:18 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/28 00:03:03 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ typedef struct s_red
 void	draw_player(t_data *data)
 {
 	t_rectangle rec;
-	data->player->x_pos += (data->player->walk_direction * data->player->walk_speed);
-	data->player->y_pos += (data->player->walk_direction * data->player->walk_speed);
-	rec.x_top_left_corner = data->player->x_pos * MINIMAP_SCALE/* + (TILE_SIZE / 2) - ((TILE_SIZE / 6)/2)*/;
-	rec.y_top_left_corner = data->player->y_pos * MINIMAP_SCALE/* + (TILE_SIZE / 2)- ((TILE_SIZE / 6)/2)*/;
+	
+	data->player->x_pos = data->player->x_pos + (data->player->walk_direction * data->player->walk_speed);
+	data->player->y_pos = data->player->y_pos + (data->player->walk_direction * data->player->walk_speed);
+	rec.x_top_left_corner = data->player->x_pos;
+	rec.y_top_left_corner = data->player->y_pos;
 	printf("%d | %d\n", rec.x_top_left_corner, rec.y_top_left_corner);
 	rec.width_size = 1;
 	rec.height_size = 1;
