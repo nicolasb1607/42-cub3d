@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 13:26:13 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:54:03 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ t_player *set_player(t_map *map)
 	}
 	player->width = 1;
 	player->height = 1;
-	player->turn_direction = 0;
+	player->left_right_rotation = 0;
 	player->walk_direction = 0;
-	player->side_angle = 0;
-	player->walk_speed = 2.0;
-	player->turn_speed = 4 * (PI / 180);
+	player->side_move_angle = 0;
+	player->walk_speed = WALK_SPEED;
+	player->rotation_speed = ROTATION_SPEED;
 	return (player);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 15:03:06 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
+/*   Updated: 2022/06/29 15:58:32 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int	is_hiting_a_wall(t_data *data, int x, int y)
 {
-	printf("y = %d x = %d\n", y / TILE_SIZE, x / TILE_SIZE);
-	if (x < 0 || x > WIDTH_WIN || y < 0 || y > HEIGHT_WIN)
-		return (1);
-	if (data->map->content[y / TILE_SIZE][x / TILE_SIZE] == 1)
-		return (1);
-	return (0);
+	if (x < 0 || x > TILE_SIZE * data->map->width || y < 0 || y > TILE_SIZE * data->map->height)
+		return (TRUE);
+	if (data->map->content[y / TILE_SIZE][x / TILE_SIZE] == '1')
+		return (TRUE);
+	return (FALSE);
 }
 
 void	update_player(t_data *data)
@@ -33,22 +32,21 @@ void	update_player(t_data *data)
 	//SET_UP direction des mouvements
 
 	move_step = (data->player->walk_direction * data->player->walk_speed);
-	data->player->rotation_angle += (data->player->turn_direction * data->player->turn_speed);
+	data->player->rotation_angle += (data->player->left_right_rotation * data->player->rotation_speed);
 	
 	//MAJ de la position du joueur
-	new_player_x = round(data->player->x_pos + (cos(data->player->rotation_angle + data->player->side_angle) * move_step));
-	new_player_y = round(data->player->y_pos + (sin(data->player->rotation_angle + data->player->side_angle) * move_step));
+	new_player_x = round(data->player->x_pos + (cos(data->player->rotation_angle + data->player->side_move_angle) * move_step));
+	new_player_y = round(data->player->y_pos + (sin(data->player->rotation_angle + data->player->side_move_angle) * move_step));
 	
 	if (!is_hiting_a_wall(data, new_player_x, new_player_y))
 	{
-		printf("NO WALL\n");
 		data->player->x_pos = new_player_x;
 		data->player->y_pos = new_player_y;
 	}
 	//Remise à zéro des variables de mouvements
-	data->player->turn_direction = 0;
+	data->player->left_right_rotation = 0;
 	data->player->walk_direction = 0;
-	data->player->side_angle = 0;
+	data->player->side_move_angle = 0;
 }
 
 void	draw_player(t_data *data)

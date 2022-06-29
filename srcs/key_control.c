@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 15:02:51 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:58:27 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ int	key_hook(int keycode, t_data *data)
 	if (keycode == XK_q)
 	{
 		data->player->walk_direction = +1;
-		data->player->side_angle = -(PI / 2);
+		data->player->side_move_angle = -(PI / 2);
 		refresh_img(data);
 	}
 	if (keycode == XK_d)
 	{
 		data->player->walk_direction = +1;
-		data->player->side_angle = PI / 2;
+		data->player->side_move_angle = PI / 2;
 		refresh_img(data);
 	}
 	if (keycode == XK_Right)
 	{
-		data->player->turn_direction = +1;
+		data->player->left_right_rotation = +1;
 		refresh_img(data);
 	}
 	if (keycode == XK_Left)
 	{
-		data->player->turn_direction = -1;
+		data->player->left_right_rotation = -1;
 		refresh_img(data);
 	}
 	return (0);

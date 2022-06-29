@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 10:56:23 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:53:48 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@
 # define TILE_SIZE 128
 
 # define PI 3.1415926535
+
+# define WALK_SPEED 2.0
+# define ROTATION_SPEED 4 * (PI / 180)
 
 #endif
