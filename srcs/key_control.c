@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 10:23:19 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:27:54 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,12 @@ int	key_hook(int keycode, t_data *data)
 		data->player->turn_direction = -1;
 		refresh_img(data);
 	}
+	return (0);
+}
+
+int	key_release(int key, t_data *data)
+{
+	(void)key;
+	(void)data;
 	return (0);
 }

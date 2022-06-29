@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_prgm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:27:54 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:30:09 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int	launch_prgm(char *file_name)
 		//	return (1);
 		}
 		render(data);
-		mlx_key_hook(data->gui->win, key_hook, data);
+
+		mlx_hook(data->gui->win, 2, (1L << 0), &key_hook, data);
+		//mlx_hook(data->gui->win, 3, (1L << 1), &key_release, data);
 		mlx_hook(data->gui->win, 17, 0, ft_exit, data);
 		mlx_loop(data->gui->mlx);
 		return (0);
