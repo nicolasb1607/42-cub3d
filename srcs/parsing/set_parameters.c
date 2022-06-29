@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 09:34:09 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 10:47:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,19 @@ t_data	*set_parameters(t_file	*file)
 	return (data);
 }
 
+float	get_start_angle(char c)
+{
+	if (c == 'E')
+		return ( 0);
+	else if (c == 'S')
+		return (PI / 2);
+	else if (c == 'W')
+		return (PI);
+	else if (c == 'N')
+		return ((3 * PI) / 2);
+	return (0);
+}
+
 t_player *set_player(t_map *map)
 {
 	int	i;
@@ -57,6 +70,7 @@ t_player *set_player(t_map *map)
 			{
 				player->x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
 				player->y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
+				player->rotation_angle = get_start_angle(map->content[i][j]);
 			}
 			j++;
 		}
@@ -66,8 +80,7 @@ t_player *set_player(t_map *map)
 	player->height = 1;
 	player->turn_direction = 0;
 	player->walk_direction = 0;
-//	player->rotation_walk_side
-	player->rotation_angle = PI / 2; // Determiner angle de depart en fonction de la lettre trouvee dans la map E = 0; S = PI / 2; W = PI; N = (3*PI) / 2
+	player->side_angle = 0;
 	player->walk_speed = 2.0;
 	player->turn_speed = 4 * (PI / 180);
 	return (player);

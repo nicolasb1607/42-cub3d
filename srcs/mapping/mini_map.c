@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 09:47:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 10:48:39 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ void	update_player(t_data *data)
 	
 	//MAJ de la position du joueur
 
-	data->player->x_pos += (cos(data->player->rotation_angle) * move_step);
-	data->player->y_pos += (sin(data->player->rotation_angle) * move_step);
+	data->player->x_pos += (cos(data->player->rotation_angle + data->player->side_angle) * move_step);
+	data->player->y_pos += (sin(data->player->rotation_angle + data->player->side_angle) * move_step);
 
 	//Remise à zéro des variables de mouvements
 	data->player->turn_direction = 0;
 	data->player->walk_direction = 0;
+	data->player->side_angle = 0;
 }
+
 void	draw_player(t_data *data)
 {
 	t_2d a;
