@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 21:00:33 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 09:47:10 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	draw_player(t_data *data)
 	// set direction line
 	a.x = data->player->x_pos;
 	a.y = data->player->y_pos;
-	b.x = data->player->x_pos + cos(data->player->rotation_angle) * 20; //pythagore la dernière valeur étant la longeur de la ligne
-	b.y = data->player->y_pos + sin(data->player->rotation_angle) * 20; //pythagore
+	b.x = ceil(data->player->x_pos + cos(data->player->rotation_angle) * 20); // cos(angle) = (adjacent/hypotenuse) la dernière valeur étant la longeur de la ligne
+	b.y = ceil(data->player->y_pos + sin(data->player->rotation_angle) * 20); // sin(angle) = (opposee/hypotenuse)
 
 	// set_color player
 	data->ceiling_color->red = 0;
@@ -49,6 +49,8 @@ void	draw_player(t_data *data)
 	data->ceiling_color->blue = 0;
 
 	//draw direction line
+	printf("a.x = %d; a.y = %d\n", a.x, a.y);
+	printf("b.x = %d; b.y = %d\n", b.x, a.y);
 	bresenham(a, b , data);
 
 	// draw_player

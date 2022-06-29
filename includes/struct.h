@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/28 20:56:50 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 09:25:04 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ typedef struct s_img_data
 
 typedef struct s_player
 {
-	float x_pos;
+	float	x_pos;
 	float	y_pos;
-	int width;
-	int	height;
-	int turn_direction;
-	int walk_direction;
-	float rotation_angle;
+	int		width;
+	int		height;
+	int		turn_direction;
+	int		walk_direction;
+	float	rotation_angle;
 	int	walk_speed;
 	float	turn_speed;
 }	t_player;

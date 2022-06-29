@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 20:26:39 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 09:47:28 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
 		ft_exit(data);
-	if (keycode == XK_Up)
+	if (keycode == XK_w)
 	{
 		data->player->walk_direction = +1;
 		refresh_img(data);

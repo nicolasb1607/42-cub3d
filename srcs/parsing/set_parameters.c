@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/28 21:04:19 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 09:34:09 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ t_player *set_player(t_map *map)
 	player->height = 1;
 	player->turn_direction = 0;
 	player->walk_direction = 0;
-	player->rotation_angle = PI / 2;
+//	player->rotation_walk_side
+	player->rotation_angle = PI / 2; // Determiner angle de depart en fonction de la lettre trouvee dans la map E = 0; S = PI / 2; W = PI; N = (3*PI) / 2
 	player->walk_speed = 2.0;
-	player->turn_speed = 2 * (PI / 180);
+	player->turn_speed = 4 * (PI / 180);
 	return (player);
 }
