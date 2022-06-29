@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 13:25:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:02:51 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,20 @@ int	key_hook(int keycode, t_data *data)
 		refresh_img(data);
 	}
 	return (0);
+}
+
+int	key_release(int key, t_data *data)
+{
+	(void)key;
+	(void)data;
+	return (0);
+}
+
+void	mlx_setting_loop_hooks(t_data *data)
+{
+	//mlx_key_hook(data->gui->win, key_hook, data);
+	mlx_hook(data->gui->win, 2, (1L << 0), &key_hook, data);
+	mlx_hook(data->gui->win, 3, (1L << 1), &key_release, data);
+	mlx_hook(data->gui->win, 17, 0, ft_exit, data);
+	mlx_loop(data->gui->mlx);
 }
