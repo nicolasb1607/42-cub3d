@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/29 10:08:25 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:50:55 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ typedef struct s_player
 	float	y_pos;
 	int		width;
 	int		height;
-	int		turn_direction;
+	int		left_right_rotation;
 	int		walk_direction;
-	float	side_angle;
+	float	side_move_angle;
 	float	rotation_angle;
 	int		walk_speed;
-	float	turn_speed;
+	float	rotation_speed;
 }	t_player;
 
 
