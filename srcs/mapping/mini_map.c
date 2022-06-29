@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 10:48:39 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:07:05 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,23 +97,3 @@ void	set_tile_color(t_data *data, int i, int j)
 		data->ceiling_color->blue = 0;
 	}	
 }
-
-/*
-void	draw_grid(t_map map, t_gui *gui)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < HEIGHT_MAP)
-	{
-		j = 0;
-		while (j < WIDTH)
-		{
-			
-			j++;
-		}
-		i++;
-	}
-}
-*/
