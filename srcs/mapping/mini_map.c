@@ -6,9 +6,11 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:02:37 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 12:09:05 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:50:14 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "mapping.h"
 
@@ -139,9 +141,10 @@ void	update_player(t_data *data)
 	data->player->rotation_angle += (data->player->turn_direction * data->player->turn_speed);
 	
 	//MAJ de la position du joueur
-
+	printf("1: %d %d\n", new_player_x, new_player_y);
 	new_player_x = data->player->x_pos + (cos(data->player->rotation_angle + data->player->side_angle) * move_step);
 	new_player_y = data->player->y_pos + (sin(data->player->rotation_angle + data->player->side_angle) * move_step);
+	printf("2: %d %d\n", new_player_x, new_player_y);
 	
 	if (!is_hiting_a_wall(data, new_player_x, new_player_y))
 	{
