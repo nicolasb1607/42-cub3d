@@ -6,12 +6,25 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/30 15:50:30 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:13:41 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
 
+void	get_shortest_distance(t_ray *ray, t_player *player)
+{
+	float	vertical_distance;
+	float	horizontal_distance;
+	
+	vertical_distance = pow(ray->vertical_hit.x - player->x_pos, 2) + pow(ray->vertical_hit.y - player->y_pos, 2);
+	horizontal_distance = pow(ray->horizontal_hit.x - player->x_pos, 2) + pow(ray->horizontal_hit.y - player->y_pos, 2);
+	if (vertical_distance < horizontal_distance)
+		ray->distance = vertical_distance;
+	else
+		ray->distance = horizontal_distance;
+	return ;
+}
 
 void	set_facing_values(t_ray *ray)
 {
@@ -124,7 +137,7 @@ t_ray	cast_ray(float angle, t_player player, t_map *map)
 	set_facing_values(ray);
 	get_horizontal_hit(ray, player);
 	get_vertical_hit(ray, player);
-	
+	get_shortest_distance(ray, player);
 	returne(ray)
 }
 

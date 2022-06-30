@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/30 14:22:53 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 15:58:05 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ typedef struct s_ray
 	float				facing_top_down;
 	int					increment_left_right;
 	int					increment_top_down;
-	
+	float				distance;
 } 	t_ray;
 
 #endif
