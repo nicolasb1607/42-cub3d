@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/30 09:57:32 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:22:53 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,10 @@ typedef struct s_ray
 	int					y_step;
 	struct s_2d_point	vertical_hit;
 	struct s_2d_point	horizontal_hit;
+	float				facing_left_right;
+	float				facing_top_down;
+	int					increment_left_right;
+	int					increment_top_down;
 	
 } 	t_ray;
 
