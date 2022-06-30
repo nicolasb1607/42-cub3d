@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 14:54:03 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:01:00 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_data	*set_parameters(t_file	*file)
 float	get_start_angle(char c)
 {
 	if (c == 'E')
-		return ( 0);
+		return (0);
 	else if (c == 'S')
 		return (PI / 2);
 	else if (c == 'W')
