@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/30 15:58:05 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:42:38 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ typedef struct s_ray
 	int					y_step;
 	struct s_2d_point	vertical_hit;
 	struct s_2d_point	horizontal_hit;
+	struct s_2d_point	closest_wall;
 	float				facing_left_right;
 	float				facing_top_down;
 	int					increment_left_right;

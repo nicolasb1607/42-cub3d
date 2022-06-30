@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapping.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:05:38 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/30 10:18:39 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:47:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	draw_player(t_data *data);
 void	draw_rec(t_rectangle *rect, t_data *data, int rec_size);
 void	set_tile_color(t_data *data, int i, int j);
 int		is_hiting_a_wall(t_map *map, int x, int y);
-
+void	draw_raycasting(t_data *data, t_ray *ray);
 
 #endif

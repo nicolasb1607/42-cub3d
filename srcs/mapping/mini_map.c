@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/30 10:18:21 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:45:35 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapping.h"
+
+void	draw_raycasting(t_data *data, t_ray *ray)
+{
+	t_2d	a;
+	t_2d	b;
+
+	a.x = data->player->x_pos;
+	a.y = data->player->y_pos;
+	b.x = ray->closest_wall.x;
+	b.y = ray->closest_wall.y;
+
+	// set_color player
+	data->ceiling_color->red = 0;
+	data->ceiling_color->green = 255;
+	data->ceiling_color->blue = 0;
+
+	bresenham(a, b, data);
+}
 
 int	is_hiting_a_wall(t_map *map, int x, int y)
 {
@@ -24,7 +42,7 @@ int	is_hiting_a_wall(t_map *map, int x, int y)
 void	update_player(t_data *data)
 {
 	printf("update_player\n");
-	
+
 	int move_step;
 	int new_player_x = 0;
 	int new_player_y = 0;
@@ -33,7 +51,7 @@ void	update_player(t_data *data)
 
 	move_step = (data->player->walk_direction * data->player->walk_speed);
 	data->player->rotation_angle += (data->player->left_right_rotation * data->player->rotation_speed);
-	
+
 	//MAJ de la position du joueur
 	new_player_x = round(data->player->x_pos + (cos(data->player->rotation_angle + data->player->side_move_angle) * move_step));
 	new_player_y = round(data->player->y_pos + (sin(data->player->rotation_angle + data->player->side_move_angle) * move_step));
