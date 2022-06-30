@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/29 14:50:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/06/30 09:57:32 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,17 @@ typedef struct s_rectangle
 	int width_size;
 	int height_size;
 }	t_rectangle;
+
+typedef struct s_ray
+{
+	float				rad_angle;
+	struct s_2d_point	first_intersection;
+	struct s_2d_point	second_intersection;
+	int					x_step;
+	int					y_step;
+	struct s_2d_point	vertical_hit;
+	struct s_2d_point	horizontal_hit;
+	
+} 	t_ray;
 
 #endif
