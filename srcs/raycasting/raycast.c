@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/01 15:36:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:48:25 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,36 +59,53 @@ void	set_facing_values(t_ray *ray)
 		
 }
 
+int	check_right_case(t_ray *ray, int intersection_y)
+{
+	if (ray->facing_top_down < 0)
+		return (intersection_y - 1);
+	return (intersection_y);
+}
 
 void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 {
 	t_2d next_intersection;
 	
-	// CALCUL FIRST INTERSECTION
-	ray->first_intersection.y = ((player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
-	ray->first_intersection.x = (player->x_pos + ((player->y_pos - ray->first_intersection.y) / tan(ray->rad_angle))) * ray->facing_top_down;
 
+
+	printf("player->y_pos %f\n", player->y_pos);
+	printf("player->x_pos %f\n", player->x_pos);
+	// CALCUL FIRST INTERSECTION
+	ray->first_intersection.y = (int)((player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
+	ray->first_intersection.x = (int)player->x_pos + (((player->y_pos - ray->first_intersection.y) / tan(ray->rad_angle)) * ray->facing_top_down);
+
+//	printf("(player->y_pos / TILE_SIZE) + ray->increment_top_down %f\n", (int(player->y_pos / TILE_SIZE) + ray->increment_top_down);
 	printf("ray->first_intersection.y %d\n", ray->first_intersection.y);
+	printf("ray->first_intersection.x %d\n", ray->first_intersection.x);
 	
-	if(is_hiting_a_wall(map, ray->first_intersection.x, ray->first_intersection.y - 1))
+	if(is_hiting_a_wall(map, ray->first_intersection.x, check_right_case(ray, ray->first_intersection.y)))
 	{
 		ray->horizontal_hit.x = ray->first_intersection.x;
 		ray->horizontal_hit.y = ray->first_intersection.y;
+		printf("TEMOIN\n");
 		return ;
 	}
 	// CALCUL SECOND INTERSECTIONL
 
+	ray->second_intersection.y = ray->first_intersection.y + (TILE_SIZE * ray->facing_top_down);
 	printf("ray->second_intersection.y %d \n", ray->second_intersection.y);
-	ray->second_intersection.y +=  TILE_SIZE * ray->facing_top_down;
 
-	printf("ICI %d %d %d %f %f\n", ray->second_intersection.x, ray->first_intersection.y, ray->second_intersection.y, ray->rad_angle, ray->facing_top_down );
-	ray->second_intersection.x = ray->first_intersection.x + ((ray->first_intersection.y - ray->second_intersection.y) / (int)tan(ray->rad_angle)) * (int)ray->facing_top_down;
+//	printf("ICI %d %d %d %f %f\n", ray->second_intersection.x, ray->first_intersection.y, ray->second_intersection.y, ray->rad_angle, ray->facing_top_down );
+	ray->second_intersection.x = ray->first_intersection.x + (((ray->first_intersection.y - ray->second_intersection.y) / tan(ray->rad_angle)) * ray->facing_top_down);
+	printf("ray->second_intersection.x %d \n", ray->second_intersection.x);
 
-	printf("ICI %d\n", ray->second_intersection.x);
-	if(is_hiting_a_wall(map, ray->second_intersection.x, ray->second_intersection.y - 1))
+	printf("ICI %d\n", ray->second_intersection.y);
+	if(is_hiting_a_wall(map, ray->second_intersection.x,check_right_case(ray, ray->second_intersection.y)))
 	{
 		ray->horizontal_hit.x = ray->second_intersection.x;
 		ray->horizontal_hit.y = ray->second_intersection.y;
+
+		printf("ray->horizontal_hit.y %d\n",ray->horizontal_hit.y);
+		printf("OUT\n");
 		return ;
 	}
 	// CALCUL STEPS
@@ -96,13 +113,15 @@ void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->x_step = TILE_SIZE / tan(ray->rad_angle) * ray->facing_left_right;
 	next_intersection.x = ray->second_intersection.x * ray->x_step;
 	next_intersection.y = ray->second_intersection.y * ray->y_step;
-	while (!is_hiting_a_wall(map, next_intersection.x, next_intersection.y - 1))
+	while (!is_hiting_a_wall(map, next_intersection.x, check_right_case(ray, next_intersection.y)))
 	{
 		next_intersection.x += ray->x_step;
 		next_intersection.y += ray->y_step;
 	}
 	ray->horizontal_hit.x = next_intersection.x;
 	ray->horizontal_hit.y = next_intersection.y;
+	printf("ray->horizontal_hit.y %d\n", ray->horizontal_hit.y);
+	printf("ray->horizontal_hit.x %d\n", ray->horizontal_hit.x);
 	return ;	
 }
 
@@ -116,8 +135,8 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->first_intersection.y = player->y_pos + (ray->first_intersection.x - player->x_pos) * tan(ray->rad_angle) * ray->facing_left_right;
 	if(is_hiting_a_wall(map, ray->first_intersection.x, ray->first_intersection.y))
 	{
-		ray->horizontal_hit.x = ray->first_intersection.x;
-		ray->horizontal_hit.y = ray->first_intersection.y;
+		ray->vertical_hit.x = ray->first_intersection.x;
+		ray->vertical_hit.y = ray->first_intersection.y;
 		return ;
 	}
 	// CALCUL SECOND INTERSECTION
@@ -125,8 +144,8 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->second_intersection.y =  ray->first_intersection.y + (TILE_SIZE * tan(ray->rad_angle)) * ray->facing_top_down;
 	if(is_hiting_a_wall(map, ray->second_intersection.x, ray->second_intersection.y))
 	{
-		ray->horizontal_hit.x = ray->second_intersection.x;
-		ray->horizontal_hit.y = ray->second_intersection.y;
+		ray->vertical_hit.x = ray->second_intersection.x;
+		ray->vertical_hit.y = ray->second_intersection.y;
 		return ;
 	}
 	// CALCUL STEPS
@@ -139,8 +158,8 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 		next_intersection.x += ray->x_step;
 		next_intersection.y += ray->y_step;
 	}
-	ray->horizontal_hit.x = next_intersection.x;
-	ray->horizontal_hit.y = next_intersection.y;
+	ray->vertical_hit.x = next_intersection.x;
+	ray->vertical_hit.y = next_intersection.y;
 	return ;	
 }
 
