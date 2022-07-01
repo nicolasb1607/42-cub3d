@@ -6,37 +6,37 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/30 16:44:04 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/01 15:36:11 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
 
-void	get_shortest_distance(t_ray *ray, t_player *player)
+
+t_ray	*cast_ray(double angle, t_player *player, t_map *map)
 {
-	float	vertical_distance;
-	float	horizontal_distance;
-	
-	vertical_distance = pow(ray->vertical_hit.x - player->x_pos, 2) + pow(ray->vertical_hit.y - player->y_pos, 2);
-	horizontal_distance = pow(ray->horizontal_hit.x - player->x_pos, 2) + pow(ray->horizontal_hit.y - player->y_pos, 2);
-	if (vertical_distance < horizontal_distance)
-	{
-		ray->closest_wall.x = ray->vertical_hit.x;
-		ray->closest_wall.y = ray->vertical_hit.y;
-		ray->distance = vertical_distance;
-	}
-	else
-	{
-		ray->closest_wall.x = ray->horizontal_hit.x;
-		ray->closest_wall.y = ray->horizontal_hit.y;
-		ray->distance = horizontal_distance;
-	}
-	return ;
+	t_ray *ray;
+
+	ray = ft_calloc(1, sizeof(t_ray));
+	if(!ray)
+		return (ft_putstr_fd(ERROR_MALLOC, 2), NULL);
+	ray->rad_angle = angle;
+	printf("ray->rad_angle = %f\n", ray->rad_angle);
+	set_facing_values(ray);
+	get_horizontal_hit(ray, player, map);
+	get_vertical_hit(ray, player, map);
+	get_shortest_distance(ray, player);
+	return (ray);
 }
+
+
 
 void	set_facing_values(t_ray *ray)
 {
-	if (ray->rad_angle > PI / 2 && ray->rad_angle < (3 * PI) / 2)
+	double	angle;
+
+	angle = fmod(ray->rad_angle, 2 * PI);
+	if (angle > PI / 2 && angle < (3 * PI) / 2)
 	{
 		ray->facing_left_right = -1;
 		ray->increment_left_right = 0;
@@ -46,7 +46,7 @@ void	set_facing_values(t_ray *ray)
 		ray->facing_left_right = 1;
 		ray->increment_left_right = 1;
 	}
-	if (ray->rad_angle > PI && ray->rad_angle < 2 * PI)
+	if (angle > PI && angle < 2 * PI)
 	{
 		ray->facing_top_down = -1;
 		ray->increment_top_down = 0;
@@ -57,6 +57,53 @@ void	set_facing_values(t_ray *ray)
 		ray->increment_top_down = 1;	
 	}
 		
+}
+
+
+void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
+{
+	t_2d next_intersection;
+	
+	// CALCUL FIRST INTERSECTION
+	ray->first_intersection.y = ((player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
+	ray->first_intersection.x = (player->x_pos + ((player->y_pos - ray->first_intersection.y) / tan(ray->rad_angle))) * ray->facing_top_down;
+
+	printf("ray->first_intersection.y %d\n", ray->first_intersection.y);
+	
+	if(is_hiting_a_wall(map, ray->first_intersection.x, ray->first_intersection.y - 1))
+	{
+		ray->horizontal_hit.x = ray->first_intersection.x;
+		ray->horizontal_hit.y = ray->first_intersection.y;
+		return ;
+	}
+	// CALCUL SECOND INTERSECTIONL
+
+	printf("ray->second_intersection.y %d \n", ray->second_intersection.y);
+	ray->second_intersection.y +=  TILE_SIZE * ray->facing_top_down;
+
+	printf("ICI %d %d %d %f %f\n", ray->second_intersection.x, ray->first_intersection.y, ray->second_intersection.y, ray->rad_angle, ray->facing_top_down );
+	ray->second_intersection.x = ray->first_intersection.x + ((ray->first_intersection.y - ray->second_intersection.y) / (int)tan(ray->rad_angle)) * (int)ray->facing_top_down;
+
+	printf("ICI %d\n", ray->second_intersection.x);
+	if(is_hiting_a_wall(map, ray->second_intersection.x, ray->second_intersection.y - 1))
+	{
+		ray->horizontal_hit.x = ray->second_intersection.x;
+		ray->horizontal_hit.y = ray->second_intersection.y;
+		return ;
+	}
+	// CALCUL STEPS
+	ray->y_step = TILE_SIZE * ray->facing_top_down;
+	ray->x_step = TILE_SIZE / tan(ray->rad_angle) * ray->facing_left_right;
+	next_intersection.x = ray->second_intersection.x * ray->x_step;
+	next_intersection.y = ray->second_intersection.y * ray->y_step;
+	while (!is_hiting_a_wall(map, next_intersection.x, next_intersection.y - 1))
+	{
+		next_intersection.x += ray->x_step;
+		next_intersection.y += ray->y_step;
+	}
+	ray->horizontal_hit.x = next_intersection.x;
+	ray->horizontal_hit.y = next_intersection.y;
+	return ;	
 }
 
 void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
@@ -97,55 +144,29 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 	return ;	
 }
 
-void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
+
+
+void	get_shortest_distance(t_ray *ray, t_player *player)
 {
-	t_2d next_intersection;
-	
-	// CALCUL FIRST INTERSECTION
-	ray->first_intersection.y = ((player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
-	ray->first_intersection.x = player->x_pos + ((player->y_pos - ray->first_intersection.y) / tan(ray->rad_angle)) * ray->facing_top_down;
-	if(is_hiting_a_wall(map, ray->first_intersection.x, ray->first_intersection.y))
+	float	vertical_distance;
+	float	horizontal_distance;
+
+
+	printf("in get_shortest_distance:\nhorizontal_hit.x:%d ray->horizontal_hit.y:%d\n", ray->horizontal_hit.x , ray->horizontal_hit.y);
+	vertical_distance = sqrt(pow(abs(ray->vertical_hit.x - (int)player->x_pos), 2) + pow(abs(ray->vertical_hit.y - (int)player->y_pos), 2));
+	horizontal_distance = sqrt(pow(abs(ray->horizontal_hit.x - (int)player->x_pos), 2) + pow(abs(ray->horizontal_hit.y - (int)player->y_pos), 2));
+	if (vertical_distance < horizontal_distance)
 	{
-		ray->horizontal_hit.x = ray->first_intersection.x;
-		ray->horizontal_hit.y = ray->first_intersection.y;
-		return ;
+		ray->closest_wall.x = ray->vertical_hit.x;
+		ray->closest_wall.y = ray->vertical_hit.y;
+		ray->distance = vertical_distance;
 	}
-	// CALCUL SECOND INTERSECTION
-	ray->second_intersection.y +=  TILE_SIZE * ray->facing_top_down;
-	ray->second_intersection.x = ray->first_intersection.x + ((ray->first_intersection.y - ray->second_intersection.y) / tan(ray->rad_angle)) * ray->facing_top_down;
-	if(is_hiting_a_wall(map, ray->second_intersection.x, ray->second_intersection.y))
+	else
 	{
-		ray->horizontal_hit.x = ray->second_intersection.x;
-		ray->horizontal_hit.y = ray->second_intersection.y;
-		return ;
+		ray->closest_wall.x = ray->horizontal_hit.x;
+		ray->closest_wall.y = ray->horizontal_hit.y;
+		ray->distance = horizontal_distance;
 	}
-	// CALCUL STEPS
-	ray->y_step = TILE_SIZE * ray->facing_top_down;
-	ray->x_step = TILE_SIZE / tan(ray->rad_angle) * ray->facing_left_right;
-	next_intersection.x = ray->second_intersection.x * ray->x_step;
-	next_intersection.y = ray->second_intersection.y * ray->y_step;
-	while (!is_hiting_a_wall(map, next_intersection.x, next_intersection.y))
-	{
-		next_intersection.x += ray->x_step;
-		next_intersection.y += ray->y_step;
-	}
-	ray->horizontal_hit.x = next_intersection.x;
-	ray->horizontal_hit.y = next_intersection.y;
-	return ;	
+	printf("in get_shortest_distance:\n%f %f\n", vertical_distance , horizontal_distance);
+	return ;
 }
-
-t_ray	*cast_ray(float angle, t_player *player, t_map *map)
-{
-	t_ray *ray;
-
-	ray = ft_calloc(1, sizeof(t_ray));
-	if(!ray)
-		return (ft_putstr_fd(ERROR_MALLOC, 2), NULL);
-	ray->rad_angle = angle;
-	set_facing_values(ray);
-	get_horizontal_hit(ray, player, map);
-	get_vertical_hit(ray, player, map);
-	get_shortest_distance(ray, player);
-	return (ray);
-}
-

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/30 16:42:38 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/01 13:49:43 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,16 @@ typedef struct s_img_data
 
 typedef struct s_player
 {
-	float	x_pos;
-	float	y_pos;
+	double	x_pos;
+	double	y_pos;
 	int		width;
 	int		height;
 	int		left_right_rotation;
 	int		walk_direction;
-	float	side_move_angle;
-	float	rotation_angle;
+	double	side_move_angle;
+	double	rotation_angle;
 	int		walk_speed;
-	float	rotation_speed;
+	double	rotation_speed;
 }	t_player;
 
 
@@ -125,7 +125,7 @@ typedef struct s_rectangle
 
 typedef struct s_ray
 {
-	float				rad_angle;
+	double				rad_angle;
 	struct s_2d_point	first_intersection;
 	struct s_2d_point	second_intersection;
 	int					x_step;
@@ -133,11 +133,11 @@ typedef struct s_ray
 	struct s_2d_point	vertical_hit;
 	struct s_2d_point	horizontal_hit;
 	struct s_2d_point	closest_wall;
-	float				facing_left_right;
-	float				facing_top_down;
+	double				facing_left_right;
+	double				facing_top_down;
 	int					increment_left_right;
 	int					increment_top_down;
-	float				distance;
+	double				distance;
 } 	t_ray;
 
 #endif

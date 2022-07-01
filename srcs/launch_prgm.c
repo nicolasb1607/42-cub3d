@@ -59,7 +59,7 @@ void	render(t_data *data)
 	draw_minimap(data);
 	update_player(data);
 	draw_player(data);
-	draw_raycasting(data, cast_ray(data->player->rotation_angle + PI, data->player, data->map));
+	draw_raycasting(data, cast_ray(data->player->rotation_angle, data->player, data->map));
 	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
 		data->gui->img_data->img, 0, 0);
 }
