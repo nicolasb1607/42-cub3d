@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/02 18:28:23 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:29:16 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,7 +291,7 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 	return ;	
 }
 
-double	distanceBetweenPoints(double x1, double y1, double x2, double y2)
+double	distance(double x1, double y1, double x2, double y2)
 {
     return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
