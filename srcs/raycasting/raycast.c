@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/02 18:29:16 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:31:53 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	new_get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	
 	printf("new ray->rad_angle = %f\n", ray->rad_angle);
 	printf("ray->increment_top_down %d\n", ray->increment_top_down);
+
+	
 	ray->intersection.y = (floor((player->y_pos / TILE_SIZE)) + ray->increment_top_down) * TILE_SIZE ;
 
 
@@ -105,6 +107,8 @@ void	new_get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	printf("%f %f %f\n", player->x_pos, ray->intersection.y, player->y_pos);
 	
 	printf("ray->intersection.x = %f \n", ray->intersection.x);
+
+	
 	ray->intersection.x = player->x_pos + (((ray->intersection.y - player->y_pos) / tan(ray->rad_angle)) * ray->facing_up_down);
 
 //	printf("ray->intersection.x = %f ray->intersection.y = %f\n", ray->intersection.x, ray->intersection.y);
@@ -117,8 +121,10 @@ void	new_get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 		ray->x_step *= -1;
 
 	ray->exist_horizontal_hit = FALSE;
+	
 	printf("x_step = %d\n", ray->x_step);
 	printf("ray->intersection.x = %f ray->intersection.y = %f\n", ray->intersection.x, ray->intersection.y);
+	
 	while (ray->intersection.y >= 0 && ray->intersection.y < TILE_SIZE * map->height && ray->intersection.x >= 0 && ray->intersection.x < TILE_SIZE * map->width)
 	{
 		if (is_hiting_a_wall(map, ray->intersection.x, check_right_case(ray,ray->intersection.y, HORIZONTAL)))
@@ -305,8 +311,8 @@ void	get_shortest_distance(t_ray *ray, t_player *player)
 	printf("vertical_hit.x:%f ray->vertical_hit.y:%f\n", ray->vertical_hit.x , ray->vertical_hit.y);
 	// vertical_distance = sqrt(pow(ft_abs_double(ray->vertical_hit.x - player->x_pos), 2) + pow(ft_abs_double(ray->vertical_hit.y - player->y_pos), 2));
 	// horizontal_distance = sqrt(pow(ft_abs_double(ray->horizontal_hit.x - player->x_pos), 2) + pow(ft_abs_double(ray->horizontal_hit.y - player->y_pos), 2));
-	vertical_distance = distanceBetweenPoints(player->x_pos, player->y_pos, ray->vertical_hit.x, ray->vertical_hit.y);
-	horizontal_distance = distanceBetweenPoints(player->x_pos, player->y_pos, ray->horizontal_hit.x, ray->horizontal_hit.y);
+	vertical_distance = distance(player->x_pos, player->y_pos, ray->vertical_hit.x, ray->vertical_hit.y);
+	horizontal_distance = distance(player->x_pos, player->y_pos, ray->horizontal_hit.x, ray->horizontal_hit.y);
 	printf("%d %d\n", ray->exist_horizontal_hit, ray->exist_vertical_hit);
 	
 	
