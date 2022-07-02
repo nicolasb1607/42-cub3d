@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/02 18:31:53 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:36:04 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	new_get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	printf("ray->increment_top_down %d\n", ray->increment_top_down);
 
 	
-	ray->intersection.y = (floor((player->y_pos / TILE_SIZE)) + ray->increment_top_down) * TILE_SIZE ;
+	ray->intersection.y = (floor(player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
 
 
 	printf("(ray->intersection.y - player->y_pos) = %f ray->rad_angle %f tan(ray->rad_angle) =%f\n", (ray->intersection.y - player->y_pos), ray->rad_angle, tan(ray->rad_angle));
@@ -109,7 +109,7 @@ void	new_get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	printf("ray->intersection.x = %f \n", ray->intersection.x);
 
 	
-	ray->intersection.x = player->x_pos + (((ray->intersection.y - player->y_pos) / tan(ray->rad_angle)) * ray->facing_up_down);
+	ray->intersection.x = player->x_pos + (((ray->intersection.y - player->y_pos) / tan(ray->rad_angle))/* * ray->facing_up_down*/);
 
 //	printf("ray->intersection.x = %f ray->intersection.y = %f\n", ray->intersection.x, ray->intersection.y);
 	ray->y_step = TILE_SIZE * ray->facing_up_down;
@@ -216,7 +216,7 @@ void	new_get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 //	printf("ray->increment_left_right %d\n", ray->increment_left_right);
 	ray->intersection.x = (floor((player->x_pos / TILE_SIZE)) + ray->increment_left_right) * TILE_SIZE;
 //	printf("ray->intersection.x ===== %f\n", ray->intersection.x);
-	ray->intersection.y = player->y_pos + ((ray->intersection.x - player->x_pos) * tan(ray->rad_angle) * ray->facing_left_right);
+	ray->intersection.y = player->y_pos + ((ray->intersection.x - player->x_pos) * tan(ray->rad_angle)/* * ray->facing_left_right*/);
 
 	ray->x_step = TILE_SIZE * ray->facing_left_right;
 //	printf("x_step %d\n", ray->x_step);
