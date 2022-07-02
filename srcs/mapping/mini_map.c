@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/02 17:34:23 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:08:53 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ void	draw_player(t_data *data)
 	data->ceiling_color->blue = 0;
 
 	//draw direction line
-	printf("-------------------------\n");
-	printf("draw player:\n");
-	printf("a.x = %d; a.y = %d\n", a.x, a.y);
-	printf("b.x = %d; b.y = %d\n", b.x, a.y);
-	printf("-------------------------\n");
-	bresenham(a, b, data);
+	// printf("-------------------------\n");
+	// printf("draw player:\n");
+	// printf("a.x = %d; a.y = %d\n", a.x, a.y);
+	// printf("b.x = %d; b.y = %d\n", b.x, a.y);
+	// printf("-------------------------\n");
+	// bresenham(a, b, data);
 
 	// draw_player
 	my_mlx_pixel_put(a.x, a.y, data->gui->img_data, encode_rgb(255,0,0));
