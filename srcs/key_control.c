@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/29 14:50:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:34:34 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int	key_hook(int keycode, t_data *data)
 	}
 	if (keycode == XK_Right)
 	{
-		data->player->left_right_rotation = +1;
+		data->player->left_right_rotation = -1;
 		refresh_img(data);
 	}
 	if (keycode == XK_Left)
 	{
-		data->player->left_right_rotation = -1;
+		data->player->left_right_rotation = +1;
 		refresh_img(data);
 	}
 	return (0);

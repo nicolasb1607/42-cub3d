@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/01 16:41:58 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:34:23 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ void	draw_raycasting(t_data *data, t_ray *ray)
 	b.y = ray->closest_wall.y;
 
 
-	printf("drwa_raycating\n");
+	printf("draw_raycating\n");
+
+	printf("%f %f\n", ray->closest_wall.x, ray->closest_wall.y);
 	printf("%d %d\n", b.x, b.y);
 	// set_color player
-	data->ceiling_color->red = 0;
-	data->ceiling_color->green = 255;
+	data->ceiling_color->red = 255;
+	data->ceiling_color->green = 0;
 	data->ceiling_color->blue = 0;
 
 	bresenham(a, b, data);
@@ -53,7 +55,7 @@ void	update_player(t_data *data)
 	//SET_UP direction des mouvements
 
 	move_step = (data->player->walk_direction * data->player->walk_speed);
-	data->player->rotation_angle = fmod(data->player->rotation_angle + (data->player->left_right_rotation * data->player->rotation_speed), 2 * PI);
+	data->player->rotation_angle = fmod(data->player->rotation_angle - (data->player->left_right_rotation * data->player->rotation_speed), 2 * PI);
 	
 	//MAJ de la position du joueur
 	new_player_x = round(data->player->x_pos + (cos(data->player->rotation_angle + data->player->side_move_angle) * move_step));
