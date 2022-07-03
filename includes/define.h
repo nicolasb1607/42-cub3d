@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/02 16:31:41 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/03 18:42:04 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # define TRUE 1
 # define FALSE 0
+
+# define HORIZONTAL 0
+# define VERTICAL 1
+
+# define LEFT -1
+# define RIGHT 1
+# define UP -1
+# define DOWN 1
+
 # define PI 3.1415926535
 
 # define HEIGHT_WIN /*1080*//*480  */ 960 
