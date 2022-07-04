@@ -3,15 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 10:58:28 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:36:53 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapping.h"
 
+void draw_all_raycasting(t_data *data, t_list *all_rays)
+{
+	t_ray	*ray;
+	t_2d	a;
+	t_2d	b;
+
+	while (all_rays)
+	{
+		ray = (t_ray*)all_rays->content;
+		a.x = data->player->x_pos;
+		a.y = data->player->y_pos;
+		b.x = ray->closest_wall.x;
+		b.y = ray->closest_wall.y;
+
+
+		printf("draw_raycating\n");
+
+		printf("%f %f\n", ray->closest_wall.x, ray->closest_wall.y);
+		printf("%d %d\n", b.x, b.y);
+		// set_color player
+		data->ceiling_color->red = 255;
+		data->ceiling_color->green = 0;
+		data->ceiling_color->blue = 0;
+
+		bresenham(a, b, data);
+		all_rays = all_rays->next;
+	}
+}
+
+/*
 void	draw_raycasting(t_data *data, t_ray *ray)
 {
 	t_2d	a;
@@ -34,7 +64,7 @@ void	draw_raycasting(t_data *data, t_ray *ray)
 
 	bresenham(a, b, data);
 }
-
+*/
 int	is_hiting_a_wall(t_map *map, int x, int y)
 {
 	if (x < 0 || x > TILE_SIZE * map->width || y < 0 || y > TILE_SIZE * map->height)

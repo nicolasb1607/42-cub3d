@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_prgm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/04 10:34:06 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/04 13:07:49 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ int	launch_prgm(char *file_name)
 
 void	render(t_data *data)
 {
+	t_list *all_rays = NULL;
 //	printf("render\n");
 	draw_minimap(data);
 	//draw_player(data);
 	update_player(data);
-	draw_raycasting(data, cast_ray(data->player->rotation_angle, data->player, data->map));
-	
+	all_rays = cast_all_ray(data->player, data->map);
+	draw_all_raycasting(data, all_rays);
+	// draw_raycasting(data, cast_ray(data->player->rotation_angle, data->player, data->map));
 	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
 		data->gui->img_data->img, 0, 0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapping.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 11:05:38 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 09:19:01 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:35:31 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int		is_hiting_a_wall(t_map *map, int x, int y);
 void	draw_raycasting(t_data *data, t_ray *ray);
 void	update_player(t_data *data);
 
+void draw_all_raycasting(t_data *data, t_list *all_rays);
 #endif

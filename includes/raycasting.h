@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 09:58:10 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/03 19:04:39 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:36:15 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map);
 double	distance(double x1, double y1, double x2, double y2);
 void	get_shortest_distance(t_ray *ray, t_player *player);
 
+t_list	*cast_all_ray(t_player *player, t_map *map);
 #endif

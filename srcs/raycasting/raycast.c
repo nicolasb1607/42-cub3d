@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 10:51:52 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:29:58 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
+
+t_list	*cast_all_ray(t_player *player, t_map *map)
+{
+	t_ray	*ray;
+	t_list	*all_rays;
+	int		i;
+	double	angle_incr;
+	double	ray_angle;
+
+	angle_incr = FOV / NUMBER_OF_RAYS;
+	ray_angle = player->rotation_angle - (FOV / 2);
+	all_rays = NULL;
+	i = 0;
+	while (i < NUMBER_OF_RAYS)
+	{
+		ray = cast_ray(ray_angle, player, map);
+		ft_lstadd_back(&all_rays, ft_lstnew(ray));
+		ray_angle += angle_incr;
+		i++;
+	}
+	return (all_rays);
+}
 
 t_ray	*cast_ray(double angle, t_player *player, t_map *map)
 {
