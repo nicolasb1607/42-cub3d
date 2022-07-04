@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 09:44:12 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:51:52 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,22 @@ double	distance(double x1, double y1, double x2, double y2)
     return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
+void	update_closest_wall(t_ray *ray, int orientation, int distance)
+ {
+	if (orientation == VERTICAL)
+	{
+		ray->closest_wall.x = ray->vertical_hit.x;
+		ray->closest_wall.y = ray->vertical_hit.y;
+		ray->distance = distance;
+	}
+	else if (orientation == HORIZONTAL)
+	{
+		ray->closest_wall.x = ray->horizontal_hit.x;
+		ray->closest_wall.y = ray->horizontal_hit.y;
+		ray->distance = distance;
+	}
+ }
+
 void	get_shortest_distance(t_ray *ray, t_player *player)
 {
 	double	vertical_distance;
@@ -157,30 +173,14 @@ void	get_shortest_distance(t_ray *ray, t_player *player)
 	if (ray->exist_horizontal_hit && ray->exist_vertical_hit)
 	{
 		if (vertical_distance < horizontal_distance)
-		{
-			ray->closest_wall.x = ray->vertical_hit.x;
-			ray->closest_wall.y = ray->vertical_hit.y;
-			ray->distance = vertical_distance;
-		}
+			update_closest_wall(ray, VERTICAL, vertical_distance);
 		else
-		{
-			ray->closest_wall.x = ray->horizontal_hit.x;
-			ray->closest_wall.y = ray->horizontal_hit.y;
-			ray->distance = horizontal_distance;
-		}
+			update_closest_wall(ray, HORIZONTAL, horizontal_distance);
 	}
 	else if (ray->exist_horizontal_hit)
-	{
-		ray->closest_wall.x = ray->horizontal_hit.x;
-		ray->closest_wall.y = ray->horizontal_hit.y;
-		ray->distance = horizontal_distance;
-	}
+		update_closest_wall(ray, HORIZONTAL, horizontal_distance);
 	else
-	{
-		ray->closest_wall.x = ray->vertical_hit.x;
-		ray->closest_wall.y = ray->vertical_hit.y;
-		ray->distance = vertical_distance;
-	}
+		update_closest_wall(ray, VERTICAL, vertical_distance);
 	return ;
 }
 

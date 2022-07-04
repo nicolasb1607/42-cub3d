@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 09:23:04 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:55:33 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,10 @@ void	update_player(t_data *data)
 void	draw_player(t_data *data)
 {
 	t_2d a;
-	t_2d b;
-
+	
 	// set direction line
 	a.x = data->player->x_pos;
 	a.y = data->player->y_pos;
-	b.x = round(data->player->x_pos + cos(data->player->rotation_angle) * 20); // cos(angle) = (adjacent/hypotenuse) la dernière valeur étant la longeur de la ligne
-	b.y = round(data->player->y_pos + sin(data->player->rotation_angle) * 20); // sin(angle) = (opposee/hypotenuse)
-
 	// set_color player
 	data->ceiling_color->red = 0;
 	data->ceiling_color->green = 255;
