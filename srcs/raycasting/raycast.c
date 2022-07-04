@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 12:29:58 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/04 16:33:12 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ t_list	*cast_all_ray(t_player *player, t_map *map)
 	i = 0;
 	while (i < NUMBER_OF_RAYS)
 	{
+		if (ray_angle < 0)
+			ray_angle += (2 * PI);
+		ray_angle = fmod(ray_angle, PI *2);
+		printf("%d.  %f\n", i, ray_angle);
 		ray = cast_ray(ray_angle, player, map);
 		ft_lstadd_back(&all_rays, ft_lstnew(ray));
 		ray_angle += angle_incr;
@@ -42,8 +46,6 @@ t_ray	*cast_ray(double angle, t_player *player, t_map *map)
 	if(!ray)
 		return (ft_putstr_fd(ERROR_MALLOC, 2), NULL);
 	ray->rad_angle = angle;
-	if (ray->rad_angle < 0)
-	 	ray->rad_angle += (2 * PI);
 	set_facing_values(ray);
 	get_horizontal_hit(ray, player, map);
 	get_vertical_hit(ray, player, map);
@@ -82,13 +84,13 @@ int	adjust_coordonate(t_ray *ray, int coordonate, int hit_direction)
 	{
 		if (ray->facing_up_down == UP)
 			return (coordonate - 1);
-		return (coordonate + 1);
+		return (coordonate);
 	}
 	else
 	{
 		if (ray->facing_left_right == LEFT)
 			return (coordonate - 1);
-		return (coordonate + 1);
+		return (coordonate);
 	}
 }
 
@@ -166,11 +168,11 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 
 double	distance(double x1, double y1, double x2, double y2)
 {
-    return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
 void	update_closest_wall(t_ray *ray, int orientation, int distance)
- {
+{
 	if (orientation == VERTICAL)
 	{
 		ray->closest_wall.x = ray->vertical_hit.x;
@@ -183,7 +185,7 @@ void	update_closest_wall(t_ray *ray, int orientation, int distance)
 		ray->closest_wall.y = ray->horizontal_hit.y;
 		ray->distance = distance;
 	}
- }
+}
 
 void	get_shortest_distance(t_ray *ray, t_player *player)
 {
@@ -194,7 +196,8 @@ void	get_shortest_distance(t_ray *ray, t_player *player)
 	horizontal_distance = distance(player->x_pos, player->y_pos, ray->horizontal_hit.x, ray->horizontal_hit.y);
 	if (ray->exist_horizontal_hit && ray->exist_vertical_hit)
 	{
-		if (vertical_distance < horizontal_distance)
+//		printf("vertical_distance = %f, horizontal_distance %f\n", vertical_distance, horizontal_distance);
+		if (vertical_distance <= horizontal_distance)
 			update_closest_wall(ray, VERTICAL, vertical_distance);
 		else
 			update_closest_wall(ray, HORIZONTAL, horizontal_distance);
@@ -205,7 +208,6 @@ void	get_shortest_distance(t_ray *ray, t_player *player)
 		update_closest_wall(ray, VERTICAL, vertical_distance);
 	return ;
 }
-
 
 //######################################################################
 //#                               old version                          #
