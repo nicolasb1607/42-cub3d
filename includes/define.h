@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 15:33:26 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:08:08 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 
 # define WIDTH_RAY 4
 # define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)
+# define PROJECTION_PLANE ((WIDTH_WIN / 2) / tan(FOV / 2))
 
 # define WALK_SPEED TILE_SIZE / 10
 # define ROTATION_SPEED 4 * (PI / 180)
