@@ -30,6 +30,7 @@ SRCS =	main.c						\
 		mapping/mini_map.c \
 		exit.c						\
 		key_control.c				\
+		raycasting/raycast.c
 		
 
 ################################################################################

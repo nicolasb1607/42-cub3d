@@ -55,8 +55,9 @@ void	render(t_data *data)
 {
 //	printf("render\n");
 	draw_minimap(data);
-	update_player(data);
 	draw_player(data);
+	draw_raycasting(data, cast_ray(data->player->rotation_angle, data->player, data->map));
+	update_player(data);
 	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
 		data->gui->img_data->img, 0, 0);
 }

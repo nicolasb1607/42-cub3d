@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/29 14:50:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:19:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,16 @@ typedef struct s_img_data
 
 typedef struct s_player
 {
-	float	x_pos;
-	float	y_pos;
+	double	x_pos;
+	double	y_pos;
 	int		width;
 	int		height;
 	int		left_right_rotation;
 	int		walk_direction;
-	float	side_move_angle;
-	float	rotation_angle;
+	double	side_move_angle;
+	double	rotation_angle;
 	int		walk_speed;
-	float	rotation_speed;
+	double	rotation_speed;
 }	t_player;
 
 
@@ -122,5 +122,32 @@ typedef struct s_rectangle
 	int width_size;
 	int height_size;
 }	t_rectangle;
+
+typedef struct s_2d_point_double
+{
+	double	x;
+	double	y;
+}	t_2d_double;
+
+
+typedef struct s_ray
+{
+	double				rad_angle;
+	struct s_2d_point_double	intersection;
+	int					exist_horizontal_hit;
+	int					exist_vertical_hit;
+	struct s_2d_point_double	first_intersection;
+	struct s_2d_point_double	second_intersection;
+	int					x_step;
+	int					y_step;
+	struct s_2d_point_double	vertical_hit;
+	struct s_2d_point_double	horizontal_hit;
+	struct s_2d_point_double	closest_wall;
+	double				facing_left_right;
+	double				facing_up_down;
+	int					increment_left_right;
+	int					increment_top_down;
+	double				distance;
+} 	t_ray;
 
 #endif

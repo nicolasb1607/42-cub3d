@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:29:41 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/25 15:00:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:21:40 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,11 @@ void	print_2d_array(char **array)
 		printf("\n");
 		i++;
 	}
+}
+
+double ft_abs_double(double nb)
+{
+	if (nb < 0)
+		nb = nb * (-1.0); 
+	return (nb);
 }
