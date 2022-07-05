@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 15:01:20 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:18:34 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void draw_walls(t_data *data, t_list *all_rays)
 		ray = (t_ray *)all_rays->content;
 
 		printf("ray->distance = %f\n", ray->distance);
-		double correct_distance = ray->distance * cos(ray->rad_angle - data->player->rotation_angle);
+		double correct_distance = ray->distance * cos(ray->rad_angle + data->player->rotation_angle);
 		printf("correct_distance = %f\n", correct_distance);
 //		wall_strip_height = (TILE_SIZE / ray->distance) * DISTANCE_PROJ_PLANE;
 		wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
