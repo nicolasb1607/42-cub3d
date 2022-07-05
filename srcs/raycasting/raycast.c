@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 10:16:46 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:18:04 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 
 	// CALCUL FIRST INTERSECTION
 
+	printf("in get_horizontal_hit\n");
 	ray->intersection.y = (floor(player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
 	ray->intersection.x = player->x_pos + (((ray->intersection.y - player->y_pos) / tan(ray->rad_angle)));
 
@@ -98,7 +99,6 @@ void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->exist_horizontal_hit = FALSE;
 	while (ray->intersection.y >= 0 && ray->intersection.y < TILE_SIZE * map->height && ray->intersection.x >= 0 && ray->intersection.x < TILE_SIZE * map->width)
 	{
-		printf("in get_horizontal_hit\n");
 		printf("y = %f x = %f\n", ray->intersection.y, ray->intersection.x);
 		if (is_hiting_a_wall(map, ray->intersection.x, adjust_coordonate(ray,ray->intersection.y, HORIZONTAL)))
 		{
