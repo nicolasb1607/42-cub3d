@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 16:04:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:08:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define WIDTH_WIN /*1920*/ /* 640*/1280  
 
 # define MINIMAP_SCALE 1
-# define TILE_SIZE 32
+# define TILE_SIZE 64
 
 # define WIDTH_RAY 1
 # define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)

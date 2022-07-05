@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 12:39:52 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:13:47 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_hiting_a_wall(t_map *map, int x, int y)
 {
-	if (x < 0 || x > TILE_SIZE * map->width || y < 0 || y > TILE_SIZE * map->height)
+	if (x <= 0 || x >= TILE_SIZE * map->width || y <= 0 || y >= TILE_SIZE * map->height)
 		return (TRUE);
 	if (map->content[y / TILE_SIZE][x / TILE_SIZE] == '1')
 		return (TRUE);
