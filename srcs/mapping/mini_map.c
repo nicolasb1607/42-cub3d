@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 15:30:45 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 11:29:19 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ void draw_all_raycasting(t_data *data, t_list *all_rays)
 		a.y = data->player->y_pos;
 		b.x = ray->closest_wall.x;
 		b.y = ray->closest_wall.y;
-
+		
+		if (ray->facing_left_right == RIGHT)
+			b.x = b.x - 1;
+		if (ray->facing_up_down == DOWN)
+			b.y = b.y - 1;
 
 		// printf("draw_raycating\n");
 
