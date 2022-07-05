@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/30 09:57:12 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:38:17 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@
 # include "put_pixel.h"
 # include "mapping.h"
 # include "raycasting.h"
+# include "rendering.h"
 
 #endif
