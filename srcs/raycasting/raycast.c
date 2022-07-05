@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 11:23:48 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:32:00 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_list	*cast_all_ray(t_player *player, t_map *map)
 
 	angle_incr = FOV / NUMBER_OF_RAYS;
 	ray_angle = player->rotation_angle - (FOV / 2);
+
 	all_rays = NULL;
 	i = 0;
 	while (i < NUMBER_OF_RAYS)

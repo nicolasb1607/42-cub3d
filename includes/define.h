@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 15:18:37 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:04:55 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@
 # define MINIMAP_SCALE 1
 # define TILE_SIZE 32
 
-# define WIDTH_RAY 2
+# define WIDTH_RAY 1
 # define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)
 
 # define WALK_SPEED (TILE_SIZE / 4)
 # define ROTATION_SPEED 4 * (PI / 180)
 # define FOV 60 * (PI / 180)
-# define DISTANCE_PROJ_PLANE (WIDTH_WIN / 2) / tan(FOV / 2);
+# define DISTANCE_PROJ_PLANE (WIDTH_WIN / 2) / tan(FOV / 2)
 
 
 

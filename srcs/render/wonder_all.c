@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 15:24:09 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:27:22 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ my_mlx_pixel_put(a.x, a.y, img, color);
 
 void draw_strip_wall(int i, int wall_strip_height, t_data *data)
 {
-	t_2d start;
-	t_2d end;
-	t_2d pix;
-	int color;
+	t_2d	start;
+	t_2d	end;
+	t_2d	pix;
+	int		color;
 
 	start.x = i * WIDTH_RAY;
 	end.x = start.x + WIDTH_RAY - 1;
@@ -50,18 +50,18 @@ void draw_strip_wall(int i, int wall_strip_height, t_data *data)
 
 void draw_walls(t_data *data, t_list *all_rays)
 {
-	t_ray *ray;
-	double wall_strip_height;
-	int i;
+	t_ray	*ray;
+	double	wall_strip_height;
+	int		i;
 
 	i = 0;
 	while (i < NUMBER_OF_RAYS && all_rays)
 	{
 		ray = (t_ray *)all_rays->content;
 
-		printf("ray->distance = %f\n", ray->distance);
+//		printf("ray->distance = %f\n", ray->distance);
 		double correct_distance = ray->distance * cos(ray->rad_angle - data->player->rotation_angle);
-		printf("correct_distance = %f\n", correct_distance);
+//		printf("correct_distance = %f\n", correct_distance);
 //		wall_strip_height = (TILE_SIZE / ray->distance) * DISTANCE_PROJ_PLANE;
 		wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
 		
