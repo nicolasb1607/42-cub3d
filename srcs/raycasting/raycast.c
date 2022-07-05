@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 11:53:49 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:06:02 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	set_facing_values(t_ray *ray)
 	}
 	else
 	{
-		ray->facing_up_down = 1;
+		ray->facing_up_down = DOWN;
 		ray->increment_top_down = 1;	
 	}
 		
