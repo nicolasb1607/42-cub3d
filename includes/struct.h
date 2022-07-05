@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/04 12:22:50 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:31:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,8 @@ typedef struct s_ray
 {
 	double						rad_angle;
 	struct s_2d_point_double	intersection;
-	int							x_step;
-	int							y_step;
+	double							x_step;
+	double							y_step;
 	int							exist_horizontal_hit;
 	int							exist_vertical_hit;
 	struct s_2d_point_double	vertical_hit;

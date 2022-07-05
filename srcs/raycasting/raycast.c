@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 10:21:56 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:33:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ t_list	*cast_all_ray(t_player *player, t_map *map)
 	double	ray_angle;
 
 	angle_incr = FOV / NUMBER_OF_RAYS;
-	printf("angle_incr = %f\n", angle_incr);
 	ray_angle = player->rotation_angle - (FOV / 2);
 	all_rays = NULL;
 	i = 0;
-	while (i < 1)
+	while (i < NUMBER_OF_RAYS)
 	{
 		if (ray_angle < 0)
 			ray_angle += (2 * PI);
@@ -83,7 +82,6 @@ void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 
 	// CALCUL FIRST INTERSECTION
 
-	printf("in get_horizontal_hit\n");
 	ray->intersection.y = (floor(player->y_pos / TILE_SIZE) + ray->increment_top_down) * TILE_SIZE ;
 	ray->intersection.x = player->x_pos + (((ray->intersection.y - player->y_pos) / tan(ray->rad_angle)));
 
@@ -98,7 +96,6 @@ void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->exist_horizontal_hit = FALSE;
 	while (ray->intersection.y >= 0 && ray->intersection.y < TILE_SIZE * map->height && ray->intersection.x >= 0 && ray->intersection.x < TILE_SIZE * map->width)
 	{
-		printf("y = %f x = %f\n", ray->intersection.y, ray->intersection.x);
 		if (is_hiting_a_wall(map, ray->intersection.x, adjust_coordonate(ray,ray->intersection.y, HORIZONTAL)))
 		{
 			ray->horizontal_hit.x = ray->intersection.x;
@@ -153,7 +150,6 @@ void	get_shortest_distance(t_ray *ray, t_player *player)
 	horizontal_distance = distance(player->x_pos, player->y_pos, ray->horizontal_hit.x, ray->horizontal_hit.y);
 	if (ray->exist_horizontal_hit && ray->exist_vertical_hit)
 	{
-//		printf("vertical_distance = %f, horizontal_distance %f\n", vertical_distance, horizontal_distance);
 		if (vertical_distance <= horizontal_distance)
 			update_closest_wall(ray, VERTICAL, vertical_distance);
 		else
