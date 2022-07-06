@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 16:32:00 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 09:44:11 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	get_horizontal_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->exist_horizontal_hit = FALSE;
 	while (ray->intersection.y >= 0 && ray->intersection.y < TILE_SIZE * map->height && ray->intersection.x >= 0 && ray->intersection.x < TILE_SIZE * map->width)
 	{
-		if (is_hiting_a_wall(map, ray->intersection.x, adjust_coordonate(ray, ray->intersection.y, HORIZONTAL)))
+		if (ray_is_hiting_a_wall(map, ray->intersection.x, adjust_coordonate(ray, ray->intersection.y, HORIZONTAL)))
 		{
 			ray->horizontal_hit.x = ray->intersection.x;
 			ray->horizontal_hit.y = ray->intersection.y;
@@ -96,7 +96,7 @@ void	get_vertical_hit(t_ray *ray, t_player *player, t_map *map)
 	ray->exist_vertical_hit = FALSE;
 	while (ray->intersection.y >= 0 && ray->intersection.y < TILE_SIZE * map->height && ray->intersection.x >= 0 && ray->intersection.x < TILE_SIZE * map->width)
 	{
-		if (is_hiting_a_wall(map, adjust_coordonate(ray, ray->intersection.x, VERTICAL), ray->intersection.y))
+		if (ray_is_hiting_a_wall(map, adjust_coordonate(ray, ray->intersection.x, VERTICAL), ray->intersection.y))
 		{
 			ray->vertical_hit.x = ray->intersection.x;
 			ray->vertical_hit.y = ray->intersection.y;
