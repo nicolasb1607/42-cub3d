@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 16:18:34 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:31:36 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 	t_2d	pix;
 	int		color;
 	double correct_distance;
-	int wall_strip_height;
+	double wall_strip_height;
 	double	offset;
-	int line_ot_pick = 0;
+	double line_ot_pick = 0;
 	correct_distance = ray->distance * cos(ray->rad_angle - data->player->rotation_angle);
 	wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
 
@@ -80,7 +80,7 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 	end.y = HEIGHT_WIN / 2 + wall_strip_height / 2;
 	pix.x = start.x;
 	offset = TILE_SIZE / wall_strip_height;
-
+//	printf("%f\n", offset);
 	while (pix.x <= end.x)
 	{
 		pix.y = 0;
@@ -92,6 +92,8 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 				color = encode_rgb(0, 255, 0);
 			else
 			{
+				
+//				printf("%f\n", line_ot_pick);
 				color = get_pixel_color(ray, data->texture, line_ot_pick);
 				line_ot_pick += offset;
 			}
