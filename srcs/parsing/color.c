@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 16:26:23 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:09:24 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,21 @@ int	set_color(t_data *data)
 {
 	if (!data)
 		return (-1);
-	data->floor_color = ft_calloc(1, sizeof(t_color));
-	if (!data->floor_color)
+	data->map->floor_color = ft_calloc(1, sizeof(t_color));
+	if (!data->map->floor_color)
 		return (ft_putstr_fd(ERROR_MALLOC, 2), -1);
-	if (assign_color(data->texture->floor, data->floor_color) != 0)
+	if (assign_color(data->texture->floor, data->map->floor_color) != 0)
 	{
-		free(data->floor_color);
+		free(data->map->floor_color);
 		return (-1);
 	}
-	data->ceiling_color = ft_calloc(1, sizeof(t_color));
-	if (!data->ceiling_color)
+	data->map->ceiling_color = ft_calloc(1, sizeof(t_color));
+	if (!data->map->ceiling_color)
 		return (ft_putstr_fd(ERROR_MALLOC, 2), -1);
-	if (assign_color(data->texture->ceiling, data->ceiling_color) != 0)
+	if (assign_color(data->texture->ceiling, data->map->ceiling_color) != 0)
 	{
-		free(data->floor_color);
-		free(data->ceiling_color);
+		free(data->map->floor_color);
+		free(data->map->ceiling_color);
 		return (-1);
 	}
 	return (0);

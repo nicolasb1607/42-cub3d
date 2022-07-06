@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 09:44:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:07:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	player_is_hiting_a_wall(t_map *map, int x, int y)
 		return (TRUE);
 	if (map->content[(y - PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
 		return (TRUE);
-	if (map->content[(y + PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
+	else if (map->content[(y + PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
 		return (TRUE);
-	if (map->content[y / TILE_SIZE][(x - PLAYER_RADIUS) / TILE_SIZE] == '1')
+	else if (map->content[y / TILE_SIZE][(x - PLAYER_RADIUS) / TILE_SIZE] == '1')
 		return (TRUE);
-	if (map->content[y / TILE_SIZE][(x + PLAYER_RADIUS)/ TILE_SIZE] == '1')
+	else if (map->content[y / TILE_SIZE][(x + PLAYER_RADIUS)/ TILE_SIZE] == '1')
 		return (TRUE);
 	return (FALSE);
 }
