@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 10:07:30 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:16:15 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ray_is_hiting_a_wall(t_map *map, int x, int y)
 		return (TRUE);
 	return (FALSE);
 }
-
 
 int	player_is_hiting_a_wall(t_map *map, int x, int y)
 {

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 09:45:43 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:18:41 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@
 # define UP -1
 # define DOWN 1
 
+# define NORTH	0
+# define SOUTH	1
+# define WEST	2
+# define EAST	3
+
 # define PI 3.1415926535
 
-# define HEIGHT_WIN /*1080*//*480  */ 960 
-# define WIDTH_WIN /*1920*/ /* 640*/1280  
+# define HEIGHT_WIN 1080/*480  */ /*960 */
+# define WIDTH_WIN 1920 /* 640*//*1280*/  
 
 # define MINIMAP_SCALE 1
 # define TILE_SIZE 64

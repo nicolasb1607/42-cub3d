@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 10:41:40 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 10:43:21 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:18:12 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,20 @@ void	update_closest_wall(t_ray *ray, int orientation, int distance)
 		ray->closest_wall.x = ray->vertical_hit.x;
 		ray->closest_wall.y = ray->vertical_hit.y;
 		ray->distance = distance;
+		if (ray->facing_up_down == DOWN)
+			ray->orientation = SOUTH;
+		else
+			ray->orientation = NORTH;
+			
 	}
 	else if (orientation == HORIZONTAL)
 	{
 		ray->closest_wall.x = ray->horizontal_hit.x;
 		ray->closest_wall.y = ray->horizontal_hit.y;
 		ray->distance = distance;
+		if (ray->facing_left_right == LEFT)
+			ray->orientation = WEST;
+		else
+			ray->orientation = EAST;
 	}
 }

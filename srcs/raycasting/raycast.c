@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 09:44:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:19:21 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	get_shortest_distance(t_ray *ray, t_player *player)
 
 	vertical_distance = distance(player->x_pos, player->y_pos, ray->vertical_hit.x, ray->vertical_hit.y);
 	horizontal_distance = distance(player->x_pos, player->y_pos, ray->horizontal_hit.x, ray->horizontal_hit.y);
-	printf("%f %f\n", vertical_distance, horizontal_distance);
+//	printf("%f %f\n", vertical_distance, horizontal_distance);
 	if (ray->exist_horizontal_hit && ray->exist_vertical_hit)
 	{
 		if (vertical_distance <= horizontal_distance)

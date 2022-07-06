@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/06 10:08:14 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:04:03 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ typedef struct s_data
 
 typedef struct s_texture
 {
-	char			*north;
-	char			*south;
-	char			*west;
-	char			*east;
+	char				*north;
+	char				*south;
+	char				*west;
+	char				*east;
+//	struct s_img_data	tx[4];
 	char			*floor;
 	char			*ceiling;
 }	t_texture;
@@ -142,6 +143,7 @@ typedef struct s_ray
 	struct s_2d_point_double	vertical_hit;
 	struct s_2d_point_double	horizontal_hit;
 	struct s_2d_point_double	closest_wall;
+	int							orientation;
 	double						distance;
 	int							facing_left_right;
 	int							facing_up_down;

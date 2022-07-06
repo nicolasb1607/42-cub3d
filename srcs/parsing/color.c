@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/06 10:09:24 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:25:02 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,8 @@ int	set_color(t_data *data)
 		free(data->map->ceiling_color);
 		return (-1);
 	}
+	data->map->minimap_color = ft_calloc(1, sizeof(t_color));
+	if (!data->map->minimap_color)
+		return (ft_putstr_fd(ERROR_MALLOC, 2), -1);
 	return (0);
 }
