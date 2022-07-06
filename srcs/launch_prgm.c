@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/05 16:34:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 09:07:33 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,6 @@ int	launch_prgm(char *file_name)
 		mlx_setting_loop_hooks(data);
 		return (0);
 	}
-}
-
-
-void	render(t_data *data)
-{
-	t_list *all_rays = NULL;
-//	printf("render\n");
-	//draw_player(data);
-	update_player(data);
-	all_rays = cast_all_ray(data->player, data->map);
-	draw_walls(data, all_rays);
-	// draw_minimap(data);
-	// draw_all_raycasting(data, all_rays);
-	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
-		data->gui->img_data->img, 0, 0);
 }
 
 void refresh_img(t_data *data)

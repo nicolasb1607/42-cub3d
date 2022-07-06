@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 17:08:30 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 09:25:21 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,5 @@
 # define ROTATION_SPEED 4 * (PI / 180)
 # define FOV 60 * (PI / 180)
 # define DISTANCE_PROJ_PLANE (WIDTH_WIN / 2) / tan(FOV / 2)
-
-
 
 #endif

@@ -6,11 +6,24 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:32:58 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 12:36:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 09:11:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rendering.h"
+
+void	render(t_data *data)
+{
+	t_list *all_rays = NULL;
+
+	update_player(data);
+	all_rays = cast_all_ray(data->player, data->map);
+	draw_walls(data, all_rays);
+	draw_minimap(data);
+	draw_raycast(data, all_rays);
+	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
+		data->gui->img_data->img, 0, 0);
+}
 
 void	draw_minimap(t_data *data)
 {
@@ -34,24 +47,13 @@ void	draw_minimap(t_data *data)
 		i++;
 	}
 }
-
+/*
 void	draw_player(t_data *data)
 {
-	t_2d a;
 	
-	// set direction line
-	a.x = data->player->x_pos;
-	a.y = data->player->y_pos;
-
-	// set_color player
-	data->ceiling_color->red = 0;
-	data->ceiling_color->green = 255;
-	data->ceiling_color->blue = 0;
-
-	my_mlx_pixel_put(a.x, a.y, data->gui->img_data, encode_rgb(255,0,0));
 }
-
-void draw_all_raycasting(t_data *data, t_list *all_rays)
+*/
+void draw_raycast(t_data *data, t_list *all_rays)
 {
 	t_ray	*ray;
 	t_2d	a;

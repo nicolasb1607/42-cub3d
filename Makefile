@@ -28,7 +28,7 @@ SRCS =	main.c						\
 		bresenham/bresenham_utils.c	\
 		bresenham/put_pixel.c		\
 		render/rendering.c			\
-		render/wonder_all.c			\
+		render/wall_render.c		\
 		mapping/mini_map.c			\
 		exit.c						\
 		key_control.c				\
