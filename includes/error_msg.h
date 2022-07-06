@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:59:04 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/24 15:23:41 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:07:11 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 # define ERROR_MAP_NOT_CLOSED "Error: map not closed\n"
 # define ERROR_GUI_INIT "Error: GUI initialization failed\n"
 # define ERROR_COLOR_FORMAT "Error: Wrong color format (\"R,G,B\" expected)\n"
+# define ERROR_LOAD_TEXTURE "Error: loading texture failed\n"
 
 #endif 

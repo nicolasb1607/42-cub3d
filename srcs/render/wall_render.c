@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wonder_all.c                                       :+:      :+:    :+:   */
+/*   wall_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 17:10:38 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/06 15:15:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,33 @@
 /*
 my_mlx_pixel_put(a.x, a.y, img, color);
 */
+
+void draw_walls(t_data *data, t_list *all_rays)
+{
+	t_ray	*ray;
+	double	wall_strip_height;
+	int		i;
+
+	i = 0;
+	while (i < NUMBER_OF_RAYS && all_rays)
+	{
+		ray = (t_ray *)all_rays->content;
+
+//		printf("ray->distance = %f\n", ray->distance);
+		double correct_distance = ray->distance * cos(ray->rad_angle - data->player->rotation_angle);
+//		printf("correct_distance = %f\n", correct_distance);
+//		wall_strip_height = (TILE_SIZE / ray->distance) * DISTANCE_PROJ_PLANE;
+		wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
+		
+		draw_strip_wall(i, wall_strip_height, data);
+		all_rays = all_rays->next;
+		i++;
+	}
+
+	// hauteur en pixel d un mur en fonction de la resolution
+
+	// wall_projected = tile_size * (distance_player_projection_wall / distance_wall)
+}
 
 void draw_strip_wall(int i, int wall_strip_height, t_data *data)
 {
@@ -48,29 +75,3 @@ void draw_strip_wall(int i, int wall_strip_height, t_data *data)
 	}
 }
 
-void draw_walls(t_data *data, t_list *all_rays)
-{
-	t_ray	*ray;
-	double	wall_strip_height;
-	int		i;
-
-	i = 0;
-	while (i < NUMBER_OF_RAYS && all_rays)
-	{
-		ray = (t_ray *)all_rays->content;
-
-//		printf("ray->distance = %f\n", ray->distance);
-		double correct_distance = ray->distance * cos(ray->rad_angle - data->player->rotation_angle);
-//		printf("correct_distance = %f\n", correct_distance);
-//		wall_strip_height = (TILE_SIZE / ray->distance) * DISTANCE_PROJ_PLANE;
-		wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
-		
-		draw_strip_wall(i, wall_strip_height, data);
-		all_rays = all_rays->next;
-		i++;
-	}
-
-	// hauteur en pixel d un mur en fonction de la resolution
-
-	// wall_projected = tile_size * (distance_player_projection_wall / distance_wall)
-}
