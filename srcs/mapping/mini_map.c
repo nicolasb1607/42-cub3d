@@ -6,35 +6,11 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 18:50:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:31:43 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapping.h"
-
-int	ray_is_hiting_a_wall(t_map *map, int x, int y)
-{
-	if (x <= 0 || x >= TILE_SIZE * map->width || y <= 0 || y >= TILE_SIZE * map->height)
-		return (TRUE);
-	if (map->content[y / TILE_SIZE][x / TILE_SIZE] == '1')
-		return (TRUE);
-	return (FALSE);
-}
-
-int	player_is_hiting_a_wall(t_map *map, int x, int y)
-{
-	if (x <= 0 || x >= TILE_SIZE * map->width || y <= 0 || y >= TILE_SIZE * map->height)
-		return (TRUE);
-	if (map->content[(y - PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
-		return (TRUE);
-	else if (map->content[(y + PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
-		return (TRUE);
-	else if (map->content[y / TILE_SIZE][(x - PLAYER_RADIUS) / TILE_SIZE] == '1')
-		return (TRUE);
-	else if (map->content[y / TILE_SIZE][(x + PLAYER_RADIUS)/ TILE_SIZE] == '1')
-		return (TRUE);
-	return (FALSE);
-}
 
 void	update_player(t_data *data)
 {
@@ -64,4 +40,19 @@ void	update_player(t_data *data)
 	data->player.left_right_rotation = 0;
 	data->player.walk_direction = 0;
 	data->player.side_move_angle = 0;
+}
+
+int	player_is_hiting_a_wall(t_map *map, int x, int y)
+{
+	if (x <= 0 || x >= TILE_SIZE * map->width || y <= 0 || y >= TILE_SIZE * map->height)
+		return (TRUE);
+	if (map->content[(y - PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
+		return (TRUE);
+	else if (map->content[(y + PLAYER_RADIUS)/ TILE_SIZE][x / TILE_SIZE] == '1')
+		return (TRUE);
+	else if (map->content[y / TILE_SIZE][(x - PLAYER_RADIUS) / TILE_SIZE] == '1')
+		return (TRUE);
+	else if (map->content[y / TILE_SIZE][(x + PLAYER_RADIUS)/ TILE_SIZE] == '1')
+		return (TRUE);
+	return (FALSE);
 }

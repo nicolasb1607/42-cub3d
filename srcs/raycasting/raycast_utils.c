@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 10:41:40 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 15:31:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:31:57 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,13 @@ void	update_closest_wall(t_ray *ray, int orientation, int distance)
 		else
 			ray->orientation = NORTH;
 	}
+}
+
+int	ray_is_hiting_a_wall(t_map *map, int x, int y)
+{
+	if (x <= 0 || x >= TILE_SIZE * map->width || y <= 0 || y >= TILE_SIZE * map->height)
+		return (TRUE);
+	if (map->content[y / TILE_SIZE][x / TILE_SIZE] == '1')
+		return (TRUE);
+	return (FALSE);
 }
