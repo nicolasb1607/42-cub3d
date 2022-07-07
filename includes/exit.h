@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:31:55 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 16:11:42 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:53:23 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "cub3d.h"
 
-int	ft_exit(t_data *data);
-
+//int	ft_exit_status(t_data *data);
+int	ft_exit_status(t_data *data, int status);
+int ft_exit_red_cross(t_data *data);
 #endif

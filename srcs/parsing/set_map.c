@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:24:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 18:43:32 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:34:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	*set_map(t_map *map, t_file *file)
 	get_map_size(file->fd, map);
 	if (get_map_content(file, map) == -1)
 		return (NULL);
+	if (!check_map(map))
+	{
+		free_map(map, map->height);
+		return (NULL);
+	}
 	return (map);
 }
 

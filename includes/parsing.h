@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 18:45:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:00:39 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 
 void	*set_parameters(t_data *data, t_file	*file);
-void	set_player(t_data *data);
+int	set_player(t_data *data);
 //t_data		*set_parameters(t_file	*file);
 //t_player *set_player(t_map *map);
 

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 19:58:14 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:01:27 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,17 @@ int	open_file(char  *file_name, int	*fd)
 
 void	*set_parameters(t_data *data, t_file	*file)
 {
-	// file->fd = open(file->name, O_RDONLY);
-	// if (file->fd == -1)
-	// 	return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
 	if (!open_file(file->name, &file->fd))
 		return (NULL);
 	if (!set_texture(&data->texture, file)
 		|| !set_map(&data->map, file)
-		|| !set_color(data))
+		|| !set_color(data)
+		|| !set_player(data))
 	{
 		close(file->fd);
 		free_texture(&data->texture);
 		return (NULL);
 	}
-	set_player(data);
 	close(file->fd);
 	return (data);
 }
@@ -58,7 +55,7 @@ double	get_start_angle(char c)
 	return (0);
 }
 
-void	set_player(t_data *data)
+int	set_player(t_data *data)
 {
 	int	i;
 	int	j;
@@ -86,7 +83,7 @@ void	set_player(t_data *data)
 	data->player.side_move_angle = 0;
 	data->player.walk_speed = WALK_SPEED;
 	data->player.rotation_speed = ROTATION_SPEED;
-//	return (player);
+	return (SUCCESS);
 }
 
 
