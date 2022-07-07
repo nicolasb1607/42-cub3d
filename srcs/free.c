@@ -6,11 +6,24 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 19:08:08 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:57:23 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "free.h"
+
+void	free_and_destroy_texture(t_texture *texture, void *mlx)
+{
+	free_texture(texture);
+	destroy_texture_img(texture, mlx);
+}
+void	destroy_texture_img(t_texture *texture, void *mlx)
+{
+	mlx_destroy_image(mlx, texture->tx[NORTH].img);
+	mlx_destroy_image(mlx, texture->tx[SOUTH].img);
+	mlx_destroy_image(mlx, texture->tx[EAST].img);
+	mlx_destroy_image(mlx, texture->tx[WEST].img);
+}
 
 void	free_texture(t_texture *texture)
 {
@@ -26,8 +39,6 @@ void	free_texture(t_texture *texture)
 		free((texture)->floor);
 	if ((texture)->ceiling)
 		free((texture)->ceiling);
-//	free((*texture));
-//	*texture = NULL;
 }
 
 void	free_map(t_map *map, int size)

@@ -6,18 +6,30 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 19:29:28 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:58:14 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
+int	open_file(char  *file_name, int	*fd)
+{
+	*fd = open(file_name, O_RDONLY);
+	if (*fd == -1)
+	{
+		ft_putstr_fd(ERROR_OPEN_FILE, 2);
+		return (FAILURE);
+	}
+	return (SUCCESS);
+}
+
 void	*set_parameters(t_data *data, t_file	*file)
 {
-	file->fd = open(file->name, O_RDONLY);
-	if (file->fd == -1)
-		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
-
+	// file->fd = open(file->name, O_RDONLY);
+	// if (file->fd == -1)
+	// 	return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
+	if (!open_file(file->name, &file->fd))
+		return (NULL);
 	if (!set_texture(&data->texture, file)
 		|| !set_map(&data->map, file)
 		|| !set_color(data))
@@ -26,8 +38,8 @@ void	*set_parameters(t_data *data, t_file	*file)
 		free_texture(&data->texture);
 		return (NULL);
 	}
-	close(file->fd);
 	set_player(data);
+	close(file->fd);
 	return (data);
 }
 
