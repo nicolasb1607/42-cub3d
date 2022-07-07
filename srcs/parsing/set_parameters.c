@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 13:53:56 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:06:29 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ t_data	*set_parameters(t_file	*file)
 	if (set_color(data) != 0)
 		return (free_map(data->map, data->map->height),
 			free_texture(&data->texture), free(data), NULL);
-//	set_player(data);
-	data->player = set_player(data->map);
-	if (!data->player)
-		return (free_map(data->map, data->map->height), free_texture(&data->texture), free(data), NULL);
+	set_player(data);
 	return (data);
 }
 
@@ -55,7 +52,7 @@ double	get_start_angle(char c)
 		return ((3 * PI) / 2);
 	return (0);
 }
-/*
+
 void	set_player(t_data *data)
 {
 	int	i;
@@ -86,9 +83,9 @@ void	set_player(t_data *data)
 	data->player.rotation_speed = ROTATION_SPEED;
 //	return (player);
 }
-*/
 
 
+/*
 t_player *set_player(t_map *map)
 {
 	int	i;
@@ -106,20 +103,21 @@ t_player *set_player(t_map *map)
 		{
 			if (is_a_player(map->content[i][j]))
 			{
-				player->x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
-				player->y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
-				player->rotation_angle = get_start_angle(map->content[i][j]);
+				player.x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
+				player.y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
+				player.rotation_angle = get_start_angle(map->content[i][j]);
 			}
 			j++;
 		}
 		i++;
 	}
-	player->width = 1;
-	player->height = 1;
-	player->left_right_rotation = 0;
-	player->walk_direction = 0;
-	player->side_move_angle = 0;
-	player->walk_speed = WALK_SPEED;
-	player->rotation_speed = ROTATION_SPEED;
+	player.width = 1;
+	player.height = 1;
+	player.left_right_rotation = 0;
+	player.walk_direction = 0;
+	player.side_move_angle = 0;
+	player.walk_speed = WALK_SPEED;
+	player.rotation_speed = ROTATION_SPEED;
 	return (player);
 }
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/04 09:19:23 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:04:09 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,34 @@ int	key_hook(int keycode, t_data *data)
 		ft_exit(data);
 	if (keycode == XK_z)
 	{
-		data->player->walk_direction = +1;
+		data->player.walk_direction = +1;
 		refresh_img(data);
 	}
 	if (keycode == XK_s)
 	{
-		data->player->walk_direction = -1;
+		data->player.walk_direction = -1;
 		refresh_img(data);
 	}
 	if (keycode == XK_q)
 	{
-		data->player->walk_direction = +1;
-		data->player->side_move_angle = -(PI / 2);
+		data->player.walk_direction = +1;
+		data->player.side_move_angle = -(PI / 2);
 		refresh_img(data);
 	}
 	if (keycode == XK_d)
 	{
-		data->player->walk_direction = +1;
-		data->player->side_move_angle = PI / 2;
+		data->player.walk_direction = +1;
+		data->player.side_move_angle = PI / 2;
 		refresh_img(data);
 	}
 	if (keycode == XK_Right)
 	{
-		data->player->left_right_rotation = -1;
+		data->player.left_right_rotation = -1;
 		refresh_img(data);
 	}
 	if (keycode == XK_Left)
 	{
-		data->player->left_right_rotation = +1;
+		data->player.left_right_rotation = +1;
 		refresh_img(data);
 	}
 	return (0);
