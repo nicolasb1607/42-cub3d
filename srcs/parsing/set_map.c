@@ -6,15 +6,14 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:24:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 16:33:51 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:43:32 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-t_map	*set_map(t_file *file)
+void	*set_map(t_map *map, t_file *file)
 {
-	t_map	*map;
 	char	*line;
 
 	line = get_next_line(file->fd);
@@ -31,14 +30,39 @@ t_map	*set_map(t_file *file)
 		close(file->fd);
 		return (NULL);
 	}
-	map = ft_calloc(1, sizeof(t_map));
-	if (!map)
-		return (NULL);
 	get_map_size(file->fd, map);
 	if (get_map_content(file, map) == -1)
 		return (NULL);
 	return (map);
 }
+
+// t_map	*set_map(t_file *file)
+// {
+// 	t_map	*map;
+// 	char	*line;
+
+// 	line = get_next_line(file->fd);
+// 	while (line != NULL && line[0] == '\n')
+// 	{
+// 		file->map_index++;
+// 		free(line);
+// 		line = get_next_line(file->fd);
+// 	}
+// 	free(line);
+// 	if (line == NULL)
+// 	{
+// 		ft_putstr_fd(ERROR_MISSING_MAP, 2);
+// 		close(file->fd);
+// 		return (NULL);
+// 	}
+// 	map = ft_calloc(1, sizeof(t_map));
+// 	if (!map)
+// 		return (NULL);
+// 	get_map_size(file->fd, map);
+// 	if (get_map_content(file, map) == -1)
+// 		return (NULL);
+// 	return (map);
+// }
 
 void	get_map_size(int fd, t_map *map)
 {

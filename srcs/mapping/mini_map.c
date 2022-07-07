@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 14:04:09 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:50:55 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	update_player(t_data *data)
 	new_player_x = round(data->player.x_pos + (cos(data->player.rotation_angle + data->player.side_move_angle) * move_step));
 	new_player_y = round(data->player.y_pos + (sin(data->player.rotation_angle + data->player.side_move_angle) * move_step));
 	
-	if (!player_is_hiting_a_wall(data->map, new_player_x, new_player_y))
+	if (!player_is_hiting_a_wall(&data->map, new_player_x, new_player_y))
 	{
 		data->player.x_pos = new_player_x;
 		data->player.y_pos = new_player_y;

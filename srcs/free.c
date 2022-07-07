@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 14:25:15 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:46:47 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	free_map(t_map *map, int size)
 		i++;
 	}
 	free(map->content);
-	free(map);
+	//free(map);
 }
 
 t_map	*alloc_map_content(t_map *map)

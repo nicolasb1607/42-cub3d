@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 15:17:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:50:15 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ void	*set_parameters(t_data *data, t_file	*file)
 		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
 	if (!set_texture(&data->texture, file))
 		return (NULL);
-	data->map = set_map(file);
+	if (!set_map(&data->map, file))
+		return (NULL);
+	
 	close(file->fd);
-	if (!data->map)
-		return (free(data), NULL);
+	// if (!data->map)
+	// 	return (free(data), NULL);
 	if (set_color(data) != 0)
-		return (free_map(data->map, data->map->height),
-			free_texture(&data->texture), free(data), NULL);
+		return (free_map(&data->map, data->map.height),
+			free_texture(&data->texture), free(data)), NULL;
 	set_player(data);
 	return (data);
 }
@@ -49,16 +51,16 @@ void	set_player(t_data *data)
 	int	j;
 
 	i = 0;
-	while (i < data->map->height)
+	while (i < data->map.height)
 	{
 		j = 0;
-		while (j < data->map->width)
+		while (j < data->map.width)
 		{
-			if (is_a_player(data->map->content[i][j]))
+			if (is_a_player(data->map.content[i][j]))
 			{
 				data->player.x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
 				data->player.y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
-				data->player.rotation_angle = get_start_angle(data->map->content[i][j]);
+				data->player.rotation_angle = get_start_angle(data->map.content[i][j]);
 			}
 			j++;
 		}

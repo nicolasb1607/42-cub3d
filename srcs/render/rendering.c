@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:32:58 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 14:23:05 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:50:47 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	render(t_data *data)
 	t_list *all_rays = NULL;
 
 	update_player(data);
-	all_rays = cast_all_ray(&data->player, data->map);
+	all_rays = cast_all_ray(&data->player, &data->map);
 	draw_walls(data, all_rays);
 //	draw_minimap(data);
 //	draw_raycast(data, all_rays);
@@ -32,10 +32,10 @@ void	draw_minimap(t_data *data)
 
 	t_rectangle rec;
 	i = 0;
-	while (i < data->map->height)
+	while (i < data->map.height)
 	{
 		j = 0;
-		while (j < data->map->width)
+		while (j < data->map.width)
 		{
 			rec.x_top_left_corner = j * TILE_SIZE * MINIMAP_SCALE;
 			rec.y_top_left_corner = i * TILE_SIZE * MINIMAP_SCALE;
@@ -89,7 +89,7 @@ void draw_raycast(t_data *data, t_list *all_rays)
 
 void	set_tile_color(t_data *data, int i, int j)
 {
-	if (data->map->content[i][j] == '1')
+	if (data->map.content[i][j] == '1')
 	{
 		data->texture.minimap_color.red = 255;
 		data->texture.minimap_color.green = 255;
