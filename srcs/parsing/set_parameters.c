@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 19:07:07 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:29:28 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	*set_parameters(t_data *data, t_file	*file)
 	file->fd = open(file->name, O_RDONLY);
 	if (file->fd == -1)
 		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
-	if (!set_texture(&data->texture, file) || !set_map(&data->map, file) || !set_color(data))
+
+	if (!set_texture(&data->texture, file)
+		|| !set_map(&data->map, file)
+		|| !set_color(data))
 	{
 		close(file->fd);
-//		if (data->map.content)
-//			free_map(&data->map, data->map.height);
 		free_texture(&data->texture);
 		return (NULL);
 	}
@@ -30,6 +31,8 @@ void	*set_parameters(t_data *data, t_file	*file)
 	return (data);
 }
 
+//		if (data->map.content)
+//			free_map(&data->map, data->map.height);
 double	get_start_angle(char c)
 {
 	if (c == 'E')
