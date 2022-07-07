@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 13:23:19 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:13:34 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,38 +60,38 @@ int	load_texture(t_data	*data)
 int	launch_prgm(char *file_name)
 {
 	t_file	file;
-	t_data	*data;
+	t_data	data;
 
 	init_t_file(&file, file_name);
-	data = set_parameters(&file);
-	if (!data || !check_map(data->map))
+	set_parameters(&data, &file);
+	if (!check_map(data.map))
 	{
-		if (data)
-		{
-			// free(data->texture->floor_color);
-			// free(data->texture->ceiling_color);
-			free_map(data->map, data->map->height);
-			free_texture(&data->texture);
-			free(data);
-		}
+		// if (data)
+		// {
+		// 	// free(data->texture->floor_color);
+		// 	// free(data->texture->ceiling_color);
+		// 	free_map(data->map, data->map->height);
+		// 	free_texture(&data->texture);
+		// 	free(data);
+		// }
 		return (-1);
 	}
 	else
 	{
 //		print_2d_array(data->map->content);
-		data->gui = init_gui();
-		if (load_texture(data) == -1)
+		data.gui = init_gui();
+		if (load_texture(&data) == -1)
 		{
 			ft_putstr_fd(ERROR_LOAD_TEXTURE, 2);
-			ft_exit(data);
+			ft_exit(&data);
 		}
-		if (!data->gui)
+		if (!data.gui)
 		{
 			ft_putstr_fd(ERROR_GUI_INIT, 2);
 		//	return (1);
 		}
-		render(data);
-		mlx_setting_loop_hooks(data);
+		render(&data);
+		mlx_setting_loop_hooks(&data);
 		return (0);
 	}
 }
