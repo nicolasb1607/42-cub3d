@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 18:50:24 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:59:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int	launch_prgm(char *file_name)
 
 	ft_memset(&data, 0, sizeof(t_data));
 	init_t_file(&file, file_name);
-	set_parameters(&data, &file);
+	if(!set_parameters(&data, &file))
+		return (-1);
 	if (!check_map(&data.map))
 	{
 		// if (data)
