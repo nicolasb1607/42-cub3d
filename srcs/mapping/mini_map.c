@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 10:16:15 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:40:09 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,44 @@ int	player_is_hiting_a_wall(t_map *map, int x, int y)
 	return (FALSE);
 }
 
+int	glide_x(t_player *player, t_data *data)
+{	
+	if (!player_is_hiting_a_wall(data->map, player->x_pos - 10, player->y_pos) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
+	{
+		player->x_pos -= 10;
+		return (0);
+	}
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos + 10, player->y_pos) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
+	{
+			player->x_pos += 10;
+			return (0);
+	}
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos + 10, player->y_pos) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
+	{
+		player->x_pos += 1;
+		return (0);
+	}
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos - 10, player->y_pos) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
+	{
+		player->x_pos -= 10;
+		return (0);
+	}
+	return (-1);
+	
+}
+
+void	glide_y(t_player *player, t_data *data)
+{	
+	if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos - 10) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
+		player->y_pos -= 10;
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos + 10) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
+		player->y_pos -= 10;
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos + 10) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
+		player->y_pos += 10;
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos - 10) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
+		player->y_pos += 10;
+}
+
 void	update_player(t_data *data)
 {
 //	printf("update_player\n");
@@ -53,13 +91,17 @@ void	update_player(t_data *data)
 	data->player->rotation_angle = fmod(data->player->rotation_angle, 2 * PI);
 	//MAJ de la position du joueur
 	new_player_x = round(data->player->x_pos + (cos(data->player->rotation_angle + data->player->side_move_angle) * move_step));
-	new_player_y = round(data->player->y_pos + (sin(data->player->rotation_angle + data->player->side_move_angle) * move_step));
-	
+	new_player_y = round(data->player->y_pos + (sin(data->player->rotation_angle + data->player->side_move_angle) * move_step));	
 	if (!player_is_hiting_a_wall(data->map, new_player_x, new_player_y))
 	{
 		data->player->x_pos = new_player_x;
 		data->player->y_pos = new_player_y;
 	}
+	else
+	{
+		if (glide_x(data->player, data) == -1)
+			glide_y(data->player, data);
+	}	
 	//Remise à zéro des variables de mouvements
 	data->player->left_right_rotation = 0;
 	data->player->walk_direction = 0;
