@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:32:58 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 10:32:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 08:52:42 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ void draw_raycast(t_data *data, t_list *all_rays)
 		// printf("%f %f\n", ray->closest_wall.x, ray->closest_wall.y);
 		// printf("%d %d\n", b.x, b.y);
 		// set_color player
-		data->map->minimap_color->red = 255;
-		data->map->minimap_color->green = 0;
-		data->map->minimap_color->blue = 0;
+		data->texture->minimap_color->red = 255;
+		data->texture->minimap_color->green = 0;
+		data->texture->minimap_color->blue = 0;
 
 		bresenham(a, b, data);
 		all_rays = all_rays->next;
@@ -91,14 +91,14 @@ void	set_tile_color(t_data *data, int i, int j)
 {
 	if (data->map->content[i][j] == '1')
 	{
-		data->map->minimap_color->red = 255;
-		data->map->minimap_color->green = 255;
-		data->map->minimap_color->blue = 255;
+		data->texture->minimap_color->red = 255;
+		data->texture->minimap_color->green = 255;
+		data->texture->minimap_color->blue = 255;
 	}
 	else
 	{
-		data->map->minimap_color->red = 0;
-		data->map->minimap_color->green = 0;
-		data->map->minimap_color->blue = 0;
+		data->texture->minimap_color->red = 0;
+		data->texture->minimap_color->green = 0;
+		data->texture->minimap_color->blue = 0;
 	}	
 }

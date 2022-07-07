@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 10:08:53 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 08:50:55 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_data	*set_parameters(t_file	*file)
 			free_texture(&data->texture), free(data), NULL);
 	data->player = set_player(data->map);
 	if (!data->player)
-		return (free(data->map->ceiling_color), free(data->map->floor_color), free_map(data->map, data->map->height),
+		return (free(data->texture->ceiling_color), free(data->texture->floor_color), free_map(data->map, data->map->height),
 			free_texture(&data->texture), free(data), NULL);
 	return (data);
 }

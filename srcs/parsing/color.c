@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/06 10:25:02 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 08:51:58 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,25 +52,25 @@ int	set_color(t_data *data)
 {
 	if (!data)
 		return (-1);
-	data->map->floor_color = ft_calloc(1, sizeof(t_color));
-	if (!data->map->floor_color)
+	data->texture->floor_color = ft_calloc(1, sizeof(t_color));
+	if (!data->texture->floor_color)
 		return (ft_putstr_fd(ERROR_MALLOC, 2), -1);
-	if (assign_color(data->texture->floor, data->map->floor_color) != 0)
+	if (assign_color(data->texture->floor, data->texture->floor_color) != 0)
 	{
-		free(data->map->floor_color);
+		free(data->texture->floor_color);
 		return (-1);
 	}
-	data->map->ceiling_color = ft_calloc(1, sizeof(t_color));
-	if (!data->map->ceiling_color)
+	data->texture->ceiling_color = ft_calloc(1, sizeof(t_color));
+	if (!data->texture->ceiling_color)
 		return (ft_putstr_fd(ERROR_MALLOC, 2), -1);
-	if (assign_color(data->texture->ceiling, data->map->ceiling_color) != 0)
+	if (assign_color(data->texture->ceiling, data->texture->ceiling_color) != 0)
 	{
-		free(data->map->floor_color);
-		free(data->map->ceiling_color);
+		free(data->texture->floor_color);
+		free(data->texture->ceiling_color);
 		return (-1);
 	}
-	data->map->minimap_color = ft_calloc(1, sizeof(t_color));
-	if (!data->map->minimap_color)
+	data->texture->minimap_color = ft_calloc(1, sizeof(t_color));
+	if (!data->texture->minimap_color)
 		return (ft_putstr_fd(ERROR_MALLOC, 2), -1);
 	return (0);
 }

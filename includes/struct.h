@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/06 14:20:41 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 08:49:12 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ typedef struct s_map
 	char			**content;
 	int				width;
 	int				height;
-	struct s_color		*floor_color;
-	struct s_color		*ceiling_color;
-	struct s_color		*minimap_color;
 }	t_map;
 
 typedef struct s_color
@@ -78,8 +75,11 @@ typedef struct s_texture
 	char				*west;
 	char				*east;
 	struct s_img_data	tx[4];
-	char			*floor;
-	char			*ceiling;
+	char				*floor;
+	char				*ceiling;
+	struct s_color		*floor_color;
+	struct s_color		*ceiling_color;
+	struct s_color		*minimap_color;
 }	t_texture;
 
 typedef struct s_player
