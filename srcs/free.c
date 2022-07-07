@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/06/27 18:53:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 08:50:38 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ void	free_gui(t_gui *gui)
 
 void free_color(t_data *data)
 {
-	free(data->ceiling_color);
-	free(data->floor_color);
+	free(data->texture->ceiling_color);
+	free(data->texture->floor_color);
 }

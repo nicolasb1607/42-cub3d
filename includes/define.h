@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/03 18:42:04 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 11:26:27 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,26 @@
 # define UP -1
 # define DOWN 1
 
+# define NORTH	0
+# define SOUTH	1
+# define WEST	2
+# define EAST	3
+
 # define PI 3.1415926535
 
-# define HEIGHT_WIN /*1080*//*480  */ 960 
-# define WIDTH_WIN /*1920*/ /* 640*/1280  
+# define HEIGHT_WIN 1080/*480  */ /*960 */
+# define WIDTH_WIN 1920 /* 640*//*1280*/  
 
 # define MINIMAP_SCALE 1
-# define TILE_SIZE 128
+# define TILE_SIZE 64
 
-# define WIDTH_RAY 1
+# define WIDTH_RAY 10
 # define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)
 
-# define WALK_SPEED 2.0
+# define WALK_SPEED (TILE_SIZE / 4)
 # define ROTATION_SPEED 4 * (PI / 180)
 # define FOV 60 * (PI / 180)
+# define DISTANCE_PROJ_PLANE ((WIDTH_WIN / 2) / tan(FOV / 2))
+# define PLAYER_RADIUS ((TILE_SIZE / 3) / 2)
 
 #endif

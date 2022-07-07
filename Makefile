@@ -24,13 +24,16 @@ SRCS =	main.c						\
 		parsing/set_texture.c		\
 		parsing/set_map.c			\
 		parsing/color.c				\
-		bresenham/bresenham.c					\
-		bresenham/bresenham_utils.c			\
-		bresenham/put_pixel.c					\
-		mapping/mini_map.c \
+		bresenham/bresenham.c		\
+		bresenham/bresenham_utils.c	\
+		bresenham/put_pixel.c		\
+		render/rendering.c			\
+		render/wall_render.c		\
+		mapping/mini_map.c			\
 		exit.c						\
 		key_control.c				\
-		raycasting/raycast.c
+		raycasting/raycast.c		\
+		raycasting/raycast_utils.c
 		
 
 ################################################################################

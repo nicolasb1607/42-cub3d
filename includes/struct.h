@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/02 17:19:51 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 08:49:12 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,10 @@ typedef struct s_data
 	struct s_texture	*texture;
 	struct s_map		*map;
 	struct s_gui		*gui;
-	struct s_color		*floor_color;
-	struct s_color		*ceiling_color;
 	struct s_player		*player;
 }	t_data;
 
-typedef struct s_texture
-{
-	char			*north;
-	char			*south;
-	char			*west;
-	char			*east;
-	char			*floor;
-	char			*ceiling;
-}	t_texture;
+
 
 typedef struct s_map
 {
@@ -74,7 +64,23 @@ typedef struct s_img_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		width;
+	int		height;
 }	t_img_data;
+
+typedef struct s_texture
+{
+	char				*north;
+	char				*south;
+	char				*west;
+	char				*east;
+	struct s_img_data	tx[4];
+	char				*floor;
+	char				*ceiling;
+	struct s_color		*floor_color;
+	struct s_color		*ceiling_color;
+	struct s_color		*minimap_color;
+}	t_texture;
 
 typedef struct s_player
 {
@@ -132,22 +138,21 @@ typedef struct s_2d_point_double
 
 typedef struct s_ray
 {
-	double				rad_angle;
+	double						rad_angle;
 	struct s_2d_point_double	intersection;
-	int					exist_horizontal_hit;
-	int					exist_vertical_hit;
-	struct s_2d_point_double	first_intersection;
-	struct s_2d_point_double	second_intersection;
-	int					x_step;
-	int					y_step;
+	double							x_step;
+	double							y_step;
+	int							exist_horizontal_hit;
+	int							exist_vertical_hit;
 	struct s_2d_point_double	vertical_hit;
 	struct s_2d_point_double	horizontal_hit;
 	struct s_2d_point_double	closest_wall;
-	double				facing_left_right;
-	double				facing_up_down;
-	int					increment_left_right;
-	int					increment_top_down;
-	double				distance;
+	int							orientation;
+	double						distance;
+	int							facing_left_right;
+	int							facing_up_down;
+	int							increment_left_right;
+	int							increment_top_down;
 } 	t_ray;
 
 #endif

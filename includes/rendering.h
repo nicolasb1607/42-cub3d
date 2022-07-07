@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   rendering.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 15:31:24 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 08:54:07 by rpottier         ###   ########.fr       */
+/*   Created: 2022/07/05 12:33:10 by rpottier          #+#    #+#             */
+/*   Updated: 2022/07/06 16:17:27 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exit.h"
+#ifndef RENDERING_H
+# define RENDERING_H
 
-int	ft_exit(t_data *data)
-{
-	int	status;
+# include "cub3d.h"
 
-	status = 0;
-	free_gui(data->gui);
-	free_map(data->map, data->map->height);
-	free(data->texture->floor_color);
-	free(data->texture->ceiling_color);
-	free_texture(&data->texture);
-	free(data);
-	exit(status);
-}
+
+void	draw_player(t_data *data);
+void	draw_raycast(t_data *data, t_list *all_rays);
+void	draw_minimap(t_data *data);
+void	set_tile_color(t_data *data, int i, int j);
+void draw_strip_wall(int i, t_ray *ray, t_data *data);
+void	draw_walls(t_data *data, t_list *all_rays);
+
+#endif
