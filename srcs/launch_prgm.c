@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 20:50:42 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:16:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ int	launch_prgm(char *file_name)
 		return (FAILURE);
 	else
 	{
-		data.gui = init_gui();
-		if (!data.gui)
-			ft_exit_status(&data, INIT_GUI_FAILURE);
-		if (!load_texture(&data))
-			ft_exit_status(&data, LOAD_TEXTURE_FAILURE);
 		render(&data);
 		mlx_setting_loop_hooks(&data);
 		return (SUCCESS);
@@ -42,10 +37,10 @@ int	load_texture(t_data	*data)
 {
 	int	i;
 
-	data->texture.tx[NORTH].img = mlx_xpm_file_to_image(data->gui->mlx, data->texture.north, &data->texture.tx[NORTH].width, &data->texture.tx[NORTH].height);
-	data->texture.tx[SOUTH].img = mlx_xpm_file_to_image(data->gui->mlx, data->texture.south, &data->texture.tx[SOUTH].width, &data->texture.tx[SOUTH].height);
-	data->texture.tx[EAST].img = mlx_xpm_file_to_image(data->gui->mlx, data->texture.east, &data->texture.tx[EAST].width, &data->texture.tx[EAST].height);
-	data->texture.tx[WEST].img = mlx_xpm_file_to_image(data->gui->mlx, data->texture.west, &data->texture.tx[WEST].width, &data->texture.tx[WEST].height);
+	data->texture.tx[NORTH].img = mlx_xpm_file_to_image(data->gui.mlx, data->texture.north, &data->texture.tx[NORTH].width, &data->texture.tx[NORTH].height);
+	data->texture.tx[SOUTH].img = mlx_xpm_file_to_image(data->gui.mlx, data->texture.south, &data->texture.tx[SOUTH].width, &data->texture.tx[SOUTH].height);
+	data->texture.tx[EAST].img = mlx_xpm_file_to_image(data->gui.mlx, data->texture.east, &data->texture.tx[EAST].width, &data->texture.tx[EAST].height);
+	data->texture.tx[WEST].img = mlx_xpm_file_to_image(data->gui.mlx, data->texture.west, &data->texture.tx[WEST].width, &data->texture.tx[WEST].height);
 
 	printf("%d %d\n", data->texture.tx[NORTH].width, data->texture.tx[NORTH].height);
 	i = 0;
@@ -99,7 +94,7 @@ void	reset_img(t_data *data)
 		x = 0;
 		while (x < WIDTH_WIN)
 		{
-			my_mlx_pixel_put(x, y, data->gui->img_data, encode_rgb(0, 0, 0));
+			my_mlx_pixel_put(x, y, data->gui.img_data, encode_rgb(0, 0, 0));
 			x++;
 		}
 		y++;

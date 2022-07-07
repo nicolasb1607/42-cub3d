@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 20:29:02 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:23:37 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define WEST	2
 # define EAST	3
 
-# define CHECK_MAP_FAILURE 0
+# define SET_PARAMS_FAILURE 0
 # define INIT_GUI_FAILURE 1
 # define LOAD_TEXTURE_FAILURE 2
 # define FREE_ALL 3

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 19:57:23 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:19:27 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	free_gui(t_gui *gui)
 		mlx_destroy_display(gui->mlx);
 		free(gui->mlx);
 	}
-	free(gui);
+//	free(gui);
 }
 
 // void free_color(t_data *data)

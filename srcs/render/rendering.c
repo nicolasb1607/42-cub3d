@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:32:58 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 19:39:14 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:16:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	render(t_data *data)
 //	draw_minimap(data);
 //	draw_raycast(data, all_rays);
 	ft_lstclear(&all_rays, free);
-	mlx_put_image_to_window(data->gui->mlx, data->gui->win,
-		data->gui->img_data->img, 0, 0);
+	mlx_put_image_to_window(data->gui.mlx, data->gui.win,
+		data->gui.img_data->img, 0, 0);
 	
 }
 

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 16:00:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 14:23:05 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:16:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	bresenham(t_2d a, t_2d b, t_data *data)
 
 	create_line_data(a, b, &line);
 	color = set_rgb_color(data->texture.minimap_color.red, data->texture.minimap_color.green, data->texture.minimap_color.blue);
-	put_line(a, b, data->gui->img_data, &line, color);
+	put_line(a, b, data->gui.img_data, &line, color);
 }
 
 void	create_line_data(t_2d a, t_2d b, t_line *line)

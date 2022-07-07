@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 18:45:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:16:12 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,18 @@ typedef struct s_map
 	int				height;
 }	t_map;
 
+typedef struct s_gui
+{
+	void				*mlx;
+	void				*win;
+	struct s_img_data	*img_data;
+}	t_gui;
+
 typedef struct s_data
 {
 	struct s_texture	texture;
 	struct s_map		map;
-	struct s_gui		*gui;
+	struct s_gui		gui;
 	struct s_player		player;
 }	t_data;
 
@@ -93,12 +100,6 @@ typedef struct s_data
 //#                          GUI                                       #
 //######################################################################
 
-typedef struct s_gui
-{
-	void				*mlx;
-	void				*win;
-	struct s_img_data	*img_data;
-}	t_gui;
 
 
 

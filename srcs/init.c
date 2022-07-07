@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 14:24:14 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:15:43 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,8 @@ void	init_t_file(t_file *file, char *file_name)
 	file->fd = -1;
 }
 
-t_gui	*init_gui(void)
+void	*init_gui(t_gui *gui)
 {
-	t_gui	*gui;
-
-	gui = ft_calloc(1, sizeof(t_gui));
-	if (!gui)
-		return (NULL);
 	gui->win = NULL;
 	gui->mlx = NULL;
 	gui->mlx = mlx_init();
