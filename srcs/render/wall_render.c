@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 11:23:25 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:52:15 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 		while (pix.y <= HEIGHT_WIN)
 		{
 			if (pix.y < start.y)
-				color = encode_rgb(data->texture->ceiling_color->red, data->texture->ceiling_color->green, data->texture->ceiling_color->blue);
+				color = encode_rgb(data->texture->ceiling_color.red, data->texture->ceiling_color.green, data->texture->ceiling_color.blue);
 			else if (pix.y > end.y)
-				color = encode_rgb(data->texture->floor_color->red, data->texture->floor_color->green, data->texture->floor_color->blue);
+				color = encode_rgb(data->texture->floor_color.red, data->texture->floor_color.green, data->texture->floor_color.blue);
 			else
 			{
 				

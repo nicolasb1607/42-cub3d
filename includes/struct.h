@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 08:49:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:52:53 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ typedef struct s_file
 	int		fd;
 	int		map_index;
 }	t_file;
+typedef struct s_player
+{
+	double	x_pos;
+	double	y_pos;
+	int		width;
+	int		height;
+	int		left_right_rotation;
+	int		walk_direction;
+	double	side_move_angle;
+	double	rotation_angle;
+	int		walk_speed;
+	double	rotation_speed;
+}	t_player;
 
 typedef struct s_data
 {
@@ -77,24 +90,11 @@ typedef struct s_texture
 	struct s_img_data	tx[4];
 	char				*floor;
 	char				*ceiling;
-	struct s_color		*floor_color;
-	struct s_color		*ceiling_color;
-	struct s_color		*minimap_color;
+	struct s_color		floor_color;
+	struct s_color		ceiling_color;
+	struct s_color		minimap_color;
 }	t_texture;
 
-typedef struct s_player
-{
-	double	x_pos;
-	double	y_pos;
-	int		width;
-	int		height;
-	int		left_right_rotation;
-	int		walk_direction;
-	double	side_move_angle;
-	double	rotation_angle;
-	int		walk_speed;
-	double	rotation_speed;
-}	t_player;
 
 
 //######################################################################

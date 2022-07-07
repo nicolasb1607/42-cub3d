@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:27:26 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/24 11:50:49 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 11:30:42 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main(int ac, char **av)
 		else
 			ft_putstr(ERROR_EXTENSION);
 	}
-	else
+	else if (ac > 2)
 		ft_putstr("Too many arguments\n");
+	else
+		ft_putstr("Missing arguments\n");
 	return (0);
 }

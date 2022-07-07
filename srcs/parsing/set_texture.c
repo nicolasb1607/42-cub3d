@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 13:24:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:17:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_texture	*set_texture(t_file *file)
 		file->map_index++;
 	}
 	free (line);
-	if (is_all_texture_set(app_texture) == 0)
+	if (!is_all_texture_set(app_texture))
 	{
 		ft_putstr_fd(ERROR_MISSING_TEXTURE, 2);
 		close(file->fd);

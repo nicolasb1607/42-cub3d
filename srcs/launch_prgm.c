@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 11:04:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:23:19 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	launch_prgm(char *file_name)
 	{
 		if (data)
 		{
-			free(data->texture->floor_color);
-			free(data->texture->ceiling_color);
+			// free(data->texture->floor_color);
+			// free(data->texture->ceiling_color);
 			free_map(data->map, data->map->height);
 			free_texture(&data->texture);
 			free(data);
