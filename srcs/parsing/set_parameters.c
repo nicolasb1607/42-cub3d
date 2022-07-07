@@ -6,32 +6,23 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 14:16:57 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:17:10 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-
-
-
-
 void	*set_parameters(t_data *data, t_file	*file)
 {
-
 	file->fd = open(file->name, O_RDONLY);
 	if (file->fd == -1)
 		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
-	//data = ft_calloc(1, sizeof(t_data));
-	// if (!data)
-	// 	return (close(file->fd), NULL);
-	data->texture = set_texture(file);
-	if (!data->texture)
-		return (free(data), NULL);
+	if (!set_texture(&data->texture, file))
+		return (NULL);
 	data->map = set_map(file);
 	close(file->fd);
 	if (!data->map)
-		return (free(data->texture), free(data), NULL);
+		return (free(data), NULL);
 	if (set_color(data) != 0)
 		return (free_map(data->map, data->map->height),
 			free_texture(&data->texture), free(data), NULL);

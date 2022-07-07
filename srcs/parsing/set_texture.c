@@ -6,39 +6,36 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 13:17:05 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:30:38 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-t_texture	*set_texture(t_file *file)
+int		set_texture(t_texture *texture, t_file *file)
 {
 	char		*line;
-	t_texture	*app_texture;
 
 	line = NULL;
-	app_texture = init_texture();
-	if (!app_texture)
-		return (NULL);
+	init_texture(texture);
 	line = get_next_line(file->fd);
 	file->map_index++;
-	while (is_all_texture_set(app_texture) == 0 && line != NULL)
+	while (is_all_texture_set(texture) == 0 && line != NULL)
 	{
-		if (get_texture(line, app_texture) == -1)
+		if (get_texture(line, texture) == -1)
 			break ;
 		free (line);
 		line = get_next_line(file->fd);
 		file->map_index++;
 	}
 	free (line);
-	if (!is_all_texture_set(app_texture))
+	if (!is_all_texture_set(texture))
 	{
 		ft_putstr_fd(ERROR_MISSING_TEXTURE, 2);
 		close(file->fd);
-		return (free_texture(&app_texture), NULL);
+		return (0);
 	}
-	return (app_texture);
+	return (1);
 }
 
 char	*get_direction(char *line, int *i)

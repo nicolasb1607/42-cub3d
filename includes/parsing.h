@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 14:14:58 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:28:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	set_player(t_data *data);
 //#                               set_texture.c                        #
 //######################################################################
 
-t_texture	*set_texture(t_file *file);
+//t_texture	*set_texture(t_file *file);
+int		set_texture(t_texture *texture, t_file *file);
 char		*get_direction(char *line, int *i);
 int			get_texture(char *line, t_texture *texture);
 int			is_all_texture_set(t_texture *texture);

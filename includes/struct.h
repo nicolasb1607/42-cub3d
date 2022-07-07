@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 14:17:41 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:22:06 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,43 @@ typedef struct s_player
 	double	rotation_speed;
 }	t_player;
 
+
+typedef struct s_img_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}	t_img_data;
+
+typedef struct s_color
+{
+	int	red;
+	int	green;
+	int	blue;
+}	t_color;
+
+
+typedef struct s_texture
+{
+	char				*north;
+	char				*south;
+	char				*west;
+	char				*east;
+	struct s_img_data	tx[4];
+	char				*floor;
+	char				*ceiling;
+	struct s_color		floor_color;
+	struct s_color		ceiling_color;
+	struct s_color		minimap_color;
+}	t_texture;
+
 typedef struct s_data
 {
-	struct s_texture	*texture;
+	struct s_texture	texture;
 	struct s_map		*map;
 	struct s_gui		*gui;
 	struct s_player		player;
@@ -53,12 +87,6 @@ typedef struct s_map
 	int				height;
 }	t_map;
 
-typedef struct s_color
-{
-	int	red;
-	int	green;
-	int	blue;
-}	t_color;
 
 //######################################################################
 //#                          GUI                                       #
@@ -71,30 +99,7 @@ typedef struct s_gui
 	struct s_img_data	*img_data;
 }	t_gui;
 
-typedef struct s_img_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		width;
-	int		height;
-}	t_img_data;
 
-typedef struct s_texture
-{
-	char				*north;
-	char				*south;
-	char				*west;
-	char				*east;
-	struct s_img_data	tx[4];
-	char				*floor;
-	char				*ceiling;
-	struct s_color		floor_color;
-	struct s_color		ceiling_color;
-	struct s_color		minimap_color;
-}	t_texture;
 
 
 

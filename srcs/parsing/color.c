@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:27:42 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 13:32:37 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:23:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	set_color(t_data *data)
 {
 	if (!data)
 		return (-1);
-	if (assign_color(data->texture->floor, &data->texture->floor_color) != 0)
+	if (assign_color(data->texture.floor, &data->texture.floor_color) != 0)
 		return (-1);
-	if (assign_color(data->texture->ceiling, &data->texture->ceiling_color) != 0)
+	if (assign_color(data->texture.ceiling, &data->texture.ceiling_color) != 0)
 		return (-1);
 	return (0);
 }

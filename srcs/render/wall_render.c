@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 14:04:09 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:31:07 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,14 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 		while (pix.y <= HEIGHT_WIN)
 		{
 			if (pix.y < start.y)
-				color = encode_rgb(data->texture->ceiling_color.red, data->texture->ceiling_color.green, data->texture->ceiling_color.blue);
+				color = encode_rgb(data->texture.ceiling_color.red, data->texture.ceiling_color.green, data->texture.ceiling_color.blue);
 			else if (pix.y > end.y)
-				color = encode_rgb(data->texture->floor_color.red, data->texture->floor_color.green, data->texture->floor_color.blue);
+				color = encode_rgb(data->texture.floor_color.red, data->texture.floor_color.green, data->texture.floor_color.blue);
 			else
 			{
 				
 //				printf("%f\n", line_to_pick);
-				color = get_pixel_color(ray, data->texture, line_to_pick);
+				color = get_pixel_color(ray, &data->texture, line_to_pick);
 				line_to_pick += offset;
 			}
 			my_mlx_pixel_put(pix.x, pix.y, data->gui->img_data, color);
