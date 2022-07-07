@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:09:14 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 18:59:56 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:08:08 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,14 @@ t_map	*alloc_map_content(t_map *map)
 	while (i < map->height)
 	{
 		map->content[i] = ft_calloc(map->width + 1, sizeof(char));
+
+
+		// if (i == 4)
+		// {
+		// 	free(map->content[i]);
+		// 	map->content[i] = NULL;
+		// }
+
 		if (!map->content[i])
 		{
 			free_map(map, i);

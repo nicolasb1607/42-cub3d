@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 19:00:13 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:07:07 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ void	*set_parameters(t_data *data, t_file	*file)
 	file->fd = open(file->name, O_RDONLY);
 	if (file->fd == -1)
 		return (ft_putstr_fd(ERROR_OPEN_FILE, 2), NULL);
-	if (!set_texture(&data->texture, file) || !set_map(&data->map, file))
-		return (NULL);
-	close(file->fd);
-	if (set_color(data) != 0)
+	if (!set_texture(&data->texture, file) || !set_map(&data->map, file) || !set_color(data))
 	{
-		free_map(&data->map, data->map.height);
+		close(file->fd);
+//		if (data->map.content)
+//			free_map(&data->map, data->map.height);
 		free_texture(&data->texture);
 		return (NULL);
 	}
+	close(file->fd);
 	set_player(data);
 	return (data);
 }

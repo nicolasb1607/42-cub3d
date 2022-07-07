@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 11:26:27 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:04:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define TRUE 1
 # define FALSE 0
+
+# define SUCCESS 1
+# define FAILURE 0
 
 # define HORIZONTAL 0
 # define VERTICAL 1
