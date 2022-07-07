@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/06 11:18:41 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 10:49:29 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define MINIMAP_SCALE 1
 # define TILE_SIZE 64
 
-# define WIDTH_RAY 1
+# define WIDTH_RAY 10
 # define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)
 
 # define WALK_SPEED (TILE_SIZE / 4)

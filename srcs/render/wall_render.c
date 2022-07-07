@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 10:43:03 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/07 10:48:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,19 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 	start.y = HEIGHT_WIN / 2 - wall_strip_height / 2;
 	end.y = HEIGHT_WIN / 2 + wall_strip_height / 2;
 	pix.x = start.x;
-	offset = TILE_SIZE / wall_strip_height;
+	offset = 64.00 / wall_strip_height;
 	if (wall_strip_height > HEIGHT_WIN)
 	{
 		offset = (64.00 * (display_ratio)) / HEIGHT_WIN;
-///		printf("(64.00 * (1 - display_ratio)) = %f\n", (64.00 * (1 - display_ratio)));
-	printf("offset %f\n\n", offset);
 	}
 //	printf("offset %f\n", offset);
 	while (pix.x <= end.x)
 	{
 		pix.y = 0;
+		if (wall_strip_height > HEIGHT_WIN)
+			line_to_pick = (64 - (64 * display_ratio)) / 2;
+		else
+			line_to_pick = 0;
 		while (pix.y <= HEIGHT_WIN)
 		{
 			if (pix.y < start.y)
