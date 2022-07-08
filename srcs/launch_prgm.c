@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 08:47:34 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:53:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,15 @@ int	load_texture(t_data	*data)
 	i = 0;
 	while (i < 4)
 	{
-		data->texture.tx[i].img = mlx_xpm_file_to_image(data->gui.mlx,
-			data->texture.north, &data->texture.tx[i].width, &data->texture.tx[i].height);
-		data->texture.tx[i].addr = mlx_get_data_addr(data->texture.tx[i].img,
-			&data->texture.tx[i].bits_per_pixel, &data->texture.tx[i].line_length, &data->texture.tx[i].endian);
+		data->texture.tx[i].img = mlx_xpm_file_to_image(data->gui.mlx, data->texture.north, &data->texture.tx[i].width, &data->texture.tx[i].height);
+		data->texture.tx[i].addr = mlx_get_data_addr(data->texture.tx[i].img, &data->texture.tx[i].bits_per_pixel, &data->texture.tx[i].line_length, &data->texture.tx[i].endian);
+
+		if (data->texture.tx[i].width != 64 || data->texture.tx[i].height != 64)
+		{
+			ft_putstr_fd(ERROR_TEXTURE_SIZE, 2);
+			return (FAILURE);
+		}
+
 		if (data->texture.tx[i].addr == NULL || data->texture.tx[i].img == NULL)
 			return (FAILURE);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:59:04 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/06 14:07:11 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:49:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 # define ERROR_GUI_INIT "Error: GUI initialization failed\n"
 # define ERROR_COLOR_FORMAT "Error: Wrong color format (\"R,G,B\" expected)\n"
 # define ERROR_LOAD_TEXTURE "Error: loading texture failed\n"
+# define ERROR_TEXTURE_SIZE "Error: texture size is not 64*64\n"
 
 #endif 

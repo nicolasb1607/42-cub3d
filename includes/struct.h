@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 09:22:20 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 11:55:04 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,50 @@ typedef struct s_data
 	struct s_player		player;
 }	t_data;
 
+typedef struct s_2d_point_double
+{
+	double	x;
+	double	y;
+}	t_2d_double;
 
+typedef struct s_ray
+{
+	double						rad_angle;
+	struct s_2d_point_double	intersection;
+	double						x_step;
+	double						y_step;
+	int							exist_horizontal_hit;
+	int							exist_vertical_hit;
+	struct s_2d_point_double	vertical_hit;
+	struct s_2d_point_double	horizontal_hit;
+	struct s_2d_point_double	closest_wall;
+	int							orientation;
+	double						distance;
+	int							facing_left_right;
+	int							facing_up_down;
+	int							increment_left_right;
+	int							increment_top_down;
+} 	t_ray;
 
+typedef struct s_2d_point
+{
+	int	x;
+	int	y;
+}	t_2d;
 
-
+typedef struct s_strip
+{
+	t_2d	start;
+	t_2d	end;
+	t_2d	pix;
+	int		color;
+	double	corrected_distance;
+	double	wall_strip_height;
+	double	offset;
+	double	line_to_pick;
+	double	display_ratio;
+	struct s_ray	*ray;
+}	t_strip;
 
 //######################################################################
 //#                          GUI                                       #
@@ -108,11 +148,6 @@ typedef struct s_data
 //######################################################################
 
 
-typedef struct s_2d_point
-{
-	int	x;
-	int	y;
-}	t_2d;
 
 typedef struct s_line_data
 {
@@ -136,30 +171,8 @@ typedef struct s_rectangle
 	int height_size;
 }	t_rectangle;
 
-typedef struct s_2d_point_double
-{
-	double	x;
-	double	y;
-}	t_2d_double;
 
 
-typedef struct s_ray
-{
-	double						rad_angle;
-	struct s_2d_point_double	intersection;
-	double							x_step;
-	double							y_step;
-	int							exist_horizontal_hit;
-	int							exist_vertical_hit;
-	struct s_2d_point_double	vertical_hit;
-	struct s_2d_point_double	horizontal_hit;
-	struct s_2d_point_double	closest_wall;
-	int							orientation;
-	double						distance;
-	int							facing_left_right;
-	int							facing_up_down;
-	int							increment_left_right;
-	int							increment_top_down;
-} 	t_ray;
+
 
 #endif

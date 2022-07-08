@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 09:52:19 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 12:17:21 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,55 +61,87 @@ void draw_walls(t_data *data, t_list *all_rays)
 
 	// wall_projected = tile_size * (distance_player_projection_wall / distance_wall)
 }
-void draw_strip_wall(int i, t_ray *ray, t_data *data)
-{
-	t_2d	start;
-	t_2d	end;
-	t_2d	pix;
-	int		color;
-	double correct_distance;
-	double wall_strip_height;
-	double	offset;
-	double line_to_pick = 0;
-	double display_ratio;
-	
-	correct_distance = ray->distance * cos(ray->rad_angle - data->player.rotation_angle);
-	wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
 
-	if (wall_strip_height > HEIGHT_WIN)
+
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+
+
+
+void	get_line_to_pick(t_strip *strip)
+{
+	if (strip->wall_strip_height > HEIGHT_WIN)
 	{
-		display_ratio = HEIGHT_WIN / wall_strip_height;
-		line_to_pick = (64 - (64 * display_ratio)) / 2;
+		strip->display_ratio = HEIGHT_WIN / strip->wall_strip_height;
+		strip->line_to_pick = (64 - (64 * strip->display_ratio)) / 2;
 	}
-	start.x = i * WIDTH_RAY;
-	end.x = start.x + WIDTH_RAY - 1;
-	start.y = HEIGHT_WIN / 2 - wall_strip_height / 2;
-	end.y = HEIGHT_WIN / 2 + wall_strip_height / 2;
-	pix.x = start.x;
-	offset = 64.00 / wall_strip_height;
-	if (wall_strip_height > HEIGHT_WIN)
-		offset = (64.00 * (display_ratio)) / HEIGHT_WIN;
-	while (pix.x <= end.x)
+	else
+		strip->line_to_pick = 0;
+}
+
+void	set_wall_display_limits(t_strip *strip, int ray_num)
+{
+	strip->start.x = ray_num * WIDTH_RAY;
+	strip->end.x = strip->start.x + WIDTH_RAY - 1;
+	strip->start.y = HEIGHT_WIN / 2 - strip->wall_strip_height / 2;
+	strip->end.y = HEIGHT_WIN / 2 + strip->wall_strip_height / 2;
+	strip->pix.x = strip->start.x;
+}
+
+void	calcul_wall_strip_heigh(t_data *data, t_strip *strip)
+{
+//	strip->line_to_pick = 0;
+	strip->corrected_distance = strip->ray->distance * cos(strip->ray->rad_angle - data->player.rotation_angle);
+	strip->wall_strip_height = (TILE_SIZE / strip->corrected_distance) * DISTANCE_PROJ_PLANE;
+}
+void	calcul_offset(t_strip *strip)
+{
+	strip->offset = 64.00 / strip->wall_strip_height;
+	if (strip->wall_strip_height > HEIGHT_WIN)
 	{
-		pix.y = 0;
-		if (wall_strip_height > HEIGHT_WIN)
-			line_to_pick = (64 - (64 * display_ratio)) / 2;
-		else
-			line_to_pick = 0;
-		while (pix.y <= HEIGHT_WIN)
+		strip->offset = (64.00 * (strip->display_ratio)) / HEIGHT_WIN;
+	}
+}
+
+void choose_pixel_color(t_data *data, t_strip *strip)
+{
+	if (strip->pix.y < strip->start.y)
+		strip->color = encode_rgb(data->texture.ceiling_color.red, data->texture.ceiling_color.green, data->texture.ceiling_color.blue);
+	else if (strip->pix.y > strip->end.y)
+		strip->color = encode_rgb(data->texture.floor_color.red, data->texture.floor_color.green, data->texture.floor_color.blue);
+	else
+	{
+		strip->color = get_pixel_color(strip->ray, &data->texture, strip->line_to_pick);
+		strip->line_to_pick += strip->offset;
+	}
+}
+
+void	paint_strip(t_data *data, t_strip *strip)
+{
+	while (strip->pix.x <= strip->end.x)
+	{
+		strip->pix.y = 0;
+		get_line_to_pick(strip);
+		while (strip->pix.y <= HEIGHT_WIN)
 		{
-			if (pix.y < start.y)
-				color = encode_rgb(data->texture.ceiling_color.red, data->texture.ceiling_color.green, data->texture.ceiling_color.blue);
-			else if (pix.y > end.y)
-				color = encode_rgb(data->texture.floor_color.red, data->texture.floor_color.green, data->texture.floor_color.blue);
-			else
-			{
-				color = get_pixel_color(ray, &data->texture, line_to_pick);
-				line_to_pick += offset;
-			}
-			my_mlx_pixel_put(pix.x, pix.y, data->gui.img_data, color);
-			pix.y++;
+			choose_pixel_color(data, strip);
+			my_mlx_pixel_put(strip->pix.x, strip->pix.y, data->gui.img_data, strip->color);
+			strip->pix.y++;
 		}
-		pix.x++;
+		strip->pix.x++;
 	}
+}
+
+void draw_strip_wall(int ray_num, t_ray *ray, t_data *data)
+{
+	t_strip strip;
+	
+	strip.ray = ray;
+	calcul_wall_strip_heigh(data, &strip);
+	get_line_to_pick(&strip);
+	set_wall_display_limits(&strip, ray_num);
+	calcul_offset(&strip);
+	paint_strip(data, &strip);
 }
