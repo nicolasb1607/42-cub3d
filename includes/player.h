@@ -6,10 +6,9 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:11:04 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 14:04:42 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:32:11 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PLAYER_H
 # define PLAYER_H

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 14:30:34 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:34:20 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_file
 	int		fd;
 	int		map_index;
 }	t_file;
+
 typedef struct s_player
 {
 	double	x;
@@ -32,7 +33,6 @@ typedef struct s_player
 	int		walk_speed;
 	double	rotation_speed;
 }	t_player;
-
 
 typedef struct s_img_data
 {
@@ -51,7 +51,6 @@ typedef struct s_color
 	int	green;
 	int	blue;
 }	t_color;
-
 
 typedef struct s_texture
 {
@@ -113,7 +112,7 @@ typedef struct s_ray
 	int							facing_up_down;
 	int							increment_left_right;
 	int							increment_top_down;
-} 	t_ray;
+}	t_ray;
 
 typedef struct s_2d_point
 {
@@ -123,32 +122,17 @@ typedef struct s_2d_point
 
 typedef struct s_strip
 {
-	t_2d	start;
-	t_2d	end;
-	t_2d	pix;
-	int		color;
-	double	corrected_distance;
-	double	wall_strip_height;
-	double	offset;
-	double	line_to_pick;
-	double	display_ratio;
+	t_2d			start;
+	t_2d			end;
+	t_2d			pix;
+	int				color;
+	double			corrected_distance;
+	double			wall_strip_height;
+	double			offset;
+	double			line_to_pick;
+	double			display_ratio;
 	struct s_ray	*ray;
 }	t_strip;
-
-//######################################################################
-//#                          GUI                                       #
-//######################################################################
-
-
-
-
-
-
-//######################################################################
-//#                          drawing                                   #
-//######################################################################
-
-
 
 typedef struct s_line_data
 {
@@ -166,14 +150,10 @@ typedef struct s_line_data
 
 typedef struct s_rectangle
 {
-	int x_top_left_corner;
-	int y_top_left_corner;
-	int width_size;
-	int height_size;
+	int	x_top_left_corner;
+	int	y_top_left_corner;
+	int	width_size;
+	int	height_size;
 }	t_rectangle;
-
-
-
-
 
 #endif

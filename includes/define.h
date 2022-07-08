@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 14:38:31 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:23:36 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@
 
 # define PI 3.1415926535
 
-# define HEIGHT_WIN /*1080*/ 480  /*960 */
-# define WIDTH_WIN  /* 1920 */ 640/*1280*/  
+# define HEIGHT_WIN 480
+# define WIDTH_WIN 640
+
 
 # define MINIMAP_SCALE 1
 # define TILE_SIZE 64
@@ -55,3 +56,8 @@
 # define PLAYER_RADIUS ((TILE_SIZE / 3) / 2)
 
 #endif
+
+// # define HEIGHT_WIN 960
+// # define WIDTH_WIN 1280
+// # define HEIGHT_WIN 1080
+// # define WIDTH_WIN  1920

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 09:58:10 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 09:49:22 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:33:09 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 # define RAYCASTING_H
 
 # include "cub3d.h"
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   raycast.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 10:15:40 by rpottier         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "raycasting.h"
 
 //######################################################################
 //#                          raycast.c                                 #
@@ -49,13 +35,12 @@ void	update_closest_wall(t_ray *ray, int orientation, int distance);
 int		ray_is_hiting_a_wall(t_map *map, int x, int y);
 double	distance(double x1, double y1, double x2, double y2);
 
-
 //######################################################################
 //#                          raycast_orientation.c                     #
 //######################################################################
 
-double find_x_step_orientation(double x_step, int facing_left_right);
-double find_y_step_orientation(double y_step, int facing_up_down);
+double	find_x_step_orientation(double x_step, int facing_left_right);
+double	find_y_step_orientation(double y_step, int facing_up_down);
 int		is_inside_map(t_map *map, int intersection_x, int intersection_y);
 
 #endif

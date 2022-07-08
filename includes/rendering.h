@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:33:10 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 13:56:20 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:15:42 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	calcul_wall_strip_heigh(t_data *data, t_strip *strip);
 void	get_line_to_pick(t_strip *strip);
 void	set_wall_display_limits(t_strip *strip, int ray_num);
 int		get_pixel_color(t_ray *ray, t_texture *texture, int line_ot_pick);
+void	get_img_and_col_to_pick(t_ray *ray, int *col, int *img);
 
 #endif
