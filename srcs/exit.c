@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:31:24 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:24:27 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:58:33 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	ft_exit_status(t_data *data, int status)
 	exit(status);
 }
 
-int ft_exit_red_cross(t_data *data)
+int	ft_exit_red_cross(t_data *data)
 {
-	int status;
+	int	status;
 
 	status = FREE_ALL;
 	ft_exit_status(data, status);

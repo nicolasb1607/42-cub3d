@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:57:16 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 15:31:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:21:23 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 //#                               set_parameters.c                     #
 //######################################################################
 
-void	*set_parameters(t_data *data, t_file	*file);
+void	*set_parameters(t_data *data, t_file *file);
 int		set_player(t_data *data);
 
 //######################################################################
