@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 21:16:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:22:20 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ typedef struct s_file
 }	t_file;
 typedef struct s_player
 {
-	double	x_pos;
-	double	y_pos;
-	int		width;
-	int		height;
+	double	x;
+	double	y;
 	int		left_right_rotation;
 	int		walk_direction;
 	double	side_move_angle;
@@ -127,6 +125,7 @@ typedef struct s_line_data
 	int			const_y;
 	int			x_incr;
 	int			y_incr;
+	int			color;
 }	t_line;
 
 typedef struct s_rectangle

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 10:41:40 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:31:57 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:27:06 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	set_facing_values(t_ray *ray)
 	else
 	{
 		ray->facing_up_down = DOWN;
-		ray->increment_top_down = 1;	
+		ray->increment_top_down = 1;
 	}
 }
 
@@ -52,14 +52,6 @@ int	adjust_coordonate(t_ray *ray, int coordonate, int hit_direction)
 	}
 }
 
-int	is_inside_map(int x, int y, t_map *map)
-{
-	if (x >= 0 && x < map->width * TILE_SIZE && y >= 0 && y < map->height * TILE_SIZE)
-		return (TRUE);
-	else
-		return (FALSE);
-}
-
 double	distance(double x1, double y1, double x2, double y2)
 {
 	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
@@ -76,7 +68,6 @@ void	update_closest_wall(t_ray *ray, int orientation, int distance)
 			ray->orientation = WEST;
 		else
 			ray->orientation = EAST;
-			
 	}
 	else if (orientation == HORIZONTAL)
 	{
@@ -92,7 +83,8 @@ void	update_closest_wall(t_ray *ray, int orientation, int distance)
 
 int	ray_is_hiting_a_wall(t_map *map, int x, int y)
 {
-	if (x <= 0 || x >= TILE_SIZE * map->width || y <= 0 || y >= TILE_SIZE * map->height)
+	if (x <= 0 || x >= TILE_SIZE * map->width
+		|| y <= 0 || y >= TILE_SIZE * map->height)
 		return (TRUE);
 	if (map->content[y / TILE_SIZE][x / TILE_SIZE] == '1')
 		return (TRUE);

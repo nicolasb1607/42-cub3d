@@ -6,13 +6,13 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:24:42 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:26:03 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-int	open_file(char  *file_name, int	*fd)
+int	open_file(char *file_name, int	*fd)
 {
 	*fd = open(file_name, O_RDONLY);
 	if (*fd == -1)
@@ -39,7 +39,7 @@ void	*set_parameters(t_data *data, t_file	*file)
 
 	close(file->fd);
 
-	if(!init_gui(&data->gui))
+	if (!init_gui(&data->gui))
 		ft_exit_status(data, INIT_GUI_FAILURE);
 	if (!load_texture(data))
 		ft_exit_status(data, LOAD_TEXTURE_FAILURE);
@@ -47,8 +47,6 @@ void	*set_parameters(t_data *data, t_file	*file)
 	return (data);
 }
 
-//		if (data->map.content)
-//			free_map(&data->map, data->map.height);
 double	get_start_angle(char c)
 {
 	if (c == 'E')
@@ -75,58 +73,16 @@ int	set_player(t_data *data)
 		{
 			if (is_a_player(data->map.content[i][j]))
 			{
-				data->player.x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
-				data->player.y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
-				data->player.rotation_angle = get_start_angle(data->map.content[i][j]);
+				data->player.x = (j * TILE_SIZE) + (TILE_SIZE / 2);
+				data->player.y = (i * TILE_SIZE) + (TILE_SIZE / 2);
+				data->player.rotation_angle = get_start_angle
+					(data->map.content[i][j]);
 			}
 			j++;
 		}
 		i++;
 	}
-	data->player.width = 1;
-	data->player.height = 1;
-	data->player.left_right_rotation = 0;
-	data->player.walk_direction = 0;
-	data->player.side_move_angle = 0;
 	data->player.walk_speed = WALK_SPEED;
 	data->player.rotation_speed = ROTATION_SPEED;
 	return (SUCCESS);
 }
-
-
-/*
-t_player *set_player(t_map *map)
-{
-	int	i;
-	int	j;
-	t_player *player;
-
-	player = ft_calloc(1, sizeof(t_player));
-	if (!player)
-		return (NULL);
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			if (is_a_player(map->content[i][j]))
-			{
-				player.x_pos = (j * TILE_SIZE) + (TILE_SIZE / 2);
-				player.y_pos = (i * TILE_SIZE) + (TILE_SIZE / 2);
-				player.rotation_angle = get_start_angle(map->content[i][j]);
-			}
-			j++;
-		}
-		i++;
-	}
-	player.width = 1;
-	player.height = 1;
-	player.left_right_rotation = 0;
-	player.walk_direction = 0;
-	player.side_move_angle = 0;
-	player.walk_speed = WALK_SPEED;
-	player.rotation_speed = ROTATION_SPEED;
-	return (player);
-}
-*/

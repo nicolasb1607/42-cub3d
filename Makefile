@@ -29,11 +29,12 @@ SRCS =	main.c						\
 		bresenham/put_pixel.c		\
 		render/rendering.c			\
 		render/wall_render.c		\
-		mapping/mini_map.c			\
 		exit.c						\
+		player.c					\
 		key_control.c				\
 		raycasting/raycast.c		\
-		raycasting/raycast_utils.c
+		raycasting/raycast_utils.c	\
+		raycasting/ray_orientation.c		
 		
 
 ################################################################################

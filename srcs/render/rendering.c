@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:32:58 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:30:33 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:51:38 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 void	render(t_data *data)
 {
-	t_list *all_rays = NULL;
+	t_list	*all_rays;
 
+	all_rays = NULL;
 	update_player(data);
 	all_rays = cast_all_ray(&data->player, &data->map);
 	draw_walls(data, all_rays);
-//	draw_minimap(data);
-//	draw_raycast(data, all_rays);
 	ft_lstclear(&all_rays, free);
 	mlx_put_image_to_window(data->gui.mlx, data->gui.win,
 		data->gui.img_data->img, 0, 0);
-	
 }
 
 void	draw_minimap(t_data *data)
 {
-	int	i;
-	int	j;
+	t_rectangle	rec;
+	int			i;
+	int			j;
 
-	t_rectangle rec;
 	i = 0;
 	while (i < data->map.height)
 	{
@@ -50,13 +48,8 @@ void	draw_minimap(t_data *data)
 		i++;
 	}
 }
-/*
-void	draw_player(t_data *data)
-{
-	
-}
-*/
-void draw_raycast(t_data *data, t_list *all_rays)
+
+void	draw_raycast(t_data *data, t_list *all_rays)
 {
 	t_ray	*ray;
 	t_2d	a;
@@ -64,26 +57,18 @@ void draw_raycast(t_data *data, t_list *all_rays)
 
 	while (all_rays)
 	{
-		ray = (t_ray*)all_rays->content;
-		a.x = data->player.x_pos;
-		a.y = data->player.y_pos;
+		ray = (t_ray *)all_rays->content;
+		a.x = data->player.x;
+		a.y = data->player.y;
 		b.x = ray->closest_wall.x;
 		b.y = ray->closest_wall.y;
-		
 		if (ray->facing_left_right == RIGHT)
 			b.x = b.x - 1;
 		if (ray->facing_up_down == DOWN)
 			b.y = b.y - 1;
-
-		// printf("draw_raycating\n");
-
-		// printf("%f %f\n", ray->closest_wall.x, ray->closest_wall.y);
-		// printf("%d %d\n", b.x, b.y);
-		// set_color player
 		data->texture.minimap_color.red = 255;
 		data->texture.minimap_color.green = 0;
 		data->texture.minimap_color.blue = 0;
-
 		bresenham(a, b, data);
 		all_rays = all_rays->next;
 	}

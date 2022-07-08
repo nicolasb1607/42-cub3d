@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_map.c                                         :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:31:43 by rpottier         ###   ########.fr       */
+/*   Created: 2022/07/08 09:09:30 by rpottier          #+#    #+#             */
+/*   Updated: 2022/07/08 09:49:14 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mapping.h"
+# include "player.h"
 
 void	update_player(t_data *data)
 {
@@ -24,17 +24,16 @@ void	update_player(t_data *data)
 
 	move_step = (data->player.walk_direction * data->player.walk_speed);
 	data->player.rotation_angle = data->player.rotation_angle - (data->player.left_right_rotation * data->player.rotation_speed);
-	if (data->player.rotation_angle < 0)
-		data->player.rotation_angle += (2 * PI);
-	data->player.rotation_angle = fmod(data->player.rotation_angle, 2 * PI);
+	refactor_angle(&data->player.rotation_angle);
+	
 	//MAJ de la position du joueur
-	new_player_x = round(data->player.x_pos + (cos(data->player.rotation_angle + data->player.side_move_angle) * move_step));
-	new_player_y = round(data->player.y_pos + (sin(data->player.rotation_angle + data->player.side_move_angle) * move_step));
+	new_player_x = round(data->player.x + (cos(data->player.rotation_angle + data->player.side_move_angle) * move_step));
+	new_player_y = round(data->player.y + (sin(data->player.rotation_angle + data->player.side_move_angle) * move_step));
 	
 	if (!player_is_hiting_a_wall(&data->map, new_player_x, new_player_y))
 	{
-		data->player.x_pos = new_player_x;
-		data->player.y_pos = new_player_y;
+		data->player.x = new_player_x;
+		data->player.y = new_player_y;
 	}
 	//Remise à zéro des variables de mouvements
 	data->player.left_right_rotation = 0;
@@ -56,3 +55,11 @@ int	player_is_hiting_a_wall(t_map *map, int x, int y)
 		return (TRUE);
 	return (FALSE);
 }
+
+void	refactor_angle(double *angle)
+{
+	if (*angle < 0)
+		*angle += (2 * PI);
+	*angle = fmod(*angle, PI * 2);	
+}
+

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 16:00:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:16:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:19:37 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 void	bresenham(t_2d a, t_2d b, t_data *data)
 {
 	t_line	line;
-	int	color;
 
 	create_line_data(a, b, &line);
-	color = set_rgb_color(data->texture.minimap_color.red, data->texture.minimap_color.green, data->texture.minimap_color.blue);
-	put_line(a, b, data->gui.img_data, &line, color);
+	line.color = set_rgb_color(data->texture.minimap_color.red,
+			data->texture.minimap_color.green,
+			data->texture.minimap_color.blue);
+	put_line(a, b, data->gui.img_data, &line);
 }
 
 void	create_line_data(t_2d a, t_2d b, t_line *line)
@@ -40,9 +41,9 @@ void	create_line_data(t_2d a, t_2d b, t_line *line)
 
 void	draw_rec(t_rectangle *rect, t_data *data, int rec_size)
 {
-	int	i;
-	t_2d a;
-	t_2d b;
+	int		i;
+	t_2d	a;
+	t_2d	b;
 
 	i = 0;
 	while (i < rec_size)

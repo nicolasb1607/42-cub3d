@@ -6,22 +6,22 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 16:00:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/26 16:00:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:19:07 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bresenham.h"
 
-void	put_line(t_2d a, t_2d b, t_img_data *img, t_line *line, int color)
+void	put_line(t_2d a, t_2d b, t_img_data *img, t_line *line)
 {
 	if (line->const_x > line->const_y)
-		dx_put_line(a, img, line, color);
+		dx_put_line(a, img, line, line->color);
 	else if (line->const_x <= line->const_y)
-		dy_put_line(a, img, line, color);
+		dy_put_line(a, img, line, line->color);
 	else if (line->const_x == 0)
-		horizontal_line(a, b, img, color);
+		horizontal_line(a, b, img, line->color);
 	else if (line->const_y == 0)
-		vertical_line(a, b, img, color);
+		vertical_line(a, b, img, line->color);
 }
 
 void	dx_put_line(t_2d a, t_img_data *img, t_line *line, int color)

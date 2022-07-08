@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:18:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 12:40:14 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:19:26 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	bresenham(t_2d a, t_2d b, t_data *data);
 void	create_line_data(t_2d a, t_2d b, t_line *line);
-void	put_line(t_2d a, t_2d b, t_img_data *img, t_line *line, int color);
+void	put_line(t_2d a, t_2d b, t_img_data *img, t_line *line);
 void	dx_put_line(t_2d a, t_img_data *img, t_line *line, int color);
 void	dy_put_line(t_2d a, t_img_data *img, t_line *line, int color);
 void	horizontal_line(t_2d a, t_2d b, t_img_data *img, int color);

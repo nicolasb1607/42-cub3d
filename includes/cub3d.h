@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:27:01 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/05 12:38:17 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:10:14 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # include "exit.h"
 # include "bresenham.h"
 # include "put_pixel.h"
-# include "mapping.h"
+# include "player.h"
 # include "raycasting.h"
 # include "rendering.h"
 

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:16:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:52:19 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,7 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 	pix.x = start.x;
 	offset = 64.00 / wall_strip_height;
 	if (wall_strip_height > HEIGHT_WIN)
-	{
 		offset = (64.00 * (display_ratio)) / HEIGHT_WIN;
-	}
-//	printf("offset %f\n", offset);
 	while (pix.x <= end.x)
 	{
 		pix.y = 0;
@@ -107,8 +104,6 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 				color = encode_rgb(data->texture.floor_color.red, data->texture.floor_color.green, data->texture.floor_color.blue);
 			else
 			{
-				
-//				printf("%f\n", line_to_pick);
 				color = get_pixel_color(ray, &data->texture, line_to_pick);
 				line_to_pick += offset;
 			}
@@ -118,33 +113,3 @@ void draw_strip_wall(int i, t_ray *ray, t_data *data)
 		pix.x++;
 	}
 }
-
-
-/*
-void draw_walls(t_data *data, t_list *all_rays)
-{
-	t_ray	*ray;
-	double	wall_strip_height;
-	int		i;
-
-	i = 0;
-	while (i < NUMBER_OF_RAYS && all_rays)
-	{
-		ray = (t_ray *)all_rays->content;
-
-//		printf("ray->distance = %f\n", ray->distance);
-		double correct_distance = ray->distance * cos(ray->rad_angle - data->player.rotation_angle);
-//		printf("correct_distance = %f\n", correct_distance);
-//		wall_strip_height = (TILE_SIZE / ray->distance) * DISTANCE_PROJ_PLANE;
-		wall_strip_height = (TILE_SIZE / correct_distance) * DISTANCE_PROJ_PLANE;
-		
-		draw_strip_wall(i, wall_strip_height, data);
-		all_rays = all_rays->next;
-		i++;
-	}
-
-	// hauteur en pixel d un mur en fonction de la resolution
-
-	// wall_projected = tile_size * (distance_player_projection_wall / distance_wall)
-}
-*/

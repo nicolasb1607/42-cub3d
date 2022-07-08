@@ -6,15 +6,15 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 21:26:56 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 09:20:02 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-int		set_texture(t_texture *texture, t_file *file)
+int	set_texture(t_texture *texture, t_file *file)
 {
-	char		*line;
+	char	*line;
 
 	line = NULL;
 	init_texture(texture);
