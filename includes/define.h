@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 15:23:36 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:58:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,28 @@
 # define HEIGHT_WIN 480
 # define WIDTH_WIN 640
 
-
 # define MINIMAP_SCALE 1
 # define TILE_SIZE 64
 
 # define WIDTH_RAY 1
-# define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)
 
-# define WALK_SPEED (TILE_SIZE / 10)
-# define ROTATION_SPEED 4 * (PI / 180)
-# define FOV 60 * (PI / 180)
-# define DISTANCE_PROJ_PLANE ((WIDTH_WIN / 2) / tan(FOV / 2))
-# define PLAYER_RADIUS ((TILE_SIZE / 3) / 2)
+//# define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)
+# define NUMBER_OF_RAYS 640
+
+//# define WALK_SPEED (TILE_SIZE / 10)
+# define WALK_SPEED 6.4
+
+//# define ROTATION_SPEED 4 * (PI / 180)
+# define ROTATION_SPEED 0.06981317007
+
+//# define FOV 60 * (PI / 180)
+# define FOV 1.0471975512
+
+//# define DISTANCE_PROJ_PLANE ((WIDTH_WIN / 2) / tan(FOV / 2))
+# define DISTANCE_PROJ_PLANE 277.128129211
+
+//# define PLAYER_RADIUS ((TILE_SIZE / 3) / 2)
+# define PLAYER_RADIUS 10.6666666667
 
 #endif
 
