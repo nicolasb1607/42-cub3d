@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 14:31:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:56:39 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,11 @@ int	set_texture(t_texture *texture, t_file *file)
 	}
 	free (line);
 	if (!is_all_texture_set(texture))
-	{
-		ft_putstr_fd(ERROR_MISSING_TEXTURE, 2);
-		close(file->fd);
-		return (0);
-	}
+		return (ft_putstr_fd(ERROR_MISSING_TEXTURE, 2), close(file->fd), 0);
 	texture->file_name[NORTH] = texture->north;
 	texture->file_name[SOUTH] = texture->south;
 	texture->file_name[EAST] = texture->east;
 	texture->file_name[WEST] = texture->west;
-	printf("N %s\n", texture->north);
-	printf("S %s\n", texture->south);
-	printf("W %s\n", texture->west);
-	printf("E %s\n", texture->east);
 	return (1);
 }
 

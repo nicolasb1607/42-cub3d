@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 21:15:43 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:17:26 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	init_texture(t_texture	*texture)
 	texture->east = NULL;
 	texture->floor = NULL;
 	texture->ceiling = NULL;
-//	return (texture);
 }
 
 void	init_t_file(t_file *file, char *file_name)
@@ -52,4 +51,30 @@ void	*init_gui(t_gui *gui)
 	if (!gui->win)
 		return (free_gui(gui), NULL);
 	return (gui);
+}
+
+t_map	*alloc_map_content(t_map *map)
+{
+	int	i;
+
+	map->content = ft_calloc(map->height + 1, sizeof(char *));
+	if (!map->content)
+	{
+		ft_putstr_fd(ERROR_MALLOC, 2);
+		return (NULL);
+	}
+	i = 0;
+	while (i < map->height)
+	{
+		map->content[i] = ft_calloc(map->width + 1, sizeof(char));
+		if (!map->content[i])
+		{
+			free_map(map, i);
+			ft_putstr_fd(ERROR_MALLOC, 2);
+			return (NULL);
+		}
+		ft_memset_char_bis(map->content[i], '1', map->width);
+		i++;
+	}
+	return (map);
 }

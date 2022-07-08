@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 14:38:31 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:10:46 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define WIDTH_WIN  /* 1920 */ 640/*1280*/  
 
 # define MINIMAP_SCALE 1
-# define TILE_SIZE 64
+# define TILE_SIZE 256
 
 # define WIDTH_RAY 1
 # define NUMBER_OF_RAYS (WIDTH_WIN / WIDTH_RAY)

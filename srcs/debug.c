@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:29:41 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/05 10:24:31 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:58:06 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	print_2d_array(char **array)
 	}
 }
 
-double ft_abs_double(double nb)
+double	ft_abs_double(double nb)
 {
 	if (nb < 0)
-		nb = nb * (-1.0); 
+		nb = nb * (-1.0);
 	return (nb);
 }

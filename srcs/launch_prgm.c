@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   launch_prgm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 14:34:27 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:14:03 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "launch_prgm.h"
-
 
 int	launch_prgm(char *file_name)
 {
@@ -20,7 +19,7 @@ int	launch_prgm(char *file_name)
 
 	ft_memset(&data, 0, sizeof(t_data));
 	init_t_file(&file, file_name);
-	if(!set_parameters(&data, &file))
+	if (!set_parameters(&data, &file))
 		return (FAILURE);
 	else
 	{
@@ -31,7 +30,6 @@ int	launch_prgm(char *file_name)
 	return (SUCCESS);
 }
 
-
 int	load_texture(t_data	*data)
 {
 	int	i;
@@ -39,15 +37,18 @@ int	load_texture(t_data	*data)
 	i = 0;
 	while (i < 4)
 	{
-		data->texture.tx[i].img = mlx_xpm_file_to_image(data->gui.mlx, data->texture.file_name[i], &data->texture.tx[i].width, &data->texture.tx[i].height);
-		data->texture.tx[i].addr = mlx_get_data_addr(data->texture.tx[i].img, &data->texture.tx[i].bits_per_pixel, &data->texture.tx[i].line_length, &data->texture.tx[i].endian);
-
+		data->texture.tx[i].img = mlx_xpm_file_to_image(data->gui.mlx,
+				data->texture.file_name[i],
+				&data->texture.tx[i].width, &data->texture.tx[i].height);
+		data->texture.tx[i].addr = mlx_get_data_addr(data->texture.tx[i].img,
+				&data->texture.tx[i].bits_per_pixel,
+				&data->texture.tx[i].line_length,
+				&data->texture.tx[i].endian);
 		if (data->texture.tx[i].width != 64 || data->texture.tx[i].height != 64)
 		{
 			ft_putstr_fd(ERROR_TEXTURE_SIZE, 2);
 			return (FAILURE);
 		}
-
 		if (data->texture.tx[i].addr == NULL || data->texture.tx[i].img == NULL)
 			return (FAILURE);
 		i++;
@@ -55,7 +56,7 @@ int	load_texture(t_data	*data)
 	return (SUCCESS);
 }
 
-void refresh_img(t_data *data)
+void	refresh_img(t_data *data)
 {
 	render(data);
 }

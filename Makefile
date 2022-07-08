@@ -29,9 +29,10 @@ SRCS =	main.c						\
 		bresenham/put_pixel.c		\
 		render/rendering.c			\
 		render/wall_render.c		\
-		render/wall_render_utils.c		\
+		render/wall_render_utils.c	\
 		exit.c						\
 		player.c					\
+		glide.c						\
 		key_control.c				\
 		raycasting/raycast.c		\
 		raycasting/raycast_utils.c	\

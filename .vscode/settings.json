@@ -1,13 +1,14 @@
 {
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
-		"*.json": "c",
 		"*.c": "c",
+		"*.json": "c",
 		"parsing.h": "c",
 		"libft.h": "c",
 		"init.h": "c",
 		"get_next_line.h": "c",
 		"launch_prgm.h": "c",
-		"bresenham.h": "c"
+		"bresenham.h": "c",
+		"player.h": "c"
 	}
 }

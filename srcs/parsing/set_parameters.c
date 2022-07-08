@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_parameters.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:25:19 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 09:26:03 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:57:06 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	*set_parameters(t_data *data, t_file	*file)
 {
 	if (!open_file(file->name, &file->fd))
 		return (NULL);
-
 	if (!set_texture(&data->texture, file)
 		|| !set_map(&data->map, file)
 		|| !set_color(data)
@@ -36,14 +35,11 @@ void	*set_parameters(t_data *data, t_file	*file)
 		close(file->fd);
 		ft_exit_status(data, SET_PARAMS_FAILURE);
 	}
-
 	close(file->fd);
-
 	if (!init_gui(&data->gui))
 		ft_exit_status(data, INIT_GUI_FAILURE);
 	if (!load_texture(data))
 		ft_exit_status(data, LOAD_TEXTURE_FAILURE);
-
 	return (data);
 }
 
