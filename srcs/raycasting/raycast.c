@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:02:56 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 14:05:55 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 08:47:59 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*cast_all_ray(t_player *player, t_map *map)
 {
-	t_ray	*ray;
 	t_list	*all_rays;
+	t_ray	*ray;
 	int		i;
 	double	angle_incr;
 	double	ray_angle;

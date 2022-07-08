@@ -6,7 +6,7 @@ NAME = cub3d
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -g3 -MD
-LDFLAGS	= -Wall -Wextra# -Werror
+LDFLAGS	= -Wall -Wextra -Werror
 SILENT	= --no-print-directory
 
 ################################################################################
