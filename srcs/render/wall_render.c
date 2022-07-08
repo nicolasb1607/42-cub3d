@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 13:55:42 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:37:32 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void choose_pixel_color(t_data *data, t_strip *strip)
 {
 	if (strip->pix.y < strip->start.y)
 		strip->color = encode_rgb(data->texture.ceiling_color.red, data->texture.ceiling_color.green, data->texture.ceiling_color.blue);
-	else if (strip->pix.y > strip->end.y)
+	else if (strip->pix.y >= strip->end.y)
 		strip->color = encode_rgb(data->texture.floor_color.red, data->texture.floor_color.green, data->texture.floor_color.blue);
 	else
 	{

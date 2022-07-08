@@ -1,10 +1,9 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-C 255,255,255
-F 255,255,0
-
+NO ./textures/bricks.xpm
+SO ./textures/bricks.xpm
+WE ./textures/bricks.xpm
+EA ./textures/bricks.xpm
+C 164,239,230
+F 178,177,146
 
 111111111
 100000001

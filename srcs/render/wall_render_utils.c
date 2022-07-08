@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:05:42 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 13:52:17 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:40:06 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	get_pixel_color(t_ray *ray, t_texture *texture, int line_ot_pick)
 	int img_to_pick;
 	int color;
 	char	*dst;
+
 	if (ray->orientation == NORTH)
 	{
 		colum_to_pick = (int)ray->closest_wall.x % TILE_SIZE;

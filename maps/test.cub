@@ -1,7 +1,7 @@
-NO ./textures/Grass_01.xpm
-SO ./textures/Grass_01.xpm
-WE ./textures/bricks.xpm
-EA ./textures/bricks.xpm
+NO ./textures/bricks.xpm
+SO ./textures/LavaF3.xpm
+WE ./textures/Ice.xpm
+EA ./textures/Iron.xpm
 C 164,239,230
 F 178,177,146
 
