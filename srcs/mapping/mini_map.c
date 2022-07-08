@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 17:11:46 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/08 11:07:37 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	glide_x(t_player *player, t_data *data, int new_x)
 	}
 	else if (!player_is_hiting_a_wall(data->map, new_x , player->y_pos) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
 	{
-		player->x_pos = new_x / 2;
+		player->x_pos = new_x;
 		return (0);
 	}
 	return (-1);
@@ -96,7 +96,7 @@ void	update_player(t_data *data)
 		data->player->x_pos = new_player_x;
 		data->player->y_pos = new_player_y;
 	}
-	else
+	else if (data->player->walk_direction == 1 && data->player->side_move_angle == 0)
 	{
 		if (glide_x(data->player, data, new_player_x) == -1)
 			glide_y(data->player, data, new_player_y);
