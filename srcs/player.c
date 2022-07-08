@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:09:30 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 14:10:01 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:11:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ void	refactor_angle(double *angle)
 
 int	glide_x(t_player *player, t_data *data, int new_x)
 {	
-	if (!player_is_hiting_a_wall(&data->map, new_x, player->y) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
+	if (!player_is_hiting_a_wall(&data->map, new_x, player->y) && player->rotation_angle >= PI && player->rotation_angle < (3*PI)/2)
 	{
 		player->x =  new_x;
 		return (0);
 	}
-	else if (!player_is_hiting_a_wall(&data->map, new_x, player->y) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
+	else if (!player_is_hiting_a_wall(&data->map, new_x, player->y) && player->rotation_angle >= (3*PI)/2 && player->rotation_angle < (2 * PI))
 	{
 			player->x =  new_x;
 			return (0);
 	}
-	else if (!player_is_hiting_a_wall(&data->map, new_x, player->y) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
+	else if (!player_is_hiting_a_wall(&data->map, new_x, player->y) && player->rotation_angle >= 0 && player->rotation_angle < ((PI/2)))
 	{
 		player->x =  new_x;
 		return (0);
 	}
-	else if (!player_is_hiting_a_wall(&data->map, new_x , player->y) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
+	else if (!player_is_hiting_a_wall(&data->map, new_x , player->y) && player->rotation_angle >= (PI/2) && player->rotation_angle < PI)
 	{
 		player->x = new_x;
 		return (0);
@@ -62,13 +62,13 @@ int	glide_x(t_player *player, t_data *data, int new_x)
 
 void	glide_y(t_player *player, t_data *data, int new_y)
 {	
-	if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
+	if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle >= PI && player->rotation_angle < (3*PI)/2)
 		player->y =  new_y;
-	else if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
+	else if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle >= (3*PI)/2 && player->rotation_angle < (2 * PI))
 		player->y =  new_y;
-	else if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
+	else if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle >= 0 && player->rotation_angle < ((PI/2)))
 		player->y =  new_y;
-	else if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
+	else if (!player_is_hiting_a_wall(&data->map, player->x, new_y) && player->rotation_angle >= (PI/2) && player->rotation_angle < PI)
 		player->y = new_y;
 }
 

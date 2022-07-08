@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:31:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 11:55:04 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:30:34 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_texture
 	char				*south;
 	char				*west;
 	char				*east;
+	char				*file_name[4];
 	struct s_img_data	tx[4];
 	char				*floor;
 	char				*ceiling;

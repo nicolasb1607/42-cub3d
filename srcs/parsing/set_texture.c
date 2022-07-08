@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:23:09 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 09:20:02 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 14:31:44 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ int	set_texture(t_texture *texture, t_file *file)
 		close(file->fd);
 		return (0);
 	}
+	texture->file_name[NORTH] = texture->north;
+	texture->file_name[SOUTH] = texture->south;
+	texture->file_name[EAST] = texture->east;
+	texture->file_name[WEST] = texture->west;
+	printf("N %s\n", texture->north);
+	printf("S %s\n", texture->south);
+	printf("W %s\n", texture->west);
+	printf("E %s\n", texture->east);
 	return (1);
 }
 
