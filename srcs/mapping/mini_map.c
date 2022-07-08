@@ -6,7 +6,7 @@
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:54:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 15:40:09 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/07 17:11:46 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,42 +36,41 @@ int	player_is_hiting_a_wall(t_map *map, int x, int y)
 	return (FALSE);
 }
 
-int	glide_x(t_player *player, t_data *data)
+int	glide_x(t_player *player, t_data *data, int new_x)
 {	
-	if (!player_is_hiting_a_wall(data->map, player->x_pos - 10, player->y_pos) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
+	if (!player_is_hiting_a_wall(data->map, new_x, player->y_pos) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
 	{
-		player->x_pos -= 10;
+		player->x_pos =  new_x;
 		return (0);
 	}
-	else if (!player_is_hiting_a_wall(data->map, player->x_pos + 10, player->y_pos) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
+	else if (!player_is_hiting_a_wall(data->map, new_x, player->y_pos) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
 	{
-			player->x_pos += 10;
+			player->x_pos =  new_x;
 			return (0);
 	}
-	else if (!player_is_hiting_a_wall(data->map, player->x_pos + 10, player->y_pos) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
+	else if (!player_is_hiting_a_wall(data->map, new_x, player->y_pos) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
 	{
-		player->x_pos += 1;
+		player->x_pos =  new_x;
 		return (0);
 	}
-	else if (!player_is_hiting_a_wall(data->map, player->x_pos - 10, player->y_pos) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
+	else if (!player_is_hiting_a_wall(data->map, new_x , player->y_pos) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
 	{
-		player->x_pos -= 10;
+		player->x_pos = new_x / 2;
 		return (0);
 	}
 	return (-1);
-	
 }
 
-void	glide_y(t_player *player, t_data *data)
+void	glide_y(t_player *player, t_data *data, int new_y)
 {	
-	if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos - 10) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
-		player->y_pos -= 10;
-	else if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos + 10) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
-		player->y_pos -= 10;
-	else if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos + 10) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
-		player->y_pos += 10;
-	else if (!player_is_hiting_a_wall(data->map, player->x_pos, player->y_pos - 10) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
-		player->y_pos += 10;
+	if (!player_is_hiting_a_wall(data->map, player->x_pos, new_y) && player->rotation_angle > PI && player->rotation_angle < (3*PI)/2)
+		player->y_pos =  new_y;
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos, new_y) && player->rotation_angle > (3*PI)/2 && player->rotation_angle < (2 * PI))
+		player->y_pos =  new_y;
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos, new_y) && player->rotation_angle > 0 && player->rotation_angle < ((PI/2)))
+		player->y_pos =  new_y;
+	else if (!player_is_hiting_a_wall(data->map, player->x_pos, new_y) && player->rotation_angle > (PI/2) && player->rotation_angle < PI)
+		player->y_pos = new_y;
 }
 
 void	update_player(t_data *data)
@@ -99,8 +98,8 @@ void	update_player(t_data *data)
 	}
 	else
 	{
-		if (glide_x(data->player, data) == -1)
-			glide_y(data->player, data);
+		if (glide_x(data->player, data, new_player_x) == -1)
+			glide_y(data->player, data, new_player_y);
 	}	
 	//Remise à zéro des variables de mouvements
 	data->player->left_right_rotation = 0;
