@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:52:50 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 16:17:26 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:28:56 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_map	*alloc_map_content(t_map *map)
 			ft_putstr_fd(ERROR_MALLOC, 2);
 			return (NULL);
 		}
-		ft_memset_char_bis(map->content[i], '1', map->width);
+		ft_memset_char_bis(map->content[i], '3', map->width);
 		i++;
 	}
 	return (map);

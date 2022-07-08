@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 10:24:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/07 20:34:44 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:32:48 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,11 @@ char	*collect_data_from_line(char *line, char *content)
 		}
 		else if (!ft_is_space(line[i]))
 			content[j++] = line[i++];
+		else if (ft_is_space(line[i]))
+		{
+			content[j++] = '1';
+			i++;
+		}
 		else
 		{
 			i++;
