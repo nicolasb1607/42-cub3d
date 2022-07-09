@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:09:30 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/09 21:44:05 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/09 22:04:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ void	apply_new_coordonate(t_data *data, int new_player_x, int new_player_y)
 	}
 	else if (data->player.walk_direction == 1
 		&& data->player.side_move_angle == 0)
-		glide(data->player, data, new_player_x, new_player_y);
+		glide(&data->player, data, new_player_x, new_player_y);
 }
 
 void	update_player(t_data *data)
 {
 	int	move_step;
-	int	new_player_x;
-	int	new_player_y;
+	double	new_player_x;
+	double	new_player_y;
 
 	new_player_x = 0;
 	new_player_y = 0;
