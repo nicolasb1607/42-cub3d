@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 16:25:22 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/09 21:33:42 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define DISTANCE_PROJ_PLANE 277.128129211
 
 //# define PLAYER_RADIUS ((TILE_SIZE / 3) / 2)
-# define PLAYER_RADIUS 10
+# define PLAYER_RADIUS 15
 
 #endif
 

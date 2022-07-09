@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   glide.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:16:12 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 16:16:38 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/09 21:43:12 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
+
+void	glide(t_player *player, t_data *data, int new_x, int new_y)
+{
+	if (!player_is_hiting_a_wall(&data->map, new_x, player->y))
+		player->x = new_x;
+	if (!player_is_hiting_a_wall(&data->map, player->x, new_y))
+		player->y = new_y;
+}
 
 int	glide_x(t_player *player, t_data *data, int new_x)
 {	

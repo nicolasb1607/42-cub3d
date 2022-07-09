@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:09:30 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 16:24:31 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/09 21:44:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ void	apply_new_coordonate(t_data *data, int new_player_x, int new_player_y)
 	}
 	else if (data->player.walk_direction == 1
 		&& data->player.side_move_angle == 0)
-	{
-		if (glide_x(&data->player, data, new_player_x) == -1)
-			glide_y(&data->player, data, new_player_y);
-	}
+		glide(data->player, data, new_player_x, new_player_y);
 }
 
 void	update_player(t_data *data)
