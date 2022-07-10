@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:47:21 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 13:47:40 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/10 09:57:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,29 @@ void	draw_raycast(t_data *data, t_list *all_rays)
 	t_ray	*ray;
 	t_2d	a;
 	t_2d	b;
+	int		num_ray;
 
+	num_ray = 0;
 	while (all_rays)
 	{
-		ray = (t_ray *)all_rays->content;
-		a.x = data->player.x;
-		a.y = data->player.y;
-		b.x = ray->closest_wall.x;
-		b.y = ray->closest_wall.y;
-		if (ray->facing_left_right == RIGHT)
-			b.x = b.x - 1;
-		if (ray->facing_up_down == DOWN)
-			b.y = b.y - 1;
-		data->texture.minimap_color.red = 255;
-		data->texture.minimap_color.green = 0;
-		data->texture.minimap_color.blue = 0;
-		bresenham(a, b, data);
+		if (num_ray % 20 == 0)
+		{
+			ray = (t_ray *)all_rays->content;
+			a.x = data->player.x * MINIMAP_SCALE;
+			a.y = data->player.y * MINIMAP_SCALE;
+			b.x = ray->closest_wall.x * MINIMAP_SCALE;
+			b.y = ray->closest_wall.y * MINIMAP_SCALE;
+			if (ray->facing_left_right == RIGHT)
+				b.x = b.x - 1;
+			if (ray->facing_up_down == DOWN)
+				b.y = b.y - 1;
+			data->texture.minimap_color.red = 255;
+			data->texture.minimap_color.green = 0;
+			data->texture.minimap_color.blue = 0;
+			bresenham(a, b, data);
+		}
 		all_rays = all_rays->next;
+		num_ray++;
 	}
 }
 

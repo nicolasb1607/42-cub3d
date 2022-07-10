@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:29:29 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/09 21:33:42 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/10 09:58:51 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define HEIGHT_WIN 480
 # define WIDTH_WIN 640
 
-# define MINIMAP_SCALE 1
+# define MINIMAP_SCALE 0.1
 # define TILE_SIZE 64
 
 # define WIDTH_RAY 1
@@ -51,7 +51,7 @@
 # define NUMBER_OF_RAYS 640
 
 //# define WALK_SPEED (TILE_SIZE / 10)
-# define WALK_SPEED 6.4
+# define WALK_SPEED 3.2
 
 //# define ROTATION_SPEED 4 * (PI / 180)
 # define ROTATION_SPEED 0.06981317007

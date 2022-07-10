@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:32:58 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/10 09:55:04 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/10 09:55:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	render(t_data *data)
 	update_player(data);
 	all_rays = cast_all_ray(&data->player, &data->map);
 	draw_walls(data, all_rays);
-	// draw_minimap(data);
-	// draw_raycast(data, all_rays);
+	draw_minimap(data);
+	draw_raycast(data, all_rays);
 	ft_lstclear(&all_rays, free);
 	mlx_put_image_to_window(data->gui.mlx, data->gui.win,
 		data->gui.img_data->img, 0, 0);
