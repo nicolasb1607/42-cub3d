@@ -30,6 +30,7 @@ SRCS =	main.c						\
 		render/rendering.c			\
 		render/wall_render.c		\
 		render/wall_render_utils.c	\
+		render/minimap.c			\
 		exit.c						\
 		player.c					\
 		glide.c						\
