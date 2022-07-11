@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 09:35:43 by rpottier          #+#    #+#             */
-/*   Updated: 2022/06/23 14:47:14 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/11 08:44:29 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	check_up_wall(t_map *map, int i, int j)
 	{
 		if (map->content[i][j] == '1')
 			return (TRUE);
+		else if (map->content[i][j] == '3')
+			return (FALSE);
 		i--;
 	}
 	return (FALSE);
@@ -64,6 +66,8 @@ int	check_down_wall(t_map *map, int i, int j)
 	{
 		if (map->content[i][j] == '1')
 			return (TRUE);
+		else if (map->content[i][j] == '3')
+			return (FALSE);
 		i++;
 	}
 	return (FALSE);
@@ -78,6 +82,8 @@ int	check_left_wall(t_map *map, int i, int j)
 	{
 		if (map->content[i][j] == '1')
 			return (TRUE);
+		else if (map->content[i][j] == '3')
+			return (FALSE);
 		j--;
 	}
 	return (FALSE);
@@ -92,6 +98,8 @@ int	check_right_wall(t_map *map, int i, int j)
 	{
 		if (map->content[i][j] == '1')
 			return (TRUE);
+		else if (map->content[i][j] == '3')
+			return (FALSE);
 		j++;
 	}
 	return (FALSE);

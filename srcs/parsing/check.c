@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:56:47 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/07 20:40:20 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/11 08:54:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	check_extension(char *file_name, char *extension)
 
 int	check_map(t_map *map)
 {
-	print_2d_array(map->content);
 	if (!check_map_size(map))
 	{
 		ft_putstr_fd(ERROR_MAP_SIZE, 2);
