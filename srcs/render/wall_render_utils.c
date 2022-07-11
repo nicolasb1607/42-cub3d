@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:05:42 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/11 10:18:43 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/11 10:56:54 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	get_line_to_pick(t_strip *strip)
 	if (strip->wall_strip_height > HEIGHT_WIN)
 	{
 		strip->display_ratio = HEIGHT_WIN / strip->wall_strip_height;
-		strip->line_to_pick = (TEXTURE_SIZE - (TEXTURE_SIZE * strip->display_ratio)) / 2;
+		strip->line_to_pick = (TEXTURE_SIZE
+				- (TEXTURE_SIZE * strip->display_ratio)) / 2;
 	}
 	else
 		strip->line_to_pick = 0;
