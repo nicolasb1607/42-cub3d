@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:09:30 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/11 10:55:23 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/11 10:59:52 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	apply_new_coordonate(t_data *data, int new_player_x, int new_player_y)
 	}
 	else if (data->player.walk_direction == 1
 		&& data->player.side_move_angle == 0)
-	{
-		if (glide_x(&data->player, data, new_player_x) == -1)
-			glide_y(&data->player, data, new_player_y);
-	}
+		glide(&data->player, data, new_player_x, new_player_y);
 }
 
 int	player_is_hiting_a_wall(t_map *map, int x, int y)
