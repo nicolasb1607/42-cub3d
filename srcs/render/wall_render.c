@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:39:46 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 15:12:35 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/07/11 10:18:33 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	draw_walls(t_data *data, t_list *all_rays)
 
 void	calcul_offset(t_strip *strip)
 {
-	strip->offset = 64.00 / strip->wall_strip_height;
+	strip->offset = TEXTURE_SIZE / strip->wall_strip_height;
 	if (strip->wall_strip_height > HEIGHT_WIN)
 	{
-		strip->offset = (64.00 * (strip->display_ratio)) / HEIGHT_WIN;
+		strip->offset = (TEXTURE_SIZE * (strip->display_ratio)) / HEIGHT_WIN;
 	}
 }
 

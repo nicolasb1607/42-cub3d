@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_prgm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:11 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/07/08 16:26:28 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/11 10:19:23 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	load_texture(t_data	*data)
 				&data->texture.tx[i].bits_per_pixel,
 				&data->texture.tx[i].line_length,
 				&data->texture.tx[i].endian);
-		if (data->texture.tx[i].width != 64 || data->texture.tx[i].height != 64)
+		if (data->texture.tx[i].width != TEXTURE_SIZE || data->texture.tx[i].height != TEXTURE_SIZE)
 		{
 			ft_putstr_fd(ERROR_TEXTURE_SIZE, 2);
 			return (FAILURE);
