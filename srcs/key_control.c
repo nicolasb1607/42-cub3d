@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:15:08 by rpottier          #+#    #+#             */
-/*   Updated: 2022/07/08 15:07:40 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/07/11 16:08:27 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
 		ft_exit_status(data, FREE_ALL);
-	if (keycode == XK_z)
+	if (keycode == XK_w)
 		data->player.walk_direction = +1;
 	if (keycode == XK_s)
 		data->player.walk_direction = -1;
-	if (keycode == XK_q)
+	if (keycode == XK_a)
 	{
 		data->player.walk_direction = +1;
 		data->player.side_move_angle = -(PI / 2);
